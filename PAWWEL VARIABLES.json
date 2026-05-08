@@ -1,0 +1,1462 @@
+[
+  {
+    "Color": {
+      "modes": {
+        "Light": {
+          "color": {
+            "base": {
+              "gray": {
+                "10": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#f5f5f5"
+                },
+                "20": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#e1e1e0"
+                },
+                "30": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#c9c7c5"
+                },
+                "40": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#aca9a5"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#928d86"
+                },
+                "60": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#736b66"
+                },
+                "70": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#5a554e"
+                },
+                "80": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#3f3c36"
+                },
+                "90": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#292723"
+                },
+                "100": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#161513"
+                }
+              },
+              "brown": {
+                "10": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#f7f4f2"
+                },
+                "20": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#e8ddd9"
+                },
+                "30": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#d6c2b8"
+                },
+                "40": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#c0a091"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#ac836c"
+                },
+                "60": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#926247"
+                },
+                "70": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#704a33"
+                },
+                "80": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#4f3422"
+                },
+                "90": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#372315"
+                },
+                "100": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#251404"
+                },
+                "100-a64": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "rgba(37, 20, 4, 0.64)"
+                },
+                "100-a48": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "rgba(37, 20, 4, 0.48)"
+                },
+                "100-a32": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "rgba(37, 20, 4, 0.32)"
+                },
+                "white": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#ffffff"
+                },
+                "white-a64": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "rgba(255, 255, 255, 0.64)"
+                },
+                "white-a48": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "rgba(255, 255, 255, 0.48)"
+                },
+                "white-a32": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "rgba(255, 255, 255, 0.32)"
+                }
+              },
+              "green": {
+                "10": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#f0f2e8"
+                },
+                "20": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#e5ead7"
+                },
+                "30": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#cfd9b5"
+                },
+                "40": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#b4c48d"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#9bb167"
+                },
+                "60": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#7d944d"
+                },
+                "70": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#5a6b38"
+                },
+                "80": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#3d4a26"
+                },
+                "90": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#29321a"
+                },
+                "100": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#191e10"
+                }
+              },
+              "orange": {
+                "10": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#ffedd5"
+                },
+                "20": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#fed7aa"
+                },
+                "30": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#fdba74"
+                },
+                "40": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#fb8728"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#f97010"
+                },
+                "60": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#ea580c"
+                },
+                "70": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#c2410c"
+                },
+                "80": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#9a3412"
+                },
+                "90": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#7c2d12"
+                },
+                "100": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#431407"
+                }
+              },
+              "yellow": {
+                "10": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#fef9c3"
+                },
+                "20": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#fef08a"
+                },
+                "30": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#fde047"
+                },
+                "40": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#facc15"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#eab308"
+                },
+                "60": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#ca8a04"
+                },
+                "70": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#a16207"
+                },
+                "80": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#854d0e"
+                },
+                "90": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#713f12"
+                },
+                "100": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#422006"
+                }
+              },
+              "purple": {
+                "10": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#ede9fe"
+                },
+                "20": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#ddd6fe"
+                },
+                "30": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#c4b5fd"
+                },
+                "40": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#a78bfa"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#8b5cf6"
+                },
+                "60": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#7f45e2"
+                },
+                "70": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#7035cc"
+                },
+                "80": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#5d2aad"
+                },
+                "90": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#4e248e"
+                },
+                "100": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#2e1065"
+                }
+              },
+              "red": {
+                "10": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#ffe4e6"
+                },
+                "20": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#fecdd3"
+                },
+                "30": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#fda4af"
+                },
+                "40": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#fb7185"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#f43f5e"
+                },
+                "60": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#e11d48"
+                },
+                "70": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#be123c"
+                },
+                "80": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#9f1239"
+                },
+                "90": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#881337"
+                },
+                "100": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$value": "#4c0519"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "Radius": {
+      "modes": {
+        "Light": {
+          "radius": {
+            "none": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 0
+            },
+            "xxs": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 2
+            },
+            "xs": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 4
+            },
+            "sm": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 6
+            },
+            "md": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 8
+            },
+            "lg": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 10
+            },
+            "xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 12
+            },
+            "2xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 16
+            },
+            "3xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 20
+            },
+            "4xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 24
+            },
+            "5xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 28
+            },
+            "6xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 32
+            },
+            "7xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 40
+            },
+            "8xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 48
+            },
+            "9xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 56
+            },
+            "10xl": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 64
+            },
+            "full": {
+              "$scopes": [
+                "CORNER_RADIUS"
+              ],
+              "$type": "float",
+              "$value": 9999
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "Semantic Colors": {
+      "modes": {
+        "Light": {
+          "color": {
+            "bg": {
+              "primary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.white}"
+              },
+              "secondary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.10}"
+              },
+              "tertiary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.20}"
+              },
+              "quaternary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.30}"
+              },
+              "primary_alt": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.gray.10}"
+              },
+              "secondary_alt": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.gray.20}"
+              },
+              "primary_hover": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.20}"
+              },
+              "secondary_hover": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.30}"
+              },
+              "primary_solid": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.100}"
+              },
+              "secondary_solid": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.80}"
+              },
+              "active": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.orange.60}"
+              },
+              "disabled": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.gray.20}"
+              },
+              "disabled_subtle": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.gray.10}"
+              },
+              "overlay": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.100-a64}"
+              }
+            },
+            "fg": {
+              "primary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.100}"
+              },
+              "secondary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.80}"
+              },
+              "tertiary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.60}"
+              },
+              "quaternary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.40}"
+              },
+              "primary_hover": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.90}"
+              },
+              "secondary_hover": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.70}"
+              },
+              "tertiary_hover": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.50}"
+              },
+              "quaternary_hover": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.30}"
+              },
+              "white": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.white}"
+              },
+              "disabled": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.gray.40}"
+              },
+              "disabled_subtle": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.gray.30}"
+              }
+            },
+            "border": {
+              "primary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.100}"
+              },
+              "secondary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.60}"
+              },
+              "tertiary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.30}"
+              },
+              "quaternary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.20}"
+              },
+              "active": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.orange.60}"
+              },
+              "disabled": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.gray.30}"
+              },
+              "subtle": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.gray.20}"
+              }
+            },
+            "state": {
+              "success": {
+                "primary": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.green.20}"
+                },
+                "secondary": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.green.40}"
+                },
+                "solid": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.green.60}"
+                }
+              },
+              "warning": {
+                "primary": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.yellow.20}"
+                },
+                "secondary": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.yellow.40}"
+                },
+                "solid": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.yellow.60}"
+                }
+              },
+              "error": {
+                "primary": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.red.20}"
+                },
+                "secondary": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.red.40}"
+                },
+                "solid": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.red.60}"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "Spacing": {
+      "modes": {
+        "Light": {
+          "spacing": {
+            "none": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 0
+            },
+            "xxs": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 2
+            },
+            "xs": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 4
+            },
+            "sm": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 6
+            },
+            "md": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 8
+            },
+            "lg": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 12
+            },
+            "xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 16
+            },
+            "2xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 20
+            },
+            "3xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 24
+            },
+            "4xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 32
+            },
+            "5xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 40
+            },
+            "6xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 48
+            },
+            "7xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 64
+            },
+            "8xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 80
+            },
+            "9xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 96
+            },
+            "10xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 128
+            },
+            "11xl": {
+              "$scopes": [
+                "GAP",
+                "LINE_HEIGHT",
+                "LETTER_SPACING",
+                "PARAGRAPH_SPACING",
+                "PARAGRAPH_INDENT"
+              ],
+              "$type": "float",
+              "$value": 160
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "Typography": {
+      "modes": {
+        "Light": {
+          "font": {
+            "family": {
+              "primary": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "string",
+                "$value": "SF Pro"
+              }
+            },
+            "weight": {
+              "heavy": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "string",
+                "$value": "Heavy"
+              },
+              "bold": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "string",
+                "$value": "Bold"
+              },
+              "semibold": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "string",
+                "$value": "SemiBold"
+              },
+              "medium": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "string",
+                "$value": "Medium"
+              },
+              "regular": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "string",
+                "$value": "Regular"
+              }
+            },
+            "size": {
+              "display": {
+                "lg": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 180
+                },
+                "md": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 128
+                },
+                "sm": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 96
+                }
+              },
+              "heading": {
+                "2xl": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 72
+                },
+                "xl": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 60
+                },
+                "lg": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 48
+                },
+                "md": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 36
+                },
+                "sm": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 30
+                },
+                "xs": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 24
+                }
+              },
+              "text": {
+                "2xl": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 24
+                },
+                "xl": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 20
+                },
+                "lg": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 18
+                },
+                "md": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 16
+                },
+                "sm": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 14
+                },
+                "xs": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 12
+                },
+                "2xs": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "float",
+                  "$value": 10
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+]
