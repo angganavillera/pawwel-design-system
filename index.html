@@ -472,8 +472,8 @@
     max-width: 560px;
   }
 
-  .hero-title em {
-    font-style: italic;
+  .hero-title span {
+    font-style: normal;
     color: var(--orange-60);
   }
 
@@ -936,39 +936,74 @@
     line-height: 1;
   }
 
+  .btn-xl { padding: 16px 28px; font-size: 17px; min-height: 56px; }
   .btn-lg { padding: 14px 24px; font-size: 16px; min-height: 52px; }
   .btn-md { padding: 11px 20px; font-size: 15px; min-height: 44px; }
   .btn-sm { padding: 8px 14px; font-size: 13px; min-height: 34px; }
+  .btn-xs { padding: 6px 12px; font-size: 12px; min-height: 30px; }
+
+  .btn-icon-only {
+    width: 44px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .btn-xl.btn-icon-only { width: 56px; }
+  .btn-lg.btn-icon-only { width: 52px; }
+  .btn-md.btn-icon-only { width: 44px; }
+  .btn-sm.btn-icon-only { width: 34px; }
+  .btn-xs.btn-icon-only { width: 30px; }
 
   .btn-primary {
-    background: var(--brown-100);
-    color: white;
+    background: var(--color-bg-primary-solid);
+    color: var(--color-fg-white);
   }
   .btn-primary:hover { background: var(--brown-90); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,20,4,0.25); }
   .btn-primary:active { transform: translateY(0); box-shadow: none; }
 
   .btn-accent {
-    background: var(--orange-60);
-    color: white;
+    background: var(--color-bg-active);
+    color: var(--color-fg-white);
   }
   .btn-accent:hover { background: var(--orange-70); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(234,88,12,0.3); }
 
   .btn-secondary {
-    background: var(--brown-20);
-    color: var(--brown-100);
+    background: var(--color-bg-tertiary);
+    color: var(--color-fg-primary);
   }
   .btn-secondary:hover { background: var(--brown-30); }
 
+  .btn-outlined {
+    background: transparent;
+    color: var(--color-fg-primary);
+    border: 1.5px solid var(--color-border-tertiary);
+  }
+  .btn-outlined:hover { background: var(--brown-10); border-color: var(--brown-50); }
+
+  .btn-destructive {
+    background: var(--color-state-error-solid);
+    color: var(--color-fg-white);
+  }
+  .btn-destructive:hover { background: var(--red-70); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(225,29,72,0.22); }
+
+  .btn-link {
+    background: transparent;
+    color: var(--color-bg-active);
+    padding-left: 0;
+    padding-right: 0;
+    min-height: auto;
+  }
+  .btn-link:hover { color: var(--orange-80); text-decoration: underline; text-underline-offset: 3px; }
+
   .btn-ghost {
     background: transparent;
-    color: var(--brown-100);
-    border: 1.5px solid var(--brown-30);
+    color: var(--color-fg-primary);
+    border: 1.5px solid var(--color-border-tertiary);
   }
   .btn-ghost:hover { background: var(--brown-10); border-color: var(--brown-50); }
 
   .btn-disabled {
-    background: var(--gray-20);
-    color: var(--gray-40);
+    background: var(--color-bg-disabled);
+    color: var(--color-fg-disabled);
     cursor: not-allowed;
     pointer-events: none;
   }
@@ -1320,6 +1355,13 @@
   .dos-box ul, .donts-box ul { padding-left: 16px; }
   .dos-box li, .donts-box li { margin-bottom: 5px; }
 
+  .component-property-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
   /* ─── PROGRESS INDICATOR (sidebar) ─── */
   .progress-bar {
     height: 2px;
@@ -1346,6 +1388,7 @@
     .hero { padding: 48px 24px 40px; }
     .hero-title { font-size: 36px; }
     .dos-donts { grid-template-columns: 1fr; }
+    .component-property-grid { grid-template-columns: 1fr 1fr; }
     .token-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
   }
 </style>
@@ -1418,7 +1461,7 @@
     <!-- HERO -->
     <div class="hero">
       <div class="hero-eyebrow">Developer Handoff Documentation</div>
-      <h1 class="hero-title">PAWWEL<br><em>Design System</em></h1>
+      <h1 class="hero-title">PAWWEL<br><span>Design System</span></h1>
       <p class="hero-desc">A production-grade token architecture and component system for PAWWEL iOS — the companion app for PAWWEL pet robots. Built for emotional storytelling, not dashboards.</p>
       <div class="hero-actions">
         <a class="figma-link" href="https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=234-1829&amp;t=P3KlkQvjI9pH2JLA-1" target="_blank" rel="noopener noreferrer" aria-label="View PAWWEL design system Figma file in a new tab">
@@ -1464,7 +1507,7 @@
           <div class="callout-icon">🐾</div>
           <div class="callout-body">
             <div class="callout-title">This is not a style guide</div>
-            <div class="callout-text">This is engineering documentation. Every token has a usage contract. Do not use primitive tokens (e.g. <code style="display:inline;font-size:11px;padding:1px 5px;background:var(--brown-20);border-radius:4px">brown-60</code>) in components — always reference semantic tokens instead.</div>
+            <div class="callout-text">This is engineering documentation. Avoid hardcoded color values like hex codes; use token references for every color. Prefer semantic tokens for scalable, consistent components, and use primitive tokens (e.g. <code style="display:inline;font-size:11px;padding:1px 5px;background:var(--brown-20);border-radius:4px">brown-60</code>) when they fit lower-level implementation or a special case.</div>
           </div>
         </div>
       </section>
@@ -1492,7 +1535,7 @@
             <div style="font-size:13px;color:var(--docs-text-2);line-height:1.6">Generous whitespace. Hierarchy through scale and weight, not borders and boxes.</div>
           </div>
           <div style="background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--radius-3xl);padding:24px">
-            <div style="font-size:28px;margin-bottom:12px">🤖</div>
+            <div style="font-size:28px;margin-bottom:12px">😊</div>
             <div style="font-size:14px;font-weight:700;color:var(--brown-100);margin-bottom:6px">Robot as Character</div>
             <div style="font-size:13px;color:var(--docs-text-2);line-height:1.6">PAWWEL is a companion, not a device. States, expressions, and animations must reflect personality.</div>
           </div>
@@ -1572,7 +1615,19 @@ Text("Hello Apple")
       <section class="section" id="color-primitive">
         <div class="section-eyebrow">Tier 1 &middot; Primitive</div>
         <h2 class="section-title">Color Primitives</h2>
-        <p class="section-desc">Raw color values exported directly from Figma Variables. These are the source palette &mdash; not for direct use in components.</p>
+        <p class="section-desc" style="margin-bottom:16px">Raw color values exported directly from Figma Variables. These are the source palette &mdash; not for direct use in components.</p>
+        <div>
+          <a class="figma-link" href="https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=272-5482&amp;t=P3KlkQvjI9pH2JLA-11" target="_blank" rel="noopener noreferrer" aria-label="View PAWWEL color primitives Figma file in a new tab">
+            <svg width="14" height="14" viewBox="0 0 38 57" fill="none" aria-hidden="true" focusable="false">
+              <path d="M19 28.5C19 25.98 20 23.56 21.78 21.78C23.56 20 25.98 19 28.5 19C31.02 19 33.44 20 35.22 21.78C37 23.56 38 25.98 38 28.5C38 31.02 37 33.44 35.22 35.22C33.44 37 31.02 38 28.5 38C25.98 38 23.56 37 21.78 35.22C20 33.44 19 31.02 19 28.5Z" fill="#1ABCFE"></path>
+              <path d="M0 47.5C0 44.98 1 42.56 2.78 40.78C4.56 39 6.98 38 9.5 38H19V47.5C19 50.02 18 52.44 16.22 54.22C14.44 56 12.02 57 9.5 57C6.98 57 4.56 56 2.78 54.22C1 52.44 0 50.02 0 47.5Z" fill="#0ACF83"></path>
+              <path d="M19 0V19H28.5C31.02 19 33.44 18 35.22 16.22C37 14.44 38 12.02 38 9.5C38 6.98 37 4.56 35.22 2.78C33.44 1 31.02 0 28.5 0H19Z" fill="#FF7262"></path>
+              <path d="M0 9.5C0 12.02 1 14.44 2.78 16.22C4.56 18 6.98 19 9.5 19H19V0H9.5C6.98 0 4.56 1 2.78 2.78C1 4.56 0 6.98 0 9.5Z" fill="#FF3737"></path>
+              <path d="M0 28.5C0 31.02 1 33.44 2.78 35.22C4.56 37 6.98 38 9.5 38H19V19H9.5C6.98 19 4.56 20 2.78 21.78C1 23.56 0 25.98 0 28.5Z" fill="#A259FF"></path>
+            </svg>
+            <span>View Figma File</span>
+          </a>
+        </div>
 
         <h3 class="subsection">Brown</h3>
         <div class="token-grid">
@@ -1936,56 +1991,153 @@ Text("Hello Apple")
       <section class="section" id="comp-buttons">
         <div class="section-eyebrow">Component</div>
         <h2 class="section-title">Buttons</h2>
-        <p class="section-desc">Buttons follow a strict hierarchy. Only one primary action per screen. Accent buttons for emotionally-charged moments (give treat, trigger action).</p>
+        <p class="section-desc">The Button component is a generated Figma component set with deterministic variants. Implementation should map directly from component properties to token-backed styles, not hand-authored one-off button classes.</p>
 
-        <div class="component-preview">
-          <button class="btn btn-primary btn-lg">Give Treat 🍖</button>
-          <button class="btn btn-accent btn-lg">Play Music</button>
-          <button class="btn btn-secondary btn-md">See Moments</button>
-          <button class="btn btn-ghost btn-md">Settings</button>
-          <button class="btn btn-disabled btn-md">Offline</button>
+        <h3 class="subsection">Component Properties</h3>
+        <div class="component-property-grid">
+          <div style="background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--radius-3xl);padding:16px">
+            <div class="mono" style="font-size:11px;color:var(--docs-accent);margin-bottom:8px">Type</div>
+            <div style="font-size:13px;color:var(--docs-text-2);line-height:1.7">Primary<br>Secondary<br>Outlined<br>Destructive<br>Link</div>
+          </div>
+          <div style="background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--radius-3xl);padding:16px">
+            <div class="mono" style="font-size:11px;color:var(--docs-accent);margin-bottom:8px">Size</div>
+            <div style="font-size:13px;color:var(--docs-text-2);line-height:1.7">XL<br>LG<br>MD<br>SM<br>XS</div>
+          </div>
+          <div style="background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--radius-3xl);padding:16px">
+            <div class="mono" style="font-size:11px;color:var(--docs-accent);margin-bottom:8px">Is Icon</div>
+            <div style="font-size:13px;color:var(--docs-text-2);line-height:1.7">true<br>false</div>
+            <div style="font-size:12px;color:var(--docs-text-3);line-height:1.6;margin-top:8px">Controls icon-only vs label content.</div>
+          </div>
+          <div style="background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--radius-3xl);padding:16px">
+            <div class="mono" style="font-size:11px;color:var(--docs-accent);margin-bottom:8px">Is Disabled</div>
+            <div style="font-size:13px;color:var(--docs-text-2);line-height:1.7">true<br>false</div>
+            <div style="font-size:12px;color:var(--docs-text-3);line-height:1.6;margin-top:8px">Controls visual state and interaction.</div>
+          </div>
         </div>
 
-        <div class="component-preview">
-          <button class="btn btn-primary btn-sm">Small Primary</button>
-          <button class="btn btn-accent btn-sm">Small Accent</button>
-          <button class="btn btn-secondary btn-sm">Small Secondary</button>
-          <button class="btn btn-ghost btn-sm">Small Ghost</button>
+        <h3 class="subsection">Variant Matrix</h3>
+        <p class="section-desc" style="margin-bottom:16px">Variants are generated from every property combination: <span class="mono">5 types</span> x <span class="mono">5 sizes</span> x <span class="mono">2 icon states</span> x <span class="mono">2 disabled states</span> = <span class="mono">100 variants</span>. Names are deterministic so Figma, SwiftUI, and React can all resolve the same component state without translation guesswork.</p>
+
+        <div class="code-block" style="margin-bottom:24px">
+          <div class="code-block-label">Variant name</div>
+          <code>type-primary--size-xl--is-icon-false--is-disabled-false
+type-destructive--size-md--is-icon-true--is-disabled-true
+type-link--size-xs--is-icon-false--is-disabled-false</code>
         </div>
 
-        <table class="token-table" style="margin-top:24px">
-          <thead><tr><th>Variant</th><th>bg token</th><th>fg token</th><th>Use case</th></tr></thead>
+        <table class="token-table">
+          <thead><tr><th>Property</th><th>Implementation mapping</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td>Primary</td><td><span class="mono">bg.primary-solid</span></td><td><span class="mono">fg.white</span></td><td>Single dominant action per screen</td></tr>
-            <tr><td>Accent</td><td><span class="mono">bg.active</span></td><td><span class="mono">fg.white</span></td><td>Emotional actions: treat, music, play</td></tr>
-            <tr><td>Secondary</td><td><span class="mono">bg.tertiary</span></td><td><span class="mono">fg.primary</span></td><td>Supporting actions, secondary CTAs</td></tr>
-            <tr><td>Ghost</td><td>transparent</td><td><span class="mono">fg.primary</span></td><td>Tertiary actions, cancel, settings</td></tr>
-            <tr><td>Disabled</td><td><span class="mono">bg.disabled</span></td><td><span class="mono">fg.disabled</span></td><td>Unavailable — robot offline, no connection</td></tr>
+            <tr><td><span class="mono">type</span></td><td><span class="mono">ButtonType</span></td><td>Controls background, foreground, border, and intent.</td></tr>
+            <tr><td><span class="mono">size</span></td><td><span class="mono">ButtonSize</span></td><td>Controls height, horizontal padding, font size, and icon gap.</td></tr>
+            <tr><td><span class="mono">isIcon</span></td><td><span class="mono">icon != nil &amp;&amp; title == nil</span></td><td>Icon-only buttons keep square dimensions from the selected size.</td></tr>
+            <tr><td><span class="mono">isDisabled</span></td><td><span class="mono">disabled</span> / <span class="mono">.disabled()</span></td><td>Disabled state changes tokens and removes interaction.</td></tr>
           </tbody>
         </table>
+
+        <h3 class="subsection">Examples</h3>
+        <div class="component-preview">
+          <button class="btn btn-primary btn-xl">Primary XL</button>
+          <button class="btn btn-secondary btn-lg">Secondary LG</button>
+          <button class="btn btn-outlined btn-md">Outlined MD</button>
+          <button class="btn btn-destructive btn-md">Destructive MD</button>
+          <button class="btn btn-link btn-sm">Link SM</button>
+        </div>
+
+        <div class="component-preview">
+          <button class="btn btn-primary btn-lg btn-icon-only" aria-label="Add">+</button>
+          <button class="btn btn-secondary btn-md btn-icon-only" aria-label="Settings">⚙</button>
+          <button class="btn btn-outlined btn-sm btn-icon-only" aria-label="More">•••</button>
+          <button class="btn btn-disabled btn-md">Disabled MD</button>
+          <button class="btn btn-disabled btn-xs btn-icon-only" aria-label="Disabled icon">+</button>
+        </div>
+
+        <h3 class="subsection">Semantic Token Mapping</h3>
+        <table class="token-table">
+          <thead><tr><th>Type</th><th>Background</th><th>Foreground</th><th>Border</th><th>Intent</th></tr></thead>
+          <tbody>
+            <tr><td>Primary</td><td><span class="mono">color.bg.primary-solid</span></td><td><span class="mono">color.fg.white</span></td><td>none</td><td>Dominant action for the current view.</td></tr>
+            <tr><td>Secondary</td><td><span class="mono">color.bg.tertiary</span></td><td><span class="mono">color.fg.primary</span></td><td>none</td><td>Supporting action with visible affordance.</td></tr>
+            <tr><td>Outlined</td><td>transparent</td><td><span class="mono">color.fg.primary</span></td><td><span class="mono">color.border.tertiary</span></td><td>Lower-emphasis action that still needs a boundary.</td></tr>
+            <tr><td>Destructive</td><td><span class="mono">state.error.solid</span></td><td><span class="mono">color.fg.white</span></td><td>none</td><td>Dangerous or irreversible action.</td></tr>
+            <tr><td>Link</td><td>transparent</td><td><span class="mono">color.bg.active</span></td><td>none</td><td>Inline navigation or lightweight secondary action.</td></tr>
+            <tr><td>Disabled</td><td><span class="mono">color.bg.disabled</span></td><td><span class="mono">color.fg.disabled</span></td><td><span class="mono">color.border.disabled</span></td><td>Unavailable state for any type.</td></tr>
+          </tbody>
+        </table>
+
+        <h3 class="subsection">Implementation Rules</h3>
+        <div class="dos-donts">
+          <div class="dos-box">
+            <h5>Do</h5>
+            <ul>
+              <li>Generate styles from <span class="mono">type</span>, <span class="mono">size</span>, <span class="mono">isIcon</span>, and <span class="mono">isDisabled</span>.</li>
+              <li>Use semantic tokens for background, foreground, border, radius, spacing, and motion.</li>
+              <li>Scale icon-only dimensions and icon-label gap from the selected size.</li>
+              <li>Use <span class="mono">.disabled()</span> or equivalent to remove interaction, not only visual opacity.</li>
+            </ul>
+          </div>
+          <div class="donts-box">
+            <h5>Do Not</h5>
+            <ul>
+              <li>Hardcode hex values, one-off padding, or local corner radius.</li>
+              <li>Create separate component APIs for visual variants that already exist in Figma.</li>
+              <li>Treat disabled as a type; it is a state that applies to every type and size.</li>
+              <li>Let icon-only buttons shrink below the expected touch target for their platform.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4 class="sub-sub">React Prop Mapping</h4>
+        <div class="code-block">
+          <div class="code-block-label">TypeScript</div>
+          <code>type ButtonType = <span class="code-string">'primary'</span> | <span class="code-string">'secondary'</span> | <span class="code-string">'outlined'</span> | <span class="code-string">'destructive'</span> | <span class="code-string">'link'</span>
+type ButtonSize = <span class="code-string">'xl'</span> | <span class="code-string">'lg'</span> | <span class="code-string">'md'</span> | <span class="code-string">'sm'</span> | <span class="code-string">'xs'</span>
+
+&lt;Button
+  type=<span class="code-string">"primary"</span>
+  size=<span class="code-string">"xl"</span>
+  isIcon={false}
+  disabled={isOffline}
+&gt;
+  Give Treat
+&lt;/Button&gt;</code>
+        </div>
 
         <h4 class="sub-sub">SwiftUI Implementation</h4>
         <div class="code-block">
           <div class="code-block-label">Swift</div>
-          <code><span class="code-comment">// Primary Button</span>
-Button(<span class="code-string">"Give Treat"</span>) { viewModel.dispenseTreat() }
-    .buttonStyle(PawwelPrimaryButtonStyle())
+          <code><span class="code-comment">// Mirrors Figma: type-primary--size-xl--is-icon-false--is-disabled-false</span>
+enum ButtonType { case primary, secondary, outlined, destructive, link }
+enum ButtonSize { case xl, lg, md, sm, xs }
 
-<span class="code-comment">// Custom style using semantic tokens</span>
-struct PawwelPrimaryButtonStyle: ButtonStyle {
+struct PawwelButtonStyle: ButtonStyle {
+    let type: ButtonType
+    let size: ButtonSize
+    let isIcon: Bool
+    let isDisabled: Bool
+
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.custom(<span class="code-string">"Sora"</span>, size: <span class="code-val">16</span>).weight(.semibold))
-            .foregroundStyle(Color(<span class="code-string">"fg.white"</span>))
-            .padding(.horizontal, <span class="code-val">24</span>)
-            .frame(minHeight: <span class="code-val">52</span>)
-            .background(Color(<span class="code-string">"bg.primary-solid"</span>))
+            .font(.custom(<span class="code-string">"Sora"</span>, size: size.fontSize).weight(.semibold))
+            .foregroundStyle(Color(isDisabled ? <span class="code-string">"color.fg.disabled"</span> : type.foregroundToken))
+            .padding(.horizontal, isIcon ? <span class="code-val">0</span> : size.horizontalPadding)
+            .frame(width: isIcon ? size.height : nil, minHeight: size.height)
+            .background(Color(isDisabled ? <span class="code-string">"color.bg.disabled"</span> : type.backgroundToken))
+            .overlay(Capsule().stroke(Color(type.borderToken), lineWidth: type.borderWidth))
             .clipShape(Capsule())
-            .scaleEffect(configuration.isPressed ? <span class="code-val">0.97</span> : <span class="code-val">1.0</span>)
-            .animation(.spring(response: <span class="code-val">0.25</span>, dampingFraction: <span class="code-val">0.7</span>), 
-                       value: configuration.isPressed)
+            .opacity(isDisabled ? <span class="code-val">0.72</span> : <span class="code-val">1</span>)
+            .scaleEffect(configuration.isPressed &amp;&amp; !isDisabled ? <span class="code-val">0.97</span> : <span class="code-val">1</span>)
     }
-}</code>
+}
+
+Button(<span class="code-string">"Give Treat"</span>) { viewModel.dispenseTreat() }
+    .buttonStyle(PawwelButtonStyle(
+        type: .primary,
+        size: .xl,
+        isIcon: false,
+        isDisabled: viewModel.isOffline
+    ))
+    .disabled(viewModel.isOffline)</code>
         </div>
 
         <div class="callout callout-warn">
