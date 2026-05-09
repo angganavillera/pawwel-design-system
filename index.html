@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PAWWEL Design System — Developer Handoff</title>
+    <link
+      href="https://fonts.cdnfonts.com/css/sf-pro-display"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -181,7 +185,8 @@
         --spacing-11xl: 160px;
 
         /* ─── TYPOGRAPHY ─── */
-        --font-family-primary: "Sora", sans-serif;
+        --font-family-primary: "SF Pro Display", "SF Pro Text", -apple-system,
+          BlinkMacSystemFont, sans-serif;
         --font-weight-heavy: 800;
         --font-weight-bold: 700;
         --font-weight-semibold: 600;
@@ -238,7 +243,7 @@
         background: var(--docs-bg);
         color: var(--docs-text);
         line-height: 1.6;
-        font-size: 15px;
+        font-size: 17px;
         -webkit-font-smoothing: antialiased;
       }
 
@@ -312,7 +317,7 @@
         line-height: 1.2;
       }
       .sidebar-logo-title {
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-family-primary);
         font-size: 16px;
         color: var(--brown-100);
         letter-spacing: -0.01em;
@@ -361,7 +366,7 @@
         align-items: center;
         gap: 8px;
         padding: 7px 24px;
-        font-size: 13.5px;
+        font-size: 15px;
         color: var(--docs-text-2);
         text-decoration: none;
         border-radius: 0;
@@ -422,7 +427,7 @@
       }
 
       .section-title {
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-family-primary);
         font-size: 32px;
         font-weight: 400;
         color: var(--brown-100);
@@ -432,7 +437,7 @@
       }
 
       .section-desc {
-        font-size: 15px;
+        font-size: 17px;
         color: var(--docs-text-2);
         line-height: 1.7;
         max-width: 600px;
@@ -440,7 +445,7 @@
       }
 
       h3.subsection {
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-family-primary);
         font-size: 20px;
         font-weight: 400;
         color: var(--brown-100);
@@ -508,7 +513,7 @@
       }
 
       .hero-title {
-        font-family: "Sora", sans-serif;
+        font-family: var(--font-family-primary);
         font-size: 56px;
         font-weight: 400;
         letter-spacing: -0.03em;
@@ -524,7 +529,7 @@
       }
 
       .hero-desc {
-        font-size: 16px;
+        font-size: 18px;
         color: var(--docs-text-2);
         line-height: 1.7;
         max-width: 500px;
@@ -668,7 +673,7 @@
       }
 
       .token-alias {
-        font-size: 10px;
+        font-size: 12px;
         color: var(--docs-text-3);
         margin-top: 4px;
         line-height: 1.4;
@@ -729,7 +734,7 @@
       }
 
       .usage-note {
-        font-size: 12px;
+        font-size: 14px;
         color: var(--docs-text-2);
         line-height: 1.5;
       }
@@ -789,7 +794,7 @@
       }
 
       .spacing-use {
-        font-size: 12px;
+        font-size: 14px;
         color: var(--docs-text-3);
       }
 
@@ -974,14 +979,14 @@
       }
 
       .callout-title {
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 600;
         color: var(--brown-100);
         margin-bottom: 4px;
       }
 
       .callout-text {
-        font-size: 13px;
+        font-size: 15px;
         color: var(--docs-text-2);
         line-height: 1.6;
       }
@@ -1480,7 +1485,7 @@
         color: var(--docs-accent);
       }
       .motion-use {
-        font-size: 12px;
+        font-size: 14px;
         color: var(--docs-text-3);
         flex: 1;
       }
@@ -1533,12 +1538,12 @@
       }
 
       .a11y-label {
-        font-size: 13px;
+        font-size: 15px;
         color: var(--brown-100);
         flex: 1;
       }
       .a11y-note {
-        font-size: 12px;
+        font-size: 14px;
         color: var(--docs-text-3);
       }
 
@@ -1582,7 +1587,7 @@
       .donts-box {
         border-radius: var(--radius-2xl);
         padding: 20px;
-        font-size: 13px;
+        font-size: 15px;
         line-height: 1.6;
         border: 1px solid;
       }
@@ -1855,7 +1860,7 @@
             </div>
             <div class="hero-meta-item">
               <div class="hero-meta-label">Font</div>
-              <div class="hero-meta-value">Sora</div>
+              <div class="hero-meta-value">SF Pro</div>
             </div>
           </div>
         </div>
@@ -2040,7 +2045,7 @@
                   <li>Prioritize narrative cards over data tables</li>
                   <li>Warm, organic color palette (brown/orange foundation)</li>
                   <li>Spring-based animations for natural feel</li>
-                  <li>Sora for all primary interface typography</li>
+                  <li>SF Pro for all primary interface typography</li>
                 </ul>
               </div>
               <div class="donts-box">
@@ -2050,7 +2055,7 @@
                   <li>Use cold blues, purples, or enterprise palettes</li>
                   <li>Heavy borders everywhere (dashboard aesthetic)</li>
                   <li>Linear easing for UI transitions</li>
-                  <li>Mixing other body fonts with Sora</li>
+                  <li>Mixing other body fonts with SF Pro</li>
                 </ul>
               </div>
             </div>
@@ -2061,8 +2066,9 @@
             <div class="section-eyebrow">Foundation</div>
             <h2 class="section-title">Token Architecture</h2>
             <p class="section-desc">
-              The PAWWEL system uses a 3-tier hierarchy to move from raw visual
-              materials to specific functional behaviors.
+              The PAWWEL system is structured in layers to keep the experience
+              visually consistent, scalable, and easy to maintain across the
+              product.
             </p>
 
             <div
@@ -2113,9 +2119,8 @@
                       Foundational Values
                     </div>
                     <div style="font-size: 12px; color: var(--docs-text-2)">
-                      The raw palette and spacing scales that define the
-                      system's emotional range. These serve as the base for all
-                      higher-level decisions.
+                      Core palette, spacing, typography, and radius values used
+                      as the visual foundation of the system.
                     </div>
                   </div>
                 </div>
@@ -2157,9 +2162,9 @@
                       Functional Intent
                     </div>
                     <div style="font-size: 12px; color: var(--docs-text-2)">
-                      Behavior-named aliases that define how elements relate to
-                      the user, such as active states, surface depth, or text
-                      hierarchy.
+                      Semantic tokens that define interface intent such as
+                      primary text, secondary surfaces, active states, and
+                      emphasis.
                     </div>
                   </div>
                 </div>
@@ -2200,9 +2205,9 @@
                       Contextual Application
                     </div>
                     <div style="font-size: 12px; color: var(--docs-text-2)">
-                      The final application layer where intent maps to specific
-                      components, ensuring they respond predictably to various
-                      emotional and system states.
+                      Component-level usage where tokens are applied
+                      consistently across buttons, cards, navigation, forms, and
+                      interaction states.
                     </div>
                   </div>
                 </div>
@@ -2214,18 +2219,22 @@
                 <h5>Rely on Intent</h5>
                 <ul>
                   <li>
-                    Define hierarchy through behavioral tokens like
+                    Use semantic tokens like
                     <span class="mono">fg.primary</span> and
-                    <span class="mono">bg.secondary</span> to ensure
-                    consistency.
+                    <span class="mono">bg.secondary</span> for consistent UI
+                    behavior.
                   </li>
                   <li>
-                    Using tokens allows the interface to remain dynamic across
-                    environmental shifts and accessibility modes.
+                    Primitive values are allowed for foundational mapping and
+                    system setup.
                   </li>
                   <li>
-                    Every interaction should map to an existing behavioral
-                    intent to maintain system coherence.
+                    The main goal is maintaining consistency across components
+                    and screens.
+                  </li>
+                  <li>
+                    Semantic structure helps the interface scale more cleanly as
+                    the product grows.
                   </li>
                 </ul>
               </div>
@@ -2233,16 +2242,20 @@
                 <h5>Avoid Fixed Values</h5>
                 <ul>
                   <li>
-                    Hardcoded color or spacing values break the system's ability
-                    to scale and adapt.
+                    Avoid hardcoded colors directly inside components whenever
+                    possible.
                   </li>
                   <li>
-                    Bypassing the token library creates visual debt and
-                    inconsistent user experiences.
+                    Prefer semantic tokens to keep the interface flexible and
+                    scalable.
                   </li>
                   <li>
-                    Static markers limit the product's ability to respond to
-                    emotional state changes or user preferences.
+                    Hardcoded values can create inconsistencies between screens
+                    and states.
+                  </li>
+                  <li>
+                    Primitive tokens are still acceptable as foundational
+                    references when needed.
                   </li>
                 </ul>
               </div>
@@ -3228,7 +3241,7 @@
             <div class="section-eyebrow">Tier 1 · Primitive</div>
             <h2 class="section-title">Typography Scale</h2>
             <p class="section-desc">
-              PAWWEL uses Sora as its primary interface typeface across display,
+              PAWWEL uses SF Pro as its primary interface typeface across display,
               heading, and body. The type system must always preserve Dynamic
               Type scaling and VoiceOver legibility — accessibility is part of
               the typeface, not separate from it.
@@ -3259,7 +3272,7 @@
                     font-weight: 800;
                     color: var(--brown-100);
                     margin-bottom: 4px;
-                    font-family: &quot;Sora&quot;, sans-serif;
+                    font-family: &quot;SF Pro&quot;, sans-serif;
                   "
                 >
                   Ag
@@ -3291,7 +3304,7 @@
                     font-weight: 700;
                     color: var(--brown-100);
                     margin-bottom: 4px;
-                    font-family: &quot;Sora&quot;, sans-serif;
+                    font-family: &quot;SF Pro&quot;, sans-serif;
                   "
                 >
                   Ag
@@ -3323,7 +3336,7 @@
                     font-weight: 600;
                     color: var(--brown-100);
                     margin-bottom: 4px;
-                    font-family: &quot;Sora&quot;, sans-serif;
+                    font-family: &quot;SF Pro&quot;, sans-serif;
                   "
                 >
                   Ag
@@ -3355,7 +3368,7 @@
                     font-weight: 500;
                     color: var(--brown-100);
                     margin-bottom: 4px;
-                    font-family: &quot;Sora&quot;, sans-serif;
+                    font-family: &quot;SF Pro&quot;, sans-serif;
                   "
                 >
                   Ag
@@ -3387,7 +3400,7 @@
                     font-weight: 400;
                     color: var(--brown-100);
                     margin-bottom: 4px;
-                    font-family: &quot;Sora&quot;, sans-serif;
+                    font-family: &quot;SF Pro&quot;, sans-serif;
                   "
                 >
                   Ag
@@ -5804,7 +5817,7 @@
                 <tr>
                   <td>Title font</td>
                   <td><span class="mono">heading.xs � Bold</span></td>
-                  <td>Sora 24pt � 700</td>
+                  <td>SF Pro 24pt � 700</td>
                 </tr>
                 <tr>
                   <td>Shadow</td>
@@ -6829,7 +6842,7 @@
               <div class="a11y-row">
                 <div class="a11y-check a11y-pass">?</div>
                 <div class="a11y-label">
-                  Dynamic Type support � all Sora text must scale with preferred
+                  Dynamic Type support � all SF Pro text must scale with preferred
                   text size
                 </div>
                 <div
@@ -6896,7 +6909,7 @@
                 <tr>
                   <td>Dynamic Type</td>
                   <td>
-                    Every Sora text style scales with the user's preferred size
+                    Every SF Pro text style scales with the user's preferred size
                     up to <span class="mono">.accessibility3</span> without
                     truncation or layout breakage.
                   </td>
@@ -6919,7 +6932,7 @@
                 <tr>
                   <td>Bold Text</td>
                   <td>
-                    Sora Regular shifts to Sora Medium. Sora Semibold stays
+                    SF Pro Regular shifts to SF Pro Medium. SF Pro Semibold stays
                     as-is — it already reads as bold.
                   </td>
                 </tr>
@@ -7684,7 +7697,7 @@
               <div>
                 <div
                   style="
-                    font-family: &quot;Sora&quot;, sans-serif;
+                    font-family: &quot;SF Pro&quot;, sans-serif;
                     font-size: 20px;
                     color: var(--brown-100);
                     margin-bottom: 6px;
