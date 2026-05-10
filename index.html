@@ -263,6 +263,8 @@
         flex-direction: column;
       }
 
+
+
       .sidebar::-webkit-scrollbar {
         width: 4px;
       }
@@ -379,11 +381,11 @@
         font-size: 13.5px;
         color: var(--docs-text-2);
         text-decoration: none;
-        transition: color 0.12s ease;
         font-weight: 400;
         position: relative;
-        border-left: 1px solid transparent;
         margin-left: 7px;
+        border-left: 1px solid transparent;
+        transition: color 0.12s ease, border-color 0.12s ease;
       }
 
       .nav-link:hover {
@@ -393,8 +395,8 @@
 
       .nav-link.active {
         color: var(--docs-accent);
+        font-weight: 600;
         border-left-color: var(--docs-accent);
-        font-weight: 500;
       }
 
       .nav-dot { display: none; }
@@ -2256,7 +2258,6 @@
 <a class="nav-link" href="#comp-misc"><span class="nav-dot"></span>Misc &amp; Helper</a>
 <a class="nav-link" href="#comp-accordion"><span class="nav-dot"></span>Accordion</a>
 <a class="nav-link" href="#comp-pagination"><span class="nav-dot"></span>Pagination System</a>
-<a class="nav-link" href="#comp-robot"><span class="nav-dot"></span>Robot Status</a>
 <a class="nav-link" href="#comp-skeleton"><span class="nav-dot"></span>Loading States</a>
 </div>
 </div>
@@ -5822,13 +5823,133 @@
 <div class="section-eyebrow">Components</div>
 <h2 class="section-title">Chat System</h2>
 <p class="section-desc">The conversational interface between the user and PAWWEL — robot messages, user messages, system cards, and media bubbles. Chat in PAWWEL is a companion conversation, not a customer support thread. The tone and layout must reinforce warmth and trust.</p>
+<div style="width:100%;border-radius:var(--radius-2xl);overflow:hidden;border:1px solid var(--docs-border);box-shadow:var(--docs-shadow);background:var(--docs-surface);height:560px;margin-bottom:32px;">
+  <iframe allowfullscreen="" src="https://embed.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=1125-100484&t=7Fr2x0O4F48oyddd-11&embed-host=share&hide-ui=1" style="width:100%;height:100%;border:none;display:block;"></iframe>
+</div>
+
 <div class="callout callout-info">
-<div class="callout-icon">📐</div>
+<div class="callout-icon">💡</div>
 <div class="callout-body">
-<div class="callout-title">Figma reference — Chat System</div>
-<div class="callout-text">[ Figma embed placeholder — node: Chat / Conversation Components ]</div>
+<div class="callout-title">Future feature — AI Companion</div>
+<div class="callout-text">The Chat System is designed for a future PAWWEL AI companion layer. While not in the current scope, all components are production-ready and can be activated when the AI chat feature ships.</div>
 </div>
 </div>
+
+<h3 class="subsection">Component Overview</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:24px;">Six distinct sub-components make up the full Chat System. Each maps to a specific moment in the conversation flow.</p>
+
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Component</th><th>Description</th><th>Status</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>Chat Bubble Bot</strong></td>
+  <td>Left-aligned. Carries PAWWEL AI messages — text, typing indicator, and embedded media cards (audio player, video player).</td>
+  <td><span class="badge badge-optional">Future</span></td>
+</tr>
+<tr>
+  <td><strong>Chat Bubble User</strong></td>
+  <td>Right-aligned in <span class="mono">brown.100</span> fill. Supports text, image attachments with download pill, and voice memo playback.</td>
+  <td><span class="badge badge-optional">Future</span></td>
+</tr>
+<tr>
+  <td><strong>Chat Top Nav</strong></td>
+  <td>iOS inline nav bar. Shows status bar, back chevron, AI name + context sub-label, and search icon.</td>
+  <td><span class="badge badge-optional">Future</span></td>
+</tr>
+<tr>
+  <td><strong>Chat Bottom Input</strong></td>
+  <td>Sticky input bar with mic, camera, and send. Includes pre-filled quick-prompt chip variant in <span class="mono">brown.100</span>.</td>
+  <td><span class="badge badge-optional">Future</span></td>
+</tr>
+<tr>
+  <td><strong>Chat UI Alt</strong></td>
+  <td>Empty state / welcome state. Shows PAWWEL logo mark and onboarding copy. Shown before first message.</td>
+  <td><span class="badge badge-optional">Future</span></td>
+</tr>
+<tr>
+  <td><strong>Chat Time Indicator</strong></td>
+  <td>Center-aligned hairline divider with timestamp. Groups messages by time block.</td>
+  <td><span class="badge badge-optional">Future</span></td>
+</tr>
+</tbody>
+</table>
+
+<h3 class="subsection">Chat Bubble — Specs</h3>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Property</th><th>Bot Bubble</th><th>User Bubble</th></tr></thead>
+<tbody>
+<tr><td>Alignment</td><td>Left + robot avatar</td><td>Right + user avatar</td></tr>
+<tr><td>Background</td><td><span class="mono">color.bg.secondary</span> (warm off-white)</td><td><span class="mono">color.bg.primary-solid</span> (brown.100)</td></tr>
+<tr><td>Text color</td><td><span class="mono">color.fg.primary</span></td><td><span class="mono">color.fg.white</span></td></tr>
+<tr><td>Corner radius</td><td><span class="mono">radius.3xl</span> · 4pt top-left</td><td><span class="mono">radius.3xl</span> · 4pt bottom-right</td></tr>
+<tr><td>Max width</td><td>75% of screen width</td><td>75% of screen width</td></tr>
+<tr><td>Padding</td><td><span class="mono">spacing.lg</span> H · <span class="mono">spacing.md</span> V</td><td><span class="mono">spacing.lg</span> H · <span class="mono">spacing.md</span> V</td></tr>
+<tr><td>Avatar size</td><td>28pt circle · robot logomark</td><td>28pt circle · user initial</td></tr>
+<tr><td>Typing indicator</td><td>3-dot pulse animation · <span class="mono">spring.default</span></td><td>—</td></tr>
+</tbody>
+</table>
+
+<h3 class="subsection">Media Bubble Types</h3>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Type</th><th>Trigger</th><th>Design note</th></tr></thead>
+<tbody>
+<tr><td>Audio player</td><td>PAWWEL plays calming music or user sends voice note</td><td>Waveform visualizer + timestamp. Bot variant uses green progress; user variant uses white.</td></tr>
+<tr><td>Video card</td><td>PAWWEL recommends content (mindfulness, training)</td><td>Thumbnail + title + duration bar. Always within bot bubble, never user.</td></tr>
+<tr><td>Image + download</td><td>User attaches a photo</td><td>Full-bleed image inside bubble. Filename + size pill (orange) overlaid on bottom edge.</td></tr>
+<tr><td>Voice memo</td><td>User sends voice message</td><td>Play button + waveform + duration. Timestamp + read receipt below.</td></tr>
+</tbody>
+</table>
+
+<h3 class="subsection">Chat Top Nav — Specs</h3>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Status bar</td><td>Native iOS · time left, signal + battery right</td></tr>
+<tr><td>Back button</td><td>Chevron left · <span class="mono">color.fg.primary</span> · 44pt tap target</td></tr>
+<tr><td>Title</td><td>"Pawwel AI" · <span class="mono">font.text.lg semibold</span></td></tr>
+<tr><td>Sub-label</td><td>"Apple · Active · Online" · <span class="mono">font.text.xs · color.fg.tertiary</span></td></tr>
+<tr><td>Search icon</td><td>Trailing · <span class="mono">radius.full</span> circle container · <span class="mono">bg.secondary</span></td></tr>
+</tbody>
+</table>
+
+<h3 class="subsection">Chat Bottom Input — Specs</h3>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Container bg</td><td><span class="mono">color.bg.secondary · radius.full</span></td></tr>
+<tr><td>Placeholder</td><td>"Ask about Apple..." · <span class="mono">color.fg.quaternary</span></td></tr>
+<tr><td>Mic icon</td><td>Leading · activates voice input</td></tr>
+<tr><td>Camera icon</td><td>Trailing left · opens photo picker</td></tr>
+<tr><td>Send button</td><td><span class="mono">color.bg.primary-solid · radius.full · 44pt</span> · arrow icon white</td></tr>
+<tr><td>Quick prompt chip</td><td><span class="mono">brown.100</span> pill · white text · camera icon left · send icon right · appears above default input</td></tr>
+<tr><td>Keyboard behavior</td><td><span class="mono">KeyboardAvoidingView</span> · always within safe area bottom inset</td></tr>
+</tbody>
+</table>
+
+<h3 class="subsection">Chat UI Alt — Empty State</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Shown before the user sends their first message. Centers the PAWWEL logomark (paw 4-dot) with an intro prompt.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Logo mark</td><td>4-circle paw · <span class="mono">brown.100</span> · ~56pt</td></tr>
+<tr><td>Heading copy</td><td>"Hey! I'm Pawwel AI. Ask me anything about Apple — her mood, activity, or just tell me what to do."</td></tr>
+<tr><td>Typography</td><td><span class="mono">font.text.xl · color.fg.primary</span></td></tr>
+<tr><td>Layout</td><td>Vertically centered · max-width 280pt · centered text</td></tr>
+</tbody>
+</table>
+
+<h3 class="subsection">Chat Time Indicator</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Hairline divider with centered timestamp. Groups consecutive messages by time block.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Property</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Line color</td><td><span class="mono">color.border.quaternary</span></td></tr>
+<tr><td>Line weight</td><td>0.5pt</td></tr>
+<tr><td>Label</td><td>"Today at 09:12 AM" format · <span class="mono">font.text.2xs · color.fg.tertiary</span></td></tr>
+<tr><td>Spacing</td><td><span class="mono">spacing.xl</span> above and below</td></tr>
+<tr><td>Trigger</td><td>Show when gap between messages exceeds 30 minutes</td></tr>
+</tbody>
+</table>
 <h3 class="subsection">Bubble Layout</h3>
 <table class="token-table">
 <thead><tr><th>Type</th><th>Alignment</th><th>Background</th><th>Radius</th></tr></thead>
@@ -5999,516 +6120,178 @@
 </section><section class="section" id="comp-tooltips">
 <div class="section-eyebrow">Component</div>
 <h2 class="section-title">Tooltips</h2>
-<p class="section-desc" style="margin-bottom: 16px">
-              A contextual, mobile-only surface for brief explanations,
-              definitions, or onboarding hints. Tooltips are tap-triggered and
-              overlay-positioned. Tone is calm, lightweight, and never
-              intrusive.
-            </p>
-<div style="margin-bottom: 24px">
-<a aria-label="View PAWWEL tooltips Figma file in a new tab" class="figma-link" href="https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=234-1829&amp;t=P3KlkQvjI9pH2JLA-1" rel="noopener noreferrer" target="_blank">
-<svg aria-hidden="true" fill="none" focusable="false" height="14" viewbox="0 0 38 57" width="14">
-<path d="M19 28.5C19 25.98 20 23.56 21.78 21.78C23.56 20 25.98 19 28.5 19C31.02 19 33.44 20 35.22 21.78C37 23.56 38 25.98 38 28.5C38 31.02 37 33.44 35.22 35.22C33.44 37 31.02 38 28.5 38C25.98 38 23.56 37 21.78 35.22C20 33.44 19 31.02 19 28.5Z" fill="#1ABCFE"></path>
-<path d="M0 47.5C0 44.98 1 42.56 2.78 40.78C4.56 39 6.98 38 9.5 38H19V47.5C19 50.02 18 52.44 16.22 54.22C14.44 56 12.02 57 9.5 57C6.98 57 4.56 56 2.78 54.22C1 52.44 0 50.02 0 47.5Z" fill="#0ACF83"></path>
-<path d="M19 0V19H28.5C31.02 19 33.44 18 35.22 16.22C37 14.44 38 12.02 38 9.5C38 6.98 37 4.56 35.22 2.78C33.44 1 31.02 0 28.5 0H19Z" fill="#FF7262"></path>
-<path d="M0 9.5C0 12.02 1 14.44 2.78 16.22C4.56 18 6.98 19 9.5 19H19V0H9.5C6.98 0 4.56 1 2.78 2.78C1 4.56 0 6.98 0 9.5Z" fill="#FF3737"></path>
-<path d="M0 28.5C0 31.02 1 33.44 2.78 35.22C4.56 37 6.98 38 9.5 38H19V19H9.5C6.98 19 4.56 20 2.78 21.78C1 23.56 0 25.98 0 28.5Z" fill="#A259FF"></path>
-</svg>
-<span>View Figma File</span>
-</a>
+<p class="section-desc">Contextual overlays that surface additional information on tap or long-press. Used for pet status labels, feature explanations, outfit descriptions, and robot battery indicators. PAWWEL tooltips are warm and conversational — never dry or technical.</p>
+
+<!-- FIGMA EMBED -->
+<div style="width:100%;border-radius:var(--radius-2xl);overflow:hidden;border:1px solid var(--docs-border);box-shadow:var(--docs-shadow);background:var(--docs-surface);height:560px;margin-bottom:40px;">
+  <iframe allowfullscreen="" src="https://embed.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=1486-18144&t=7Fr2x0O4F48oyddd-11&embed-host=share&hide-ui=1" style="width:100%;height:100%;border:none;display:block;"></iframe>
 </div>
-<div class="callout callout-info">
-<div class="callout-icon">📱</div>
-<div class="callout-body">
-<div class="callout-title">Mobile-only · No hover state</div>
-<div class="callout-text">
-                  PAWWEL tooltips are designed exclusively for touch. There is
-                  no desktop hover behavior. Placement, motion, and dismissal
-                  are defined as design behaviors — not web hover affordance.
-                  Web previews here approximate the iOS rendering for handoff
-                  reference only.
-                </div>
-</div>
-</div>
+
+<!-- COMPONENT PROPERTIES -->
 <h3 class="subsection">Component Properties</h3>
-<div class="component-property-grid">
-<div style="
-                  background: var(--docs-surface);
-                  border: 1px solid var(--docs-border);
-                  border-radius: var(--radius-3xl);
-                  padding: 16px;
-                ">
-<div class="mono" style="
-                    font-size: 11px;
-                    color: var(--docs-accent);
-                    margin-bottom: 8px;
-                  ">
-                  Arrow
-                </div>
-<div style="
-                    font-size: 14px;
-                    color: var(--docs-text-2);
-                    line-height: 1.7;
-                  ">
-                  none<br/>top<br/>bottom<br/>left<br/>right<br/>top-left<br/>top-right<br/>bottom-left<br/>bottom-right
-                </div>
-</div>
-<div style="
-                  background: var(--docs-surface);
-                  border: 1px solid var(--docs-border);
-                  border-radius: var(--radius-3xl);
-                  padding: 16px;
-                ">
-<div class="mono" style="
-                    font-size: 11px;
-                    color: var(--docs-accent);
-                    margin-bottom: 8px;
-                  ">
-                  Style
-                </div>
-<div style="
-                    font-size: 14px;
-                    color: var(--docs-text-2);
-                    line-height: 1.7;
-                  ">
-                  default<br/>subtle
-                </div>
-<div style="
-                    font-size: 12px;
-                    color: var(--docs-text-3);
-                    line-height: 1.6;
-                    margin-top: 8px;
-                  ">
-                  Surface emphasis. Default is solid dark; subtle is elevated
-                  light.
-                </div>
-</div>
-<div style="
-                  background: var(--docs-surface);
-                  border: 1px solid var(--docs-border);
-                  border-radius: var(--radius-3xl);
-                  padding: 16px;
-                ">
-<div class="mono" style="
-                    font-size: 11px;
-                    color: var(--docs-accent);
-                    margin-bottom: 8px;
-                  ">
-                  Is Description
-                </div>
-<div style="
-                    font-size: 14px;
-                    color: var(--docs-text-2);
-                    line-height: 1.7;
-                  ">
-                  true<br/>false
-                </div>
-<div style="
-                    font-size: 12px;
-                    color: var(--docs-text-3);
-                    line-height: 1.6;
-                    margin-top: 8px;
-                  ">
-                  Toggles a secondary description line below the title.
-                </div>
-</div>
-<div style="
-                  background: var(--docs-surface);
-                  border: 1px solid var(--docs-border);
-                  border-radius: var(--radius-3xl);
-                  padding: 16px;
-                ">
-<div class="mono" style="
-                    font-size: 11px;
-                    color: var(--docs-accent);
-                    margin-bottom: 8px;
-                  ">
-                  Variants
-                </div>
-<div style="
-                    font-size: 14px;
-                    color: var(--docs-text-2);
-                    line-height: 1.7;
-                  ">
-<span class="mono">9 × 2 × 2 = 36</span>
-</div>
-<div style="
-                    font-size: 12px;
-                    color: var(--docs-text-3);
-                    line-height: 1.6;
-                    margin-top: 8px;
-                  ">
-                  All combinations are pre-generated in Figma.
-                </div>
-</div>
-</div>
-<h3 class="subsection">Variant Matrix</h3>
-<p class="section-desc" style="margin-bottom: 16px">
-              Variant names are deterministic so design and engineering refer to
-              the same state: <span class="mono">9 arrow positions</span> ×
-              <span class="mono">2 styles</span> ×
-              <span class="mono">2 description states</span> =
-              <span class="mono">36 variants</span>.
-            </p>
-<div class="code-block" style="margin-bottom: 24px">
-<div class="code-block-label">Variant name</div>
-<code>arrow-top--is-description-false--style-default
-                arrow-bottom-right--is-description-true--style-subtle
-                arrow-none--is-description-false--style-default</code>
-</div>
-<table class="token-table">
-<thead>
-<tr>
-<th>Property</th>
-<th>Drives</th>
-<th>Behavior</th>
-</tr>
-</thead>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">The <span class="mono">Tooltips Main</span> component has <strong>36 variants</strong> driven by 3 properties.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Property</th><th>Values</th><th>Notes</th></tr></thead>
 <tbody>
-<tr>
-<td>Arrow</td>
-<td>Pointer visibility · Edge · Offset</td>
-<td>
-                    Anchors the tooltip visually to the element it explains.
-                  </td>
-</tr>
-<tr>
-<td>Style</td>
-<td>Surface · Foreground · Shadow</td>
-<td>
-                    Default reads as a system surface; subtle defers to
-                    surrounding content.
-                  </td>
-</tr>
-<tr>
-<td>Is Description</td>
-<td>Layout</td>
-<td>
-                    Single-line title for hints, or title + description for
-                    short explanations.
-                  </td>
-</tr>
+<tr><td><span class="mono">Arrow</span></td><td>None · Bottom Left · Bottom Right · Top · Bottom · Right · Left · Top Left · Top Right</td><td>Controls which edge the callout arrow points from. Match to the trigger element's position relative to the tooltip.</td></tr>
+<tr><td><span class="mono">Is Description</span></td><td>False · True</td><td><strong>False</strong> = label-only (compact). <strong>True</strong> = label + description body text.</td></tr>
+<tr><td><span class="mono">Style</span></td><td>Default · Subtle</td><td><strong>Default</strong> = <span class="mono">bg.primary</span> white surface, dark text. <strong>Subtle</strong> = <span class="mono">bg.secondary</span> warm off-white, muted text.</td></tr>
 </tbody>
 </table>
-<h3 class="subsection">Tooltip Variants</h3>
-<div style="border-radius: var(--radius-3xl); overflow: hidden; border: 1px solid var(--docs-border); margin-bottom: 24px;">
-<iframe allowfullscreen="" height="600" src="https://www.figma.com/embed?embed_host=share&amp;url=https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=1486-18144" style="border: none; display: block;" width="100%"></iframe>
+
+<!-- ANATOMY -->
+<h3 class="subsection">Anatomy</h3>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Container</td><td><span class="mono">radius.2xl · padding: spacing.lg spacing.xl · max-width: 240pt</span></td></tr>
+<tr><td>Arrow</td><td>8 × 6pt triangle · inherits container background · positioned per Arrow property</td></tr>
+<tr><td>Label (Default style)</td><td><span class="mono">font.text.sm semibold · color.fg.primary</span></td></tr>
+<tr><td>Label (Subtle style)</td><td><span class="mono">font.text.sm semibold · color.fg.secondary</span></td></tr>
+<tr><td>Description</td><td><span class="mono">font.text.sm · color.fg.secondary</span> · max 3 lines · shown when <span class="mono">Is Description: True</span></td></tr>
+<tr><td>Surface (Default)</td><td><span class="mono">color.bg.primary · shadow.md</span></td></tr>
+<tr><td>Surface (Subtle)</td><td><span class="mono">color.bg.secondary</span> · no shadow</td></tr>
+<tr><td>Border (Subtle)</td><td><span class="mono">color.border.quaternary · 1pt</span></td></tr>
+</tbody>
+</table>
+
+<!-- VARIANTS OVERVIEW -->
+<h3 class="subsection">Variant Grid Overview</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Each combination of Arrow × Is Description × Style produces a distinct variant. The most common configurations:</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Configuration</th><th>Arrow</th><th>Is Description</th><th>Style</th><th>Usage</th></tr></thead>
+<tbody>
+<tr><td>Label chip</td><td>None</td><td>False</td><td>Default</td><td>Inline status label — "Apple's Status"</td></tr>
+<tr><td>Label chip (subtle)</td><td>None</td><td>False</td><td>Subtle</td><td>Secondary context label</td></tr>
+<tr><td>Contextual card</td><td>Top Right</td><td>True</td><td>Default</td><td>Full tooltip: label + body — appears below trigger with top-right arrow</td></tr>
+<tr><td>Contextual card (subtle)</td><td>Top Right</td><td>True</td><td>Subtle</td><td>Softer appearance for non-critical info</td></tr>
+<tr><td>Bottom arrow card</td><td>Bottom</td><td>True</td><td>Default</td><td>Tooltip appears above trigger — e.g. above a tab icon</td></tr>
+<tr><td>Side arrow card</td><td>Right / Left</td><td>True</td><td>Default</td><td>Tooltip beside a list row — e.g. settings clarification</td></tr>
+<tr><td>Outfit tooltip</td><td>Top</td><td>True</td><td>Custom green</td><td>Special variant — see Outfit Tooltip below</td></tr>
+</tbody>
+</table>
+
+<!-- TOOLTIP EXAMPLE CONTENT -->
+<h3 class="subsection">Example Content Pattern</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">The standard tooltip content used across the system:</p>
+<div class="component-preview" style="flex-direction:column;gap:12px;align-items:flex-start;">
+  <!-- Default label-only -->
+  <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="background:var(--brown-10);border:1px solid var(--docs-border);border-radius:var(--radius-full);padding:4px 12px;font-size:13px;font-weight:600;color:var(--docs-accent);">Apple's Status</div>
+    <div style="background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--radius-xl);padding:6px 12px;font-size:13px;font-weight:600;color:var(--brown-100);box-shadow:var(--docs-shadow);">Apple's Status</div>
+  </div>
+  <!-- With description -->
+  <div style="background:var(--docs-surface);border:1px solid var(--docs-border);border-radius:var(--radius-xl);padding:12px 16px;max-width:280px;box-shadow:var(--docs-shadow);position:relative;">
+    <div style="font-size:13px;font-weight:600;color:var(--docs-accent);margin-bottom:4px;">Apple's Status</div>
+    <div style="font-size:13px;color:var(--docs-text-2);line-height:1.5;">Pawwel monitors your pet's mood and activity in real time. Tap to see today's full report. 🐾</div>
+    <div style="position:absolute;top:-6px;right:20px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid var(--docs-surface);"></div>
+  </div>
+  <!-- Subtle with description -->
+  <div style="background:var(--brown-10);border:1px solid var(--docs-border);border-radius:var(--radius-xl);padding:12px 16px;max-width:280px;position:relative;">
+    <div style="font-size:13px;font-weight:600;color:var(--docs-accent);margin-bottom:4px;">Apple's Status</div>
+    <div style="font-size:13px;color:var(--docs-text-2);line-height:1.5;">Pawwel monitors your pet's mood and activity in real time. Tap to see today's full report. 🐾</div>
+  </div>
 </div>
-<h3 class="subsection">Interaction Behavior</h3>
-<table class="token-table">
-<thead>
-<tr>
-<th>Rule</th>
-<th>Behavior</th>
-</tr>
-</thead>
+
+<!-- BATTERY TOOLTIP -->
+<h3 class="subsection">Battery Indicator</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">A special 4-row indicator component showing the robot's battery state. Each row displays a battery icon (color-coded), percentage, and a contextual label or action toggle. Part of the Tooltip component set with 36 variants.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>State</th><th>Percentage</th><th>Battery icon</th><th>Trailing</th></tr></thead>
 <tbody>
-<tr>
-<td>Trigger</td>
-<td>
-                    Tap on the anchor element. No hover, no long-press required.
-                  </td>
-</tr>
-<tr>
-<td>Single instance</td>
-<td>
-                    Only one tooltip visible globally. Opening a new tooltip
-                    dismisses the active one.
-                  </td>
-</tr>
-<tr>
-<td>Tap outside</td>
-<td>
-                    Tap on any region outside the tooltip and its anchor
-                    dismisses it immediately.
-                  </td>
-</tr>
-<tr>
-<td>Escape key</td>
-<td>
-                    Where a hardware keyboard is present (iPad, Mac Catalyst),
-                    <span class="mono">Esc</span> dismisses.
-                  </td>
-</tr>
-<tr>
-<td>Persistence</td>
-<td>
-                    Tooltip stays visible until explicitly dismissed. No
-                    auto-timeout — content is read at the user's pace.
-                  </td>
-</tr>
-<tr>
-<td>Scroll</td>
-<td>
-                    Tooltip dismisses on scroll of the underlying view to avoid
-                    stale positioning.
-                  </td>
-</tr>
+<tr><td><strong>Full</strong></td><td>100%</td><td>🔋 <span class="mono">green.60</span></td><td>Autofollow toggle · <span class="mono">green.50</span> on</td></tr>
+<tr><td><strong>Medium</strong></td><td>40%</td><td>🔋 <span class="mono">brown.60</span></td><td>Autofollow toggle · <span class="mono">green.50</span> on</td></tr>
+<tr><td><strong>Low</strong></td><td>20%</td><td>🪫 <span class="mono">red.50</span></td><td>Autofollow toggle · <span class="mono">green.50</span> on</td></tr>
+<tr><td><strong>Charging</strong></td><td>20%</td><td>🔋 <span class="mono">brown.40</span></td><td>"Charging..." label · <span class="mono">orange.60</span></td></tr>
 </tbody>
 </table>
-<h3 class="subsection">Placement Rules</h3>
-<p class="section-desc" style="margin-bottom: 16px">
-              Placement is requested via the
-              <span class="mono">arrow</span> property but resolved dynamically.
-              The runtime auto-repositions to the nearest valid edge if the
-              requested placement would clip the viewport or cross a safe-area
-              inset.
-            </p>
-<table class="token-table">
-<thead>
-<tr>
-<th>Priority</th>
-<th>Rule</th>
-</tr>
-</thead>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
 <tbody>
-<tr>
-<td>1</td>
-<td>
-                    Honor the requested arrow position when content fits within
-                    viewport + safe areas.
-                  </td>
-</tr>
-<tr>
-<td>2</td>
-<td>
-                    Flip to the opposite edge if the primary placement clips
-                    (e.g. <span class="mono">top</span> →
-                    <span class="mono">bottom</span>).
-                  </td>
-</tr>
-<tr>
-<td>3</td>
-<td>
-                    Shift along the cross-axis to keep the tooltip on screen;
-                    arrow offset moves with the shift.
-                  </td>
-</tr>
-<tr>
-<td>4</td>
-<td>
-                    If neither edge fits, fall back to
-                    <span class="mono">arrow-none</span> centered overlay.
-                  </td>
-</tr>
-<tr>
-<td>5</td>
-<td>
-                    Maintain a minimum 12pt gap from the screen edge and respect
-                    <span class="mono">safeAreaInsets</span> on every side.
-                  </td>
-</tr>
-<tr>
-<td>6</td>
-<td>
-                    Width adapts to content between
-                    <span class="mono">120pt</span> and
-                    <span class="mono">280pt</span>; wraps to multiline beyond.
-                  </td>
-</tr>
+<tr><td>Percentage label</td><td><span class="mono">font.text.md semibold</span> · color: green (100%), brown (40%), red (20%)</td></tr>
+<tr><td>Autofollow label</td><td><span class="mono">font.text.md · color.fg.primary</span> · robot face icon prefix</td></tr>
+<tr><td>Toggle</td><td><span class="mono">green.50</span> when on — same token as Settings Card toggle</td></tr>
+<tr><td>Row separator</td><td>Subtle divider between rows · <span class="mono">border.quaternary · 0.5pt</span></td></tr>
+<tr><td>Container</td><td><span class="mono">bg.secondary · radius.3xl · border: border.quaternary 1pt dashed · padding: spacing.xl</span></td></tr>
 </tbody>
 </table>
-<h3 class="subsection">Motion Specs</h3>
-<table class="token-table">
-<thead>
-<tr>
-<th>Phase</th>
-<th>Properties</th>
-<th>Duration</th>
-<th>Easing</th>
-</tr>
-</thead>
+
+<!-- OUTFIT TOOLTIP -->
+<h3 class="subsection">Outfit Tooltip</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">A branded tooltip variant shown when the user long-presses an outfit in the selection grid. Uses <span class="mono">green.60</span> background with white text and a leading outfit icon — the only tooltip that breaks the default color system.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
 <tbody>
-<tr>
-<td>Enter</td>
-<td>opacity 0 → 1, translateY +6pt → 0</td>
-<td>200ms</td>
-<td>ease-out / spring (response 0.32, damping 0.86)</td>
-</tr>
-<tr>
-<td>Exit</td>
-<td>opacity 1 → 0, translateY 0 → +4pt</td>
-<td>150ms</td>
-<td>ease-in</td>
-</tr>
+<tr><td>Container</td><td><span class="mono">green.60 bg · radius.2xl · padding: spacing.xl</span></td></tr>
+<tr><td>Arrow</td><td>Top-center · 8 × 6pt triangle · <span class="mono">green.60</span></td></tr>
+<tr><td>Leading icon</td><td>32pt circle · <span class="mono">green.white @ 20%</span> bg · outfit/t-shirt icon · white</td></tr>
+<tr><td>Body text</td><td><span class="mono">font.text.md · color.fg.white</span> · example: "Soft, cozy, and made for calm moments. Perfect for quiet days and gentle play 🐾"</td></tr>
+<tr><td>Max width</td><td>280pt</td></tr>
+<tr><td>Trigger</td><td>Long-press on outfit cell in the Outfit Selection Card</td></tr>
 </tbody>
 </table>
-<div class="callout callout-info" style="margin-top: 16px">
-<div class="callout-icon">🪶</div>
+
+<!-- ARROW DIRECTION GUIDE -->
+<h3 class="subsection">Arrow Direction Reference</h3>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Arrow value</th><th>Tooltip appears</th><th>Arrow points</th><th>Use when trigger is</th></tr></thead>
+<tbody>
+<tr><td>Top Right</td><td>Below trigger</td><td>Up-right</td><td>Top-right area of screen</td></tr>
+<tr><td>Top Left</td><td>Below trigger</td><td>Up-left</td><td>Top-left area of screen</td></tr>
+<tr><td>Top</td><td>Below trigger</td><td>Up-center</td><td>Center-top of screen</td></tr>
+<tr><td>Bottom</td><td>Above trigger</td><td>Down-center</td><td>Center-bottom of screen</td></tr>
+<tr><td>Bottom Left</td><td>Above trigger</td><td>Down-left</td><td>Bottom-right area</td></tr>
+<tr><td>Bottom Right</td><td>Above trigger</td><td>Down-right</td><td>Bottom-left area</td></tr>
+<tr><td>Left</td><td>Right of trigger</td><td>Left</td><td>Left edge of screen</td></tr>
+<tr><td>Right</td><td>Left of trigger</td><td>Right</td><td>Right edge of screen</td></tr>
+<tr><td>None</td><td>Any</td><td>—</td><td>Label chip without positional context</td></tr>
+</tbody>
+</table>
+
+<!-- BEHAVIOR -->
+<h3 class="subsection">Behavior</h3>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Rule</th><th>Expectation</th></tr></thead>
+<tbody>
+<tr><td>Trigger</td><td>Tap for simple labels. Long-press for rich description tooltips. Never hover-only.</td></tr>
+<tr><td>Dismiss</td><td>Tap anywhere outside the tooltip. Auto-dismiss after 4 seconds if no interaction.</td></tr>
+<tr><td>Animation</td><td>Scale 0.85 → 1.0 + fade in · <span class="mono">spring.snappy</span> · 180ms. Dismiss: scale 1.0 → 0.90 + fade · 120ms.</td></tr>
+<tr><td>Reduce Motion</td><td>Fade only — no scale transform.</td></tr>
+<tr><td>Repositioning</td><td>If the tooltip would clip the screen edge, mirror the arrow direction automatically.</td></tr>
+<tr><td>Battery tooltip</td><td>Appears on tap of the robot battery icon in the robot status card. Dismisses on tap outside.</td></tr>
+<tr><td>Outfit tooltip</td><td>Appears on long-press of an outfit cell. Dismisses on tap outside or release.</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-success">
+<div class="callout-icon">✅</div>
 <div class="callout-body">
-<div class="callout-title">Keep motion breathable</div>
-<div class="callout-text">
-                  No bounce, no scale-up, no rotation. The tooltip should feel
-                  like it's fading into place — never announcing itself. If a
-                  user notices the animation, it is too loud.
-                </div>
+<div class="callout-title">Write for the pet owner, not the UI</div>
+<div class="callout-text">Tooltip copy should read like a friend explaining something, not a system label. "Pawwel monitors your pet's mood and activity in real time." — not "Displays current pet status data." Keep it under 2 sentences.</div>
 </div>
 </div>
-<h3 class="subsection">Semantic Token Mapping</h3>
-<table class="token-table">
-<thead>
-<tr>
-<th>Style</th>
-<th>Background</th>
-<th>Foreground</th>
-<th>Border</th>
-<th>Shadow</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Default</td>
-<td><span class="mono">color.bg.primary-solid</span></td>
-<td><span class="mono">color.fg.white</span></td>
-<td>none</td>
-<td><span class="mono">shadow.tooltip</span></td>
-</tr>
-<tr>
-<td>Subtle</td>
-<td><span class="mono">color.bg.primary</span></td>
-<td><span class="mono">color.fg.primary</span></td>
-<td><span class="mono">color.border.tertiary</span></td>
-<td><span class="mono">shadow.tooltip</span></td>
-</tr>
-</tbody>
-</table>
-<h3 class="subsection">Accessibility</h3>
-<div class="dos-donts">
-<div class="dos-box">
-<h5>Required</h5>
-<ul>
-<li>
-                    Anchor element must expose a 44×44pt minimum touch target,
-                    even when the visual is smaller.
-                  </li>
-<li>
-                    Provide a VoiceOver label on the anchor describing the
-                    tooltip purpose (e.g.
-                    <span class="mono">"Help: Robot status"</span>).
-                  </li>
-<li>
-                    Tooltip body uses Dynamic Type — must remain readable at
-                    <span class="mono">.accessibility3</span> and above without
-                    truncation.
-                  </li>
-<li>
-                    Pair every color cue with a text or icon cue; never rely on
-                    color alone.
-                  </li>
-<li>
-                    On open, move VoiceOver focus to the tooltip and announce
-                    its content.
-                  </li>
-</ul>
-</div>
-<div class="donts-box">
-<h5>Avoid</h5>
-<ul>
-<li>
-                    Auto-dismissing on a timer — users with cognitive or motor
-                    differences need to read at their pace.
-                  </li>
-<li>
-                    Embedding interactive controls inside the tooltip (links,
-                    buttons). Keep it informational.
-                  </li>
-<li>
-                    Overflowing the screen horizontally; let the tooltip wrap
-                    rather than truncate.
-                  </li>
-<li>
-                    Hiding critical information behind a tooltip — it must be
-                    supplementary, never required.
-                  </li>
-</ul>
-</div>
-</div>
-<h3 class="subsection">Content Guidelines</h3>
-<div style="
-                background: var(--docs-surface);
-                border: 1px solid var(--docs-border);
-                border-radius: var(--radius-3xl);
-                padding: 20px;
-                margin-bottom: 24px;
-                font-size: 14px;
-                color: var(--docs-text-2);
-                line-height: 1.7;
-              ">
-<ul style="padding-left: 18px; margin: 0">
-<li>
-                  Titles are short and noun-forward —
-                  <span class="mono">Robot Status</span>, not
-                  <span class="mono">What is Robot Status?</span>.
-                </li>
-<li>
-                  Descriptions explain in one sentence. If two sentences are
-                  needed, the surface is wrong; use a sheet instead.
-                </li>
-<li>
-                  Tooltips are supplementary. Critical information lives in the
-                  main UI — never behind a tap.
-                </li>
-<li>
-                  Avoid links, buttons, or any action inside a tooltip. It is
-                  read, not used.
-                </li>
-</ul>
-</div>
-<h3 class="subsection">Design Rules</h3>
-<div class="dos-donts">
-<div class="dos-box">
-<h5>Do</h5>
-<ul>
-<li>
-                    Use semantic tokens for surface, foreground, border, radius,
-                    and shadow.
-                  </li>
-<li>
-                    Anchor placement to the trigger; let the runtime resolve the
-                    safe position.
-                  </li>
-<li>
-                    Let width adapt to content within the 120–280pt range.
-                  </li>
-<li>
-                    Dismiss on tap outside, on scroll, or when another tooltip
-                    opens.
-                  </li>
-<li>Mirror the Figma variant set 1:1 — no extra states.</li>
-</ul>
-</div>
-<div class="donts-box">
-<h5>Do Not</h5>
-<ul>
-<li>
-                    Hardcode hex, fixed widths, or absolute screen positions.
-                  </li>
-<li>Show more than one tooltip on screen at once.</li>
-<li>
-                    Add hover-based triggers, scaling, or bouncing entrance
-                    animations.
-                  </li>
-<li>
-                    Auto-dismiss on a timer or block underlying content with an
-                    opaque scrim.
-                  </li>
-<li>
-                    Place required actions or critical information inside a
-                    tooltip.
-                  </li>
-</ul>
-</div>
-</div>
-<div class="callout callout-warn">
-<div class="callout-icon">📐</div>
+
+<div class="callout callout-warn" style="margin-top:12px;">
+<div class="callout-icon">⚠️</div>
 <div class="callout-body">
-<div class="callout-title">Anchor must meet 44pt minimum</div>
-<div class="callout-text">
-                  The tooltip itself is non-interactive, but its anchor must
-                  satisfy iOS HIG 44×44pt. The trigger must remain comfortably
-                  tappable even when the icon is visually smaller.
-                </div>
+<div class="callout-title">Never use tooltips for critical information</div>
+<div class="callout-text">If the user needs to see it to complete a task, it must be visible by default — not hidden in a tooltip. Tooltips are supplementary context, never required reading.</div>
 </div>
+</div>
+
+<h3 class="subsection">Developer Notes</h3>
+<div class="code-block">
+<div class="code-block-label">Token refs</div>
+<code><span class="code-key">default bg</span>          <span class="code-val">color.bg.primary · shadow.md</span>
+<span class="code-key">subtle bg</span>           <span class="code-val">color.bg.secondary · border.quaternary 1pt</span>
+<span class="code-key">label color</span>         <span class="code-val">color.fg.secondary (subtle) · color.fg.primary (default)</span>
+<span class="code-key">outfit tooltip bg</span>   <span class="code-val">green.60 · white text</span>
+<span class="code-key">battery low color</span>   <span class="code-val">red.50</span>
+<span class="code-key">battery medium</span>      <span class="code-val">brown.60</span>
+<span class="code-key">battery full</span>        <span class="code-val">green.60</span>
+<span class="code-key">battery charging</span>    <span class="code-val">brown.40 icon · orange.60 label</span>
+<span class="code-key">enter spring</span>        <span class="code-val">response: 0.3 · damping: 0.7 · 180ms</span>
+<span class="code-key">dismiss</span>             <span class="code-val">easeIn · 120ms · auto-dismiss: 4000ms</span></code>
 </div>
 </section><section class="section" id="comp-effects">
 <div class="section-eyebrow">Foundations</div>
@@ -6741,173 +6524,195 @@
 
 </section><section class="section" id="comp-cards">
 <div class="section-eyebrow">Component</div>
-<h2 class="section-title">Cards &amp; Moment Cards</h2>
-<p class="section-desc">
-              Moment cards are the primary storytelling unit in PAWWEL. Each
-              card is a narrative, not a data point.
-            </p>
-<div class="component-preview" style="justify-content: center">
-<div class="moment-card">
-<div class="moment-card-img">
-                  🐕
-                  <div class="moment-card-badge">
-<span class="pill pill-playful"><span class="pill-dot"></span>Playful</span>
+<h2 class="section-title">Cards &amp; Lists 1</h2>
+<p class="section-desc">Transactional and informational cards used across the shop, pet profile, and insight screens. Each card has a specific role — product summary, address, outfit selection, mood reference, subscription choice, testimonial, media row, and profile. These are distinct from Moment Cards (narrative-first) — these cards are task and context carriers.</p>
+
+<!-- FIGMA EMBED -->
+<div style="width:100%;border-radius:var(--radius-2xl);overflow:hidden;border:1px solid var(--docs-border);box-shadow:var(--docs-shadow);background:var(--docs-surface);height:560px;margin-bottom:40px;">
+  <iframe allowfullscreen="" src="https://embed.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=1124-99970&t=7Fr2x0O4F48oyddd-11&embed-host=share&hide-ui=1" style="width:100%;height:100%;border:none;display:block;"></iframe>
 </div>
-</div>
-<div class="moment-card-body">
-<div class="moment-card-time">Today · 3:42 PM</div>
-<div class="moment-card-title">
-                    Apple had a zoomies moment 🐾
-                  </div>
-<div class="moment-card-desc">
-                    Ran three full laps around the living room before settling
-                    near the window.
-                  </div>
-</div>
-</div>
-</div>
-<table class="token-table" style="margin-top: 24px">
-<thead>
-<tr>
-<th>Property</th>
-<th>Token</th>
-<th>Value</th>
-</tr>
-</thead>
+
+<!-- ─── COMPONENT OVERVIEW ─── -->
+<h3 class="subsection">Component Overview</h3>
+<table class="token-table" style="margin-bottom:36px;">
+<thead><tr><th>Component</th><th>Screen context</th><th>Key interaction</th></tr></thead>
 <tbody>
-<tr>
-<td>Background</td>
-<td><span class="mono">bg.primary</span></td>
-<td>#ffffff</td>
-</tr>
-<tr>
-<td>Border radius</td>
-<td><span class="mono">radius.4xl</span></td>
-<td>24pt</td>
-</tr>
-<tr>
-<td>Border</td>
-<td><span class="mono">border.quaternary</span></td>
-<td>#e8ddd9 · 1pt</td>
-</tr>
-<tr>
-<td>Image height</td>
-<td>fixed</td>
-<td>180pt</td>
-</tr>
-<tr>
-<td>Body padding</td>
-<td><span class="mono">spacing.xl + spacing.2xl</span></td>
-<td>16pt top/bottom, 20pt left/right</td>
-</tr>
-<tr>
-<td>Title font</td>
-<td><span class="mono">heading.xs � Bold</span></td>
-<td>SF Pro 24pt � 700</td>
-</tr>
-<tr>
-<td>Shadow</td>
-<td>—</td>
-<td>
-                    0 1px 3px rgba(37,20,4,0.06), 0 4px 16px rgba(37,20,4,0.04)
-                  </td>
-</tr>
+<tr><td><strong>Product Summary Card</strong></td><td>Shop / cart / order review</td><td>Tap to open product detail</td></tr>
+<tr><td><strong>Address Card</strong></td><td>Checkout / profile settings</td><td>"Change" button opens address sheet</td></tr>
+<tr><td><strong>Outfit Selection Card</strong></td><td>Shop / robot customisation</td><td>Tap grid cell to select outfit; selected state uses green border</td></tr>
+<tr><td><strong>Instructional Mood Cards</strong></td><td>Onboarding / help / insights</td><td>Read-only reference; each row maps a mood to a score range</td></tr>
+<tr><td><strong>Testimonial Card (subscription)</strong></td><td>Paywall / plan selection</td><td>Radio select between billing periods</td></tr>
+<tr><td><strong>Testimonial Card (review)</strong></td><td>Product detail / shop landing</td><td>Read-only · avatar + stars + quote</td></tr>
+<tr><td><strong>Media Component</strong></td><td>Chat / activity feed</td><td>Play/pause track inline</td></tr>
+<tr><td><strong>Profile Information Card</strong></td><td>Home / pet profile</td><td>Compact row + expanded row with score ring</td></tr>
+<tr><td><strong>Empty State</strong></td><td>Moments feed (no data)</td><td>Illustrative — no interaction</td></tr>
 </tbody>
 </table>
-<h3 class="subsection">Content Guidelines</h3>
-<div style="
-                background: var(--docs-surface);
-                border: 1px solid var(--docs-border);
-                border-radius: var(--radius-3xl);
-                padding: 20px;
-                margin-bottom: 24px;
-                font-size: 14px;
-                color: var(--docs-text-2);
-                line-height: 1.7;
-              ">
-<ul style="padding-left: 18px; margin: 0">
-<li>
-                  Headlines read like a moment, not a metric.
-                  <span class="mono">Apple had a zoomies moment</span>, not
-                  <span class="mono">Activity spike detected</span>.
-                </li>
-<li>
-                  Narrative copy stays under two lines. Beyond that, the card
-                  opens to a full view — the card is a hook, not the story.
-                </li>
-<li>
-                  Timestamps are relative when recent (<span class="mono">Today · 3:42 PM</span>) and shift to dates after 24 hours.
-                </li>
-<li>
-                  Every card carries one emotional state pill, anchored to the
-                  moment — not the current pet state.
-                </li>
-<li>
-                  If imagery is missing, fall back to a tinted surface in the
-                  moment's emotional accent color, not a generic placeholder.
-                </li>
-</ul>
-</div>
-<h3 class="subsection">Behavior</h3>
-<table class="token-table">
-<thead>
-<tr>
-<th>Rule</th>
-<th>Expectation</th>
-</tr>
-</thead>
+
+<!-- ─── PRODUCT SUMMARY CARD ─── -->
+<h3 class="subsection">Product Summary Card</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Compact card used in cart, order review, and shop listings. Shows product thumbnail, name, description, and price.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
 <tbody>
-<tr>
-<td>Tap</td>
-<td>
-                    Opens the full Moment view. Press uses
-                    <span class="mono">spring.snappy</span> with a ~2% scale dip
-                    — never a flash.
-                  </td>
-</tr>
-<tr>
-<td>Long-press</td>
-<td>
-                    Reveals contextual actions (Save, Share, Delete) via a
-                    native quick-action menu.
-                  </td>
-</tr>
-<tr>
-<td>Loading</td>
-<td>
-                    Skeleton matches the card's shape and image area. Shimmer is
-                    calm — see Loading States.
-                  </td>
-</tr>
-<tr>
-<td>Image failure</td>
-<td>
-                    Replace with the emotion-tinted surface; the narrative
-                    remains readable on its own.
-                  </td>
-</tr>
-<tr>
-<td>Hierarchy</td>
-<td>
-                    Image first, then headline, then narrative, then timestamp
-                    meta. The eye should travel in that order without effort.
-                  </td>
-</tr>
+<tr><td>Container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt</span></td></tr>
+<tr><td>Thumbnail</td><td>64 × 64pt · <span class="mono">radius.2xl</span> · <span class="mono">bg.secondary</span> fallback</td></tr>
+<tr><td>Product name</td><td><span class="mono">font.text.md semibold · color.fg.primary</span></td></tr>
+<tr><td>Description</td><td><span class="mono">font.text.sm · color.fg.tertiary</span> · max 2 lines</td></tr>
+<tr><td>Price</td><td><span class="mono">font.text.md semibold · color.fg.primary</span> · "$ 32.00" format</td></tr>
+<tr><td>Padding</td><td><span class="mono">spacing.xl</span> all sides · thumbnail + text gap <span class="mono">spacing.lg</span></td></tr>
 </tbody>
 </table>
+
+<!-- ─── ADDRESS CARD ─── -->
+<h3 class="subsection">Address Card</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Displays the selected shipping address with a "Change" action. Used in checkout flow and profile settings.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Label</td><td>"Home" · <span class="mono">font.text.md bold · color.fg.primary</span></td></tr>
+<tr><td>Address lines</td><td><span class="mono">font.text.sm · color.fg.secondary</span> · phone, street, city/state/zip</td></tr>
+<tr><td>"Change" button</td><td><span class="mono">btn-outlined · btn-sm · radius.full</span> · trailing aligned</td></tr>
+<tr><td>Container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt · padding: spacing.xl</span></td></tr>
+</tbody>
+</table>
+
+<!-- ─── OUTFIT SELECTION CARD ─── -->
+<h3 class="subsection">Outfit Selection Card</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">2×2 grid of outfit thumbnails. Selected state is indicated by a green border ring — never a checkmark overlay. Used on the outfit customisation and shop screens.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Grid</td><td>2 × 2 · gap <span class="mono">spacing.md</span></td></tr>
+<tr><td>Cell size</td><td>~120 × 120pt · <span class="mono">radius.2xl</span></td></tr>
+<tr><td>Thumbnail bg</td><td><span class="mono">bg.secondary</span> · image fills cell with <span class="mono">object-fit: cover</span></td></tr>
+<tr><td>Selected state</td><td>2pt border · <span class="mono">green.50</span> · <span class="mono">radius.2xl</span></td></tr>
+<tr><td>Unselected state</td><td>1pt border · <span class="mono">border.quaternary</span></td></tr>
+<tr><td>Container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt · padding: spacing.xl</span></td></tr>
+</tbody>
+</table>
+
+<!-- ─── INSTRUCTIONAL MOOD CARDS ─── -->
+<h3 class="subsection">Instructional Mood Cards</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">A stacked list of 6 mood reference rows used in onboarding and the help centre. Each row maps an emotional state to a score threshold and a short description. Read-only — no tap interaction.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>State</th><th>Score</th><th>Emoji icon</th><th>Ring color</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>Calm &amp; Happy</td><td>&gt;90</td><td>😊 green</td><td><span class="mono">green.50</span></td><td>Pet feels calm, safe, and content.</td></tr>
+<tr><td>Playful</td><td>&gt;80</td><td>😄 yellow</td><td><span class="mono">yellow.50</span></td><td>Pet is active, engaged, and enjoying the moment.</td></tr>
+<tr><td>Slightly Uneasy</td><td>&lt;80</td><td>😐 brown/gray</td><td><span class="mono">brown.40</span></td><td>Mild discomfort or restlessness, nothing critical yet.</td></tr>
+<tr><td>Needs Attention</td><td>&lt;50</td><td>😟 orange</td><td><span class="mono">orange.50</span></td><td>Pet may be stressed or needs interaction/support.</td></tr>
+<tr><td>Overstimulated</td><td>&lt;40</td><td>😵 red</td><td><span class="mono">red.50</span></td><td>Too much activity or stress, needs calming.</td></tr>
+<tr><td>Resting</td><td>&gt;65</td><td>💤 gray</td><td><span class="mono">gray.40</span></td><td>Pet is relaxed or sleeping.</td></tr>
+</tbody>
+</table>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Row layout</td><td>Icon left (32pt) · text center (name + description) · score ring right (40pt)</td></tr>
+<tr><td>State name</td><td><span class="mono">font.text.md semibold · color.fg.primary</span></td></tr>
+<tr><td>Description</td><td><span class="mono">font.text.sm · color.fg.tertiary</span> · max 2 lines</td></tr>
+<tr><td>Score ring</td><td>40pt circle · partial arc fill · color maps to state · score label inside · <span class="mono">font.text.sm bold</span></td></tr>
+<tr><td>Container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt dashed · padding: spacing.xl</span></td></tr>
+<tr><td>Row separator</td><td><span class="mono">border.quaternary · 0.5pt · inset 48pt</span></td></tr>
+</tbody>
+</table>
+
+<!-- ─── TESTIMONIAL CARD: SUBSCRIPTION ─── -->
+<h3 class="subsection">Testimonial Card — Subscription / Plan Selection</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Radio-select card used on the paywall and subscription screens. Each row represents a billing period. Selected row gets a highlighted border.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Radio button</td><td>Native-style · 20pt · <span class="mono">brown.100</span> fill when selected</td></tr>
+<tr><td>Plan label</td><td>"Yearly" · <span class="mono">font.text.md semibold · color.fg.primary</span></td></tr>
+<tr><td>"Best Value" badge</td><td><span class="mono">green.10 bg · green.70 text · radius.full · font.text.2xs semibold · uppercase</span></td></tr>
+<tr><td>Price</td><td>"$59.99/yr" · <span class="mono">font.text.md bold · orange.60</span></td></tr>
+<tr><td>Sub-label</td><td>"~$5/month · Save 40%" · <span class="mono">font.text.xs · color.fg.tertiary</span></td></tr>
+<tr><td>Selected row border</td><td>1.5pt · <span class="mono">brown.100</span> · <span class="mono">radius.2xl</span></td></tr>
+<tr><td>Unselected row</td><td>No border · <span class="mono">bg.primary</span></td></tr>
+<tr><td>Container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt dashed · padding: spacing.xl</span></td></tr>
+</tbody>
+</table>
+
+<!-- ─── TESTIMONIAL CARD: REVIEW ─── -->
+<h3 class="subsection">Testimonial Card — User Review</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Read-only review card shown on product detail and shop landing pages.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Avatar</td><td>40pt circle · real photo · <span class="mono">bg.secondary</span> fallback</td></tr>
+<tr><td>Name</td><td><span class="mono">font.text.md semibold · color.fg.primary</span></td></tr>
+<tr><td>Stars</td><td>5 × ★ · <span class="mono">yellow.50</span> fill · 14pt each</td></tr>
+<tr><td>Quote</td><td><span class="mono">font.text.md · color.fg.secondary</span> · wrapped in quotation marks · max 3 lines</td></tr>
+<tr><td>Container</td><td>No border · <span class="mono">bg.primary</span> · <span class="mono">padding: spacing.xl</span></td></tr>
+</tbody>
+</table>
+
+<!-- ─── MEDIA COMPONENT ─── -->
+<h3 class="subsection">Media Component — Music Row</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Inline audio track row used in the activity feed and chat. Two states: idle (play icon) and playing (pause icon). The icon container uses a warm orange tint.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Icon container</td><td>40 × 40pt · <span class="mono">radius.xl · orange.10 bg</span> · music note icon in <span class="mono">orange.60</span></td></tr>
+<tr><td>Track name</td><td><span class="mono">font.text.md semibold · color.fg.primary</span></td></tr>
+<tr><td>Artist</td><td><span class="mono">font.text.sm · color.fg.tertiary</span></td></tr>
+<tr><td>Duration</td><td>"7:20" · <span class="mono">font.text.sm · color.fg.tertiary</span> · right-aligned</td></tr>
+<tr><td>Play button (idle)</td><td>▶ · <span class="mono">orange.60</span></td></tr>
+<tr><td>Pause button (playing)</td><td>⏸ · <span class="mono">orange.60</span></td></tr>
+<tr><td>Row separator</td><td><span class="mono">border.quaternary · 0.5pt</span></td></tr>
+<tr><td>Container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt dashed · padding: spacing.xl</span></td></tr>
+</tbody>
+</table>
+
+<!-- ─── PROFILE INFORMATION CARD ─── -->
+<h3 class="subsection">Profile Information Card</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Two variants of the pet profile row. Compact (name + edit icon) and expanded (name + mood pill + wellness score ring).</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Compact</th><th>Expanded</th></tr></thead>
+<tbody>
+<tr><td>Avatar</td><td>40pt circle · pet photo · green online dot 8pt</td><td>40pt circle · pet photo · green online dot 8pt</td></tr>
+<tr><td>Name</td><td><span class="mono">font.text.lg semibold · color.fg.primary</span></td><td><span class="mono">font.text.lg semibold · color.fg.primary</span></td></tr>
+<tr><td>Sub-label</td><td>—</td><td>Mood pill: emoji + "Calm &amp; Happy" · <span class="mono">font.text.xs · green.70</span></td></tr>
+<tr><td>Trailing element</td><td>Edit icon · <span class="mono">color.fg.tertiary · 20pt</span></td><td>Score ring: 44pt · <span class="mono">green.50</span> arc · number label "82" inside</td></tr>
+<tr><td>Container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt dashed · padding: spacing.xl</span></td><td>Same</td></tr>
+</tbody>
+</table>
+
+<!-- ─── EMPTY STATE ─── -->
+<h3 class="subsection">Empty State — No Moments</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Shown when the Moments feed has no entries yet. Centers the PUPPAL robot illustration with a warm, encouraging message. Never a blank screen.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Illustration</td><td>PUPPAL robot · ~80pt · centered · <span class="mono">bg.secondary</span> rounded container</td></tr>
+<tr><td>Headline</td><td>"No Moments yet." · <span class="mono">font.text.xl bold · color.fg.primary</span></td></tr>
+<tr><td>Body copy</td><td>"Pawwel is observing your pet's behavior. Any detected emotions or events will appear here." · <span class="mono">font.text.sm · color.fg.tertiary · text-align: center</span></td></tr>
+<tr><td>Layout</td><td>Vertically centered · max-width 240pt · <span class="mono">spacing.3xl</span> between elements</td></tr>
+<tr><td>CTA</td><td>None — empty state is passive and observational, not prompting an action</td></tr>
+</tbody>
+</table>
+
 <div class="callout callout-info">
-<div class="callout-icon">📖</div>
+<div class="callout-icon">🐾</div>
 <div class="callout-body">
-<div class="callout-title">
-                  A moment is a story, not a data point
-                </div>
-<div class="callout-text">
-                  If a card could be replaced by a row in a table without losing
-                  meaning, it isn't doing its job. Every card should leave the
-                  owner with a small feeling — recognition, warmth, mild concern
-                  — not just information.
-                </div>
+<div class="callout-title">Empty state copy rule</div>
+<div class="callout-text">Empty state copy always references PAWWEL as the active observer, not the app as a passive container. "Pawwel is observing…" not "No data available." The robot is watching — the user just hasn't missed anything yet.</div>
 </div>
+</div>
+
+<h3 class="subsection">Developer Notes</h3>
+<div class="code-block">
+<div class="code-block-label">Token refs</div>
+<code><span class="code-key">card container</span>       <span class="code-val">bg.primary · radius.3xl · border.quaternary 1pt</span>
+<span class="code-key">selected outfit cell</span>  <span class="code-val">border: green.50 · 2pt · radius.2xl</span>
+<span class="code-key">plan price color</span>     <span class="code-val">orange.60</span>
+<span class="code-key">best value badge</span>     <span class="code-val">green.10 bg · green.70 text · radius.full</span>
+<span class="code-key">media icon container</span> <span class="code-val">orange.10 bg · orange.60 icon · radius.xl · 40pt</span>
+<span class="code-key">score ring fill</span>      <span class="code-val">green.50 · partial arc proportional to score/100</span>
+<span class="code-key">online dot</span>           <span class="code-val">green.50 · 8pt · positioned bottom-right of avatar</span>
+<span class="code-key">mood score ring</span>      <span class="code-val">color maps to emotional state (see Instructional Mood Cards)</span></code>
 </div>
 </section><section class="section" id="comp-modals">
 <div class="section-eyebrow">Components</div>
@@ -7001,122 +6806,205 @@
 <span class="code-key">exit easing</span> <span class="code-val">easeIn · 200ms</span></code>
 </div>
 </section><section class="section" id="comp-cards-2">
-<div class="section-eyebrow">Components</div>
+<div class="section-eyebrow">Component</div>
 <h2 class="section-title">Cards &amp; Lists 2</h2>
-<p class="section-desc">Compact list rows, settings list items, activity feed rows, and summary cards with secondary
-    information. Where Cards &amp; Lists 1 covers emotional moment cards, this section covers the denser,
-    utility-oriented card and list patterns used in Settings, Health, and Activity screens.</p>
-<div style="width:100%;border-radius:var(--radius-2xl);overflow:hidden;border:1px solid var(--docs-border);box-shadow:var(--docs-shadow);background:var(--docs-surface);height:540px;margin-bottom:32px;">
-  <iframe allowfullscreen="" src="https://embed.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=709-14787&t=RAwV01tVeecFar5e-11&embed-host=share&hide-ui=1" style="width:100%;height:100%;border:none;display:block;"></iframe>
+<p class="section-desc">Dashboard metric cards, settings list rows, journal entry cards, help centre FAQ, onboarding helpers, and activity insight rows. These are contextual and data-rich — each card surfaces a specific piece of pet intelligence or app configuration.</p>
+
+<!-- FIGMA EMBED -->
+<div style="width:100%;border-radius:var(--radius-2xl);overflow:hidden;border:1px solid var(--docs-border);box-shadow:var(--docs-shadow);background:var(--docs-surface);height:560px;margin-bottom:40px;">
+  <iframe allowfullscreen="" src="https://embed.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=709-14787&t=7Fr2x0O4F48oyddd-11&embed-host=share&hide-ui=1" style="width:100%;height:100%;border:none;display:block;"></iframe>
 </div>
-<h3 class="subsection">List Row Anatomy</h3>
-<table class="token-table">
-<thead>
-<tr>
-<th>Element</th>
-<th>Token / Spec</th>
-</tr>
-</thead>
+
+<!-- OVERVIEW TABLE -->
+<h3 class="subsection">Component Overview</h3>
+<table class="token-table" style="margin-bottom:36px;">
+<thead><tr><th>Component</th><th>Screen context</th><th>Key behaviour</th></tr></thead>
 <tbody>
-<tr>
-<td>Row height</td>
-<td>min 44pt; standard 52pt with icon</td>
-</tr>
-<tr>
-<td>Leading icon</td>
-<td>24×24pt container, <span class="mono">radius.lg</span>, tinted background</td>
-</tr>
-<tr>
-<td>Primary label</td>
-<td><span class="mono">font-size: text.md · color.fg.primary</span></td>
-</tr>
-<tr>
-<td>Secondary label</td>
-<td><span class="mono">font-size: text.sm · color.fg.tertiary</span></td>
-</tr>
-<tr>
-<td>Trailing</td>
-<td>Disclosure chevron, value label, or toggle</td>
-</tr>
-<tr>
-<td>Separator</td>
-<td><span class="mono">color.border.quaternary · 0.5pt · inset 52pt from leading</span></td>
-</tr>
+<tr><td><strong>Home Mental Health Metrics Card</strong></td><td>Home screen · top dashboard</td><td>2-cell grid: Anxiety Level ring + Puppy Journal dot-grid</td></tr>
+<tr><td><strong>Home Mental Health Tracker Card</strong></td><td>Home screen · expanded view</td><td>4-row list: status, ambience, sleep, moments — each with icon + label + trailing data</td></tr>
+<tr><td><strong>Settings Card</strong></td><td>Settings / preferences</td><td>3 row variants: disclosure chevron, toggle, value + chevron, description + toggle</td></tr>
+<tr><td><strong>Journal Entries</strong></td><td>Moments feed</td><td>3-column grid of narrative cards — emoji + mood pill + title + description + tags + image</td></tr>
+<tr><td><strong>Journal Entries Home</strong></td><td>Home screen · moments preview</td><td>Compact vertical card — image cover + mood badge + time range + title + body + CTA button</td></tr>
+<tr><td><strong>Help Center FAQ Card</strong></td><td>Help / onboarding</td><td>Accordion rows — expanded (dark) + collapsed (light)</td></tr>
+<tr><td><strong>Forgot Password Card</strong></td><td>Auth / account recovery</td><td>Illustrative — lock icon + "Use 2FA" label</td></tr>
+<tr><td><strong>Activity Insight</strong></td><td>Insights screen</td><td>Single row — icon + headline + sub-label</td></tr>
 </tbody>
 </table>
-<h3 class="subsection">Dos &amp; Don'ts</h3>
-<div class="dos-donts">
-<div class="dos-box">
-<h5>Do</h5>
-<ul>
-<li>Inset row separators to align with the text, not the screen edge — matches iOS system lists.</li>
-<li>Group related rows under a section header with <span class="mono">color.fg.tertiary</span> uppercase label.
-        </li>
-<li>Use emotional state color for the leading icon tint on health/mood rows.</li>
-<li>Show a value label on the trailing side for rows with a current setting (e.g. "Twice daily").</li>
-</ul>
-</div>
-<div class="donts-box">
-<h5>Don't</h5>
-<ul>
-<li>Mix disclosure rows and non-disclosure rows in the same section without visual distinction.</li>
-<li>Truncate primary labels — reduce trailing content or resize the row first.</li>
-<li>Use more than two lines of text in a compact list row.</li>
-</ul>
-</div>
-</div>
-<h3 class="subsection">Design Principles</h3>
-<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:20px;">Compact lists in PAWWEL follow
-    the iOS system list grammar closely — familiar, scannable, warm. The icon tints and section grouping bring PAWWEL's
-    personality into what is inherently a functional surface. Keep the chrome light; let the content breathe.</p>
-<h3 class="subsection">iOS Behavior</h3>
-<table class="token-table">
-<thead>
-<tr>
-<th>Rule</th>
-<th>Implementation</th>
-</tr>
-</thead>
+
+<!-- HOME MENTAL HEALTH METRICS CARD -->
+<h3 class="subsection">Home Mental Health Metrics Card</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Side-by-side 2-cell grid on the Home screen dashboard. Left: Anxiety Level arc gauge. Right: Puppy Journal dot heatmap showing 31/365 days logged.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Cell</th><th>Element</th><th>Spec</th></tr></thead>
 <tbody>
-<tr>
-<td>Tap highlight</td>
-<td>Row background shifts to <span class="mono">color.bg.primary-hover</span> on press. Clears on release.</td>
-</tr>
-<tr>
-<td>Swipe actions</td>
-<td>Standard <span class="mono">.swipeActions</span> — destructive in red, informational in brown.</td>
-</tr>
-<tr>
-<td>Reordering</td>
-<td>Standard drag handle, only shown in edit mode.</td>
-</tr>
+<tr><td rowspan="4"><strong>Anxiety Level</strong></td><td>Label</td><td>"Anxiety Levels" · <span class="mono">font.text.xs semibold · color.fg.white</span> · heart icon prefix</td></tr>
+<tr><td>Arc gauge</td><td>~100pt · partial arc · <span class="mono">green.50</span> fill on <span class="mono">green.30</span> track</td></tr>
+<tr><td>Score</td><td>"20" · <span class="mono">font.heading.md bold · color.fg.white</span> · centered inside arc</td></tr>
+<tr><td>Sub-label</td><td>"Low" · <span class="mono">font.text.xs · color.fg.white @ 70%</span></td></tr>
+<tr><td rowspan="3"><strong>Puppy Journal</strong></td><td>Label</td><td>"Puppy Journal" · <span class="mono">font.text.xs semibold · color.fg.white</span> · book icon prefix</td></tr>
+<tr><td>Count</td><td>"31/365" · <span class="mono">font.text.xl bold · color.fg.white</span></td></tr>
+<tr><td>Dot grid</td><td>7-col dot matrix · filled dots <span class="mono">purple.30</span> · empty dots <span class="mono">purple.50 @ 20%</span> · 6pt each · <span class="mono">spacing.xs</span> gap</td></tr>
+<tr><td colspan="2"><strong>Anxiety cell bg</strong></td><td><span class="mono">green.60</span></td></tr>
+<tr><td colspan="2"><strong>Journal cell bg</strong></td><td><span class="mono">purple.60</span></td></tr>
+<tr><td colspan="2"><strong>Cell radius</strong></td><td><span class="mono">radius.3xl</span> · equal height · <span class="mono">spacing.md</span> gap between cells</td></tr>
 </tbody>
 </table>
-<h3 class="subsection">Accessibility</h3>
-<div class="dos-donts">
-<div class="dos-box">
-<h5>Required</h5>
-<ul>
-<li>Rows with trailing value announce: "[Label], current value: [value]".</li>
-<li>Swipe actions are exposed via <span class="mono">accessibilityActions</span> for VoiceOver users.</li>
-<li>Section headers carry <span class="mono">accessibilityTraits: .header</span>.</li>
-</ul>
+
+<!-- HOME MENTAL HEALTH TRACKER CARD -->
+<h3 class="subsection">Home Mental Health Tracker Card</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">4-row list card showing current pet metrics at a glance. Each row has a leading icon, a label + sub-label, and a trailing data element.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Row</th><th>Icon bg</th><th>Label</th><th>Sub-label</th><th>Trailing</th></tr></thead>
+<tbody>
+<tr><td><strong>Current Status</strong></td><td><span class="mono">brown.10</span> · activity waveform icon</td><td>"Current Status"</td><td>"Napping 💤"</td><td>Pet sleeping illustration</td></tr>
+<tr><td><strong>Room Ambience</strong></td><td><span class="mono">yellow.10</span> · home icon</td><td>"Room Ambience"</td><td>"Noise: Low" + green bar indicator</td><td>"Safe" pill (<span class="mono">green.20 bg · green.70 text</span>) + "24°C" label</td></tr>
+<tr><td><strong>Sleep Quality</strong></td><td><span class="mono">purple.10</span> · sleep icon</td><td>"Sleep Quality"</td><td>"Deep Sleep"</td><td>Arc ring "~5h" · <span class="mono">purple.50</span></td></tr>
+<tr><td><strong>Today's Moments</strong></td><td><span class="mono">orange.10</span> · running figure icon</td><td>"Today's Moments"</td><td>"Zoomies Detected"</td><td>3×3 orange dot grid</td></tr>
+</tbody>
+</table>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Icon container</td><td>36 × 36pt · <span class="mono">radius.xl</span> · tinted bg per row</td></tr>
+<tr><td>Row label</td><td><span class="mono">font.text.md semibold · color.fg.primary</span></td></tr>
+<tr><td>Row sub-label</td><td><span class="mono">font.text.sm · color.fg.tertiary</span></td></tr>
+<tr><td>Row separator</td><td><span class="mono">border.quaternary · 0.5pt · inset 52pt</span></td></tr>
+<tr><td>Container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt dashed · padding: spacing.xl</span></td></tr>
+</tbody>
+</table>
+
+<!-- SETTINGS CARD -->
+<h3 class="subsection">Settings Card</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">4 row variants used in settings and preference screens. All rows share the same leading icon + label structure; trailing elements differ per variant.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Variant</th><th>Trailing element</th><th>Usage</th></tr></thead>
+<tbody>
+<tr><td><strong>Disclosure</strong></td><td>Chevron right · <span class="mono">color.fg.quaternary</span></td><td>Navigate to sub-screen (e.g. Notifications)</td></tr>
+<tr><td><strong>Toggle (on)</strong></td><td>Green toggle · <span class="mono">green.50</span> thumb on <span class="mono">green.30</span></td><td>Boolean setting — enabled state</td></tr>
+<tr><td><strong>Value + chevron</strong></td><td>Current value label ("iPhone 14 Pro") + chevron</td><td>Selected value with option to change</td></tr>
+<tr><td><strong>Description + toggle</strong></td><td>Toggle below label row</td><td>Setting that requires an explanatory line — e.g. Sound Notifications</td></tr>
+</tbody>
+</table>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Icon container</td><td>32 × 32pt · <span class="mono">radius.lg · bg.secondary</span> · icon <span class="mono">color.fg.secondary</span></td></tr>
+<tr><td>Row label</td><td><span class="mono">font.text.md · color.fg.primary</span></td></tr>
+<tr><td>Description text</td><td><span class="mono">font.text.sm · color.fg.tertiary</span> · wraps below label</td></tr>
+<tr><td>Value label</td><td><span class="mono">font.text.sm · color.fg.tertiary</span> · right of label</td></tr>
+<tr><td>Row height</td><td>52pt (standard) · auto (description variant)</td></tr>
+<tr><td>Row separator</td><td><span class="mono">border.quaternary · 0.5pt · inset 52pt</span></td></tr>
+<tr><td>Container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt · padding: spacing.xl</span></td></tr>
+</tbody>
+</table>
+
+<!-- JOURNAL ENTRIES (3-col grid) -->
+<h3 class="subsection">Journal Entries</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">3-column grid layout used in the full Moments feed. Each card carries the pet's emotional state, a narrative headline, a description, behavioural tags, and a photo. All 6 emotional states are represented.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Grid</td><td>3 columns · equal width · <span class="mono">spacing.md</span> gap</td></tr>
+<tr><td>Mood emoji</td><td>32pt circle · state color bg · emoji centered</td></tr>
+<tr><td>Mood pill</td><td>Trailing · state color bg + text · <span class="mono">radius.full · font.text.2xs semibold</span></td></tr>
+<tr><td>Headline</td><td><span class="mono">font.text.md bold · color.fg.primary</span> · max 2 lines</td></tr>
+<tr><td>Description</td><td><span class="mono">font.text.sm · color.fg.secondary</span> · max 4 lines</td></tr>
+<tr><td>Tags row</td><td>Heart icon + tag · Paw icon + tag · <span class="mono">font.text.xs · color.fg.tertiary · spacing.sm</span> gap</td></tr>
+<tr><td>Photo</td><td>Full-width · ~120pt height · <span class="mono">radius.xl · object-fit: cover</span></td></tr>
+<tr><td>Card container</td><td><span class="mono">bg.primary · radius.2xl · border: border.quaternary 1pt</span></td></tr>
+</tbody>
+</table>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Mood state</th><th>Pill color</th><th>Example headline</th></tr></thead>
+<tbody>
+<tr><td>Calm &amp; Happy</td><td><span class="mono">green.20 · green.80</span></td><td>"The Great Hunter"</td></tr>
+<tr><td>Playful</td><td><span class="mono">yellow.10 · yellow.80</span></td><td>"The Balcony Investigator"</td></tr>
+<tr><td>Slightly Uneasy</td><td><span class="mono">brown.20 · brown.100</span></td><td>"Calm Mode Restored"</td></tr>
+<tr><td>Needs Attention</td><td><span class="mono">orange.10 · orange.80</span></td><td>"Missing Your Presence"</td></tr>
+<tr><td>Overstimulated</td><td><span class="mono">red.10 · red.80</span></td><td>"Perimeter Alert Triggered"</td></tr>
+<tr><td>Resting</td><td><span class="mono">gray.10 · gray.70</span></td><td>"Battery at Zero"</td></tr>
+</tbody>
+</table>
+
+<!-- JOURNAL ENTRIES HOME -->
+<h3 class="subsection">Journal Entries Home</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Compact portrait card used on the Home screen to preview the most recent moment. Image is the hero — overlaid with mood badge and time range. Body text + CTA button sit below.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Image area</td><td>Full-width · ~160pt height · <span class="mono">radius.3xl</span> top · <span class="mono">object-fit: cover</span></td></tr>
+<tr><td>Mood badge</td><td>Top-right overlay · <span class="mono">bg.primary · radius.full · font.text.xs semibold</span></td></tr>
+<tr><td>Mood emoji</td><td>Top-left overlay · 28pt circle · state color</td></tr>
+<tr><td>Time range pill</td><td>Bottom-left overlay · clock icon + "16:25–17:32" · <span class="mono">bg.overlay · color.fg.white · radius.full · font.text.xs</span></td></tr>
+<tr><td>Headline</td><td><span class="mono">font.text.md bold · color.fg.primary</span></td></tr>
+<tr><td>Body</td><td><span class="mono">font.text.sm · color.fg.tertiary</span> · max 3 lines</td></tr>
+<tr><td>CTA button</td><td>"Play music 🎵" · <span class="mono">btn-accent · btn-sm · radius.full · orange.60 bg</span></td></tr>
+<tr><td>Card container</td><td><span class="mono">bg.primary · radius.3xl · border: border.quaternary 1pt</span></td></tr>
+</tbody>
+</table>
+
+<!-- HELP CENTER FAQ CARD -->
+<h3 class="subsection">Help Center FAQ Card</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Accordion-style FAQ component. Expanded row uses dark <span class="mono">brown.100</span> surface with white text. Collapsed row is light with a smile icon disclosure indicator.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>State</th><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td rowspan="4"><strong>Expanded</strong></td><td>Container</td><td><span class="mono">brown.100 bg · radius.3xl · padding: spacing.xl</span></td></tr>
+<tr><td>Question</td><td><span class="mono">font.text.md bold · color.fg.white</span></td></tr>
+<tr><td>Answer</td><td><span class="mono">font.text.sm · color.fg.white @ 80%</span> · max 4 lines</td></tr>
+<tr><td>Trailing icon</td><td>Dash/minus · <span class="mono">color.fg.white · 24pt circle bg: brown.80</span></td></tr>
+<tr><td rowspan="3"><strong>Collapsed</strong></td><td>Container</td><td><span class="mono">bg.primary · radius.3xl · padding: spacing.xl</span></td></tr>
+<tr><td>Question</td><td><span class="mono">font.text.md bold · color.fg.primary</span></td></tr>
+<tr><td>Trailing icon</td><td>Smile / chevron · <span class="mono">color.fg.tertiary · 24pt</span></td></tr>
+</tbody>
+</table>
+
+<!-- FORGOT PASSWORD CARD -->
+<h3 class="subsection">Forgot Password Card</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Illustrative helper card on the auth recovery screen. Lock icon with green tint + "Use 2FA" label. Purely informational — no interactive element.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Icon container</td><td>72pt circle · <span class="mono">green.20 bg</span> · padlock icon · <span class="mono">brown.100</span></td></tr>
+<tr><td>Label</td><td>"Use 2FA" · <span class="mono">font.text.xl semibold · color.fg.primary</span></td></tr>
+<tr><td>Layout</td><td>Icon left · label right · vertically centered · <span class="mono">spacing.xl</span> gap</td></tr>
+<tr><td>Container</td><td>No border · <span class="mono">bg.primary · padding: spacing.xl</span></td></tr>
+</tbody>
+</table>
+
+<!-- ACTIVITY INSIGHT -->
+<h3 class="subsection">Activity Insight Row</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Single-row insight summary used on the Insights screen. Leading icon in a tinted circle, headline, and sub-label. Non-interactive display component.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Icon container</td><td>48pt circle · <span class="mono">yellow.40 bg</span> · sun/activity icon · white</td></tr>
+<tr><td>Headline</td><td>"3 Joyful Play Moments" · <span class="mono">font.text.md bold · color.fg.primary</span></td></tr>
+<tr><td>Sub-label</td><td>"Recorded 3 joyful play sessions" · <span class="mono">font.text.sm · color.fg.tertiary</span></td></tr>
+<tr><td>Layout</td><td>Icon left · text right · vertically centered · <span class="mono">spacing.lg</span> gap</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-info">
+<div class="callout-icon">📊</div>
+<div class="callout-body">
+<div class="callout-title">Tracker card vs Metrics card</div>
+<div class="callout-text">The <strong>Metrics Card</strong> (2-cell grid) lives at the top of the Home screen as an always-visible at-a-glance widget. The <strong>Tracker Card</strong> (4-row list) is a scrollable detail component beneath it — it surfaces more context on demand without overwhelming the initial view.</div>
 </div>
-<div class="donts-box">
-<h5>Avoid</h5>
-<ul>
-<li>Purely icon-based list rows without an accessible label for the icon's meaning.</li>
-</ul>
 </div>
-</div>
+
 <h3 class="subsection">Developer Notes</h3>
 <div class="code-block">
 <div class="code-block-label">Token refs</div>
-<code><span class="code-key">row bg</span> <span class="code-val">color.bg.primary</span>
-<span class="code-key">row press bg</span> <span class="code-val">color.bg.primary-hover</span>
-<span class="code-key">icon container</span> <span class="code-val">24pt · radius.lg · bg: tinted state color</span>
-<span class="code-key">separator</span> <span class="code-val">color.border.quaternary · 0.5pt</span>
-<span class="code-key">section header</span> <span class="code-val">color.fg.tertiary · font-size: text.xs · uppercase · semibold</span></code>
+<code><span class="code-key">anxiety cell bg</span>       <span class="code-val">green.60</span>
+<span class="code-key">journal cell bg</span>       <span class="code-val">purple.60</span>
+<span class="code-key">dot grid filled</span>       <span class="code-val">purple.30</span>
+<span class="code-key">dot grid empty</span>        <span class="code-val">purple.50 @ 20%</span>
+<span class="code-key">settings toggle on</span>    <span class="code-val">green.50 track · white thumb</span>
+<span class="code-key">faq expanded bg</span>       <span class="code-val">brown.100</span>
+<span class="code-key">journal mood pill</span>     <span class="code-val">maps to emotional state color system</span>
+<span class="code-key">home card CTA</span>         <span class="code-val">orange.60 bg · color.fg.white · radius.full</span>
+<span class="code-key">insight icon</span>          <span class="code-val">yellow.40 bg · white icon</span></code>
 </div>
 </section><section class="section" id="comp-file-upload">
 <div class="section-eyebrow">Components</div>
@@ -7326,78 +7214,179 @@
 </section><section class="section" id="comp-misc">
 <div class="section-eyebrow">Foundations</div>
 <h2 class="section-title">Misc &amp; Helper</h2>
-<p class="section-desc">Dividers, empty states, badges, status dots, helper text, and other utility components that support the PAWWEL UI without being primary components in their own right. These are the connective tissue of the design system.</p>
-<div style="width:100%;border-radius:var(--radius-2xl);overflow:hidden;border:1px solid var(--docs-border);box-shadow:var(--docs-shadow);background:var(--docs-surface);height:540px;margin-bottom:32px;">
+<p class="section-desc">Utility components, helper elements, data visualisations, device chrome, and brand assets that support the PAWWEL UI system. These are the connective tissue — not primary components, but essential to a coherent product.</p>
+
+<!-- FIGMA EMBED -->
+<div style="width:100%;border-radius:var(--radius-2xl);overflow:hidden;border:1px solid var(--docs-border);box-shadow:var(--docs-shadow);background:var(--docs-surface);height:560px;margin-bottom:40px;">
   <iframe allowfullscreen="" src="https://embed.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=310-10547&t=RAwV01tVeecFar5e-11&embed-host=share&hide-ui=1" style="width:100%;height:100%;border:none;display:block;"></iframe>
 </div>
-<h3 class="subsection">Component Inventory</h3>
-<table class="token-table">
-<thead><tr><th>Component</th><th>Token / Spec</th><th>Usage</th></tr></thead>
+
+<!-- ─── PAWWEL PSYCHE ─── -->
+<h3 class="subsection">Pawwel Psyche</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:20px;">The Pawwel Psyche is a dot-based visual metaphor for the pet's emotional intensity — smaller, lighter dots represent calm; larger, filled dots represent heightened states. Used as a background or ambient texture on hero cards.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Property</th><th>Spec</th></tr></thead>
 <tbody>
-<tr><td>Divider</td><td><span class="mono">color.border.quaternary · 1pt · full width</span></td><td>Section separation, form group breaks</td></tr>
-<tr><td>Inset divider</td><td><span class="mono">color.border.quaternary · 0.5pt · inset 52pt</span></td><td>List row separators</td></tr>
-<tr><td>Status dot</td><td>8pt circle, state color</td><td>Online, recording, error indicator</td></tr>
-<tr><td>Badge</td><td><span class="mono">radius.full · min 18pt wide · font: text.xs semibold</span></td><td>Notification count on tab bar, list items</td></tr>
-<tr><td>Helper text</td><td><span class="mono">font-size: text.xs · color.fg.tertiary</span></td><td>Below inputs, beneath form sections</td></tr>
-<tr><td>Error text</td><td><span class="mono">font-size: text.xs · state.error.solid</span></td><td>Field validation errors</td></tr>
-<tr><td>Tooltip anchor</td><td>16pt info icon, <span class="mono">color.fg.quaternary</span></td><td>Alongside form labels or ambiguous data</td></tr>
+<tr><td>Dot sizes</td><td>Ranges from 4pt (calm) to 20pt (peak intensity)</td></tr>
+<tr><td>Dot color</td><td><span class="mono">brown.100</span> at varying opacity (8% → 64%)</td></tr>
+<tr><td>Layout</td><td>Organic grid, 2 rows · dots increase left-to-right</td></tr>
+<tr><td>Usage</td><td>Background texture on hero / status cards only — never on interactive surfaces</td></tr>
+<tr><td>Reduce Motion</td><td>Static — no animation applied to the psyche pattern</td></tr>
 </tbody>
 </table>
-<h3 class="subsection">Empty States</h3>
-<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:20px;">Empty states in PAWWEL are never blank. They always include: an illustration or icon, a warm headline ("No moments yet — Apple's first one will appear here"), and an optional action. The tone matches the emotional state of the screen — the Moments feed empty state is gentle and inviting, not bureaucratic.</p>
-<h3 class="subsection">Dos &amp; Don'ts</h3>
-<div class="dos-donts">
-<div class="dos-box">
-<h5>Do</h5>
-<ul>
-<li>Use the inset divider in lists; full-width divider between content sections.</li>
-<li>Keep badge counts readable — if &gt;99, show "99+".</li>
-<li>Empty state headlines reference the pet by name when the pet profile is known.</li>
-<li>Helper text is always persistent (not on focus only) — the user may need it before touching the field.</li>
-</ul>
-</div>
-<div class="donts-box">
-<h5>Don't</h5>
-<ul>
-<li>Show helper text and error text simultaneously — error text replaces helper text.</li>
-<li>Use generic empty states ("No data found") — write specific, warm copy.</li>
-<li>Place a badge on a component smaller than 32pt — the badge overwhelms the parent.</li>
-</ul>
-</div>
-</div>
-<h3 class="subsection">iOS Behavior</h3>
-<table class="token-table">
-<thead><tr><th>Component</th><th>Note</th></tr></thead>
+
+<!-- ─── DS SWATCHES ─── -->
+<h3 class="subsection">DS Swatches</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:20px;">Rounded pill/capsule swatches used in the design system itself to preview color tokens at scale. Two sizes: large (pill ~60×96pt) and standard (pill ~44×72pt).</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Property</th><th>Spec</th></tr></thead>
 <tbody>
-<tr><td>Badge</td><td>Native <span class="mono">UNUserNotificationCenter</span> badge for app icon; custom badge overlay for in-app tab bar.</td></tr>
-<tr><td>Status dot</td><td>Pulse animation (scale 1.0 → 1.3 → 1.0, loop) for "Live" states. Reduce Motion: static.</td></tr>
+<tr><td>Shape</td><td>Vertical rounded pill · <span class="mono">radius.full</span></td></tr>
+<tr><td>Large size</td><td>~60 × 96pt</td></tr>
+<tr><td>Standard size</td><td>~44 × 72pt</td></tr>
+<tr><td>Label</td><td>Token name + hex value below swatch · <span class="mono">font.text.sm · color.fg.secondary</span></td></tr>
+<tr><td>Usage</td><td>Design system documentation only — not used in app UI</td></tr>
 </tbody>
 </table>
-<h3 class="subsection">Accessibility</h3>
-<div class="dos-donts">
-<div class="dos-box">
-<h5>Required</h5>
-<ul>
-<li>Badges expose count as <span class="mono">accessibilityValue</span> on the parent element.</li>
-<li>Status dots announce their meaning, not just their color.</li>
-<li>Empty state CTAs meet 44pt minimum touch target.</li>
-</ul>
+
+<!-- ─── SOCIAL MEDIA ICONS ─── -->
+<h3 class="subsection">Social Media Icons</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:20px;">A complete set of monochrome social platform icons for use in profile links, share sheets, and settings screens. All icons are 24pt, rendered in <span class="mono">color.fg.primary</span>.</p>
+<table class="token-table" style="margin-bottom:16px;">
+<thead><tr><th>Included platforms</th><th>Usage context</th></tr></thead>
+<tbody>
+<tr><td>Facebook, YouTube, Instagram, LinkedIn, Behance, Dribbble, Discord</td><td>Row 1 — social profiles</td></tr>
+<tr><td>Product Hunt, Figma, GitHub, Framer, Notion, Webflow, Layers</td><td>Row 2 — design/dev tools</td></tr>
+<tr><td>Mastodon, Messenger, Canva, Pinterest, Snapchat, Telegram, TikTok</td><td>Row 3 — messaging / social</td></tr>
+<tr><td>Twitch, X (Twitter), WhatsApp, Google, Amazon, Windows, Apple</td><td>Row 4 — platforms</td></tr>
+</tbody>
+</table>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Property</th><th>Spec</th></tr></thead>
+<tbody>
+<tr><td>Size</td><td>24pt · optical fill within 24pt box</td></tr>
+<tr><td>Color</td><td><span class="mono">color.fg.primary</span> (monochrome, no brand colors)</td></tr>
+<tr><td>Container</td><td>None — icon sits directly in parent layout</td></tr>
+<tr><td>Tap target</td><td>Wrap in 44pt touch area when interactive</td></tr>
+</tbody>
+</table>
+
+<!-- ─── MISC 1: DATA INDICATORS ─── -->
+<h3 class="subsection">Misc 1 — Data Indicators</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Small atomic indicators used across data screens: activity dots, vertical bar markers, circular progress rings, horizontal range sliders, day labels, numbered date badges, and avatar stacks.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th><th>Usage</th></tr></thead>
+<tbody>
+<tr><td>Activity dot (filled)</td><td>8pt circle · <span class="mono">green.50</span></td><td>Active / healthy state indicator</td></tr>
+<tr><td>Activity dot (empty)</td><td>8pt circle · <span class="mono">color.border.tertiary</span></td><td>Inactive / no data state</td></tr>
+<tr><td>Vertical bar marker</td><td>4 × 20pt · <span class="mono">brown.30</span> / <span class="mono">brown.100</span></td><td>Timeline tick marks, chart axis</td></tr>
+<tr><td>Circular ring progress</td><td>32pt · stroke 3pt · <span class="mono">orange.50</span> on <span class="mono">orange.10</span></td><td>Daily goal completion ring</td></tr>
+<tr><td>Range slider</td><td>Full width · thumb 20pt · track 4pt · <span class="mono">green.50</span> fill</td><td>Intensity ranges in insights</td></tr>
+<tr><td>Day label</td><td><span class="mono">font.text.xs · color.fg.tertiary</span> · "Mon"–"Sun"</td><td>Calendar and chart x-axis</td></tr>
+<tr><td>Date number badge</td><td>32pt circle · outlined · <span class="mono">font.text.md semibold</span></td><td>Active date selection</td></tr>
+<tr><td>Pet avatar stack</td><td>28pt circle · 2-unit overlap · border <span class="mono">brown.white</span></td><td>Multi-pet summary row</td></tr>
+</tbody>
+</table>
+
+<!-- ─── MISC 3: MEDIA & APP STORE ─── -->
+<h3 class="subsection">Misc 3 — Media &amp; App Store Badges</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Emoji mood grid, App Store / Google Play badges, and audio waveform visualiser component.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th><th>Usage</th></tr></thead>
+<tbody>
+<tr><td>Emoji mood grid</td><td>5×4 grid · 28pt emojis · <span class="mono">spacing.xs</span> gap</td><td>Pet mood history calendar — each cell shows dominant daily emotion</td></tr>
+<tr><td>App Store badge</td><td>Official Apple badge · black · 135 × 40pt</td><td>Onboarding, referral, and marketing screens</td></tr>
+<tr><td>Google Play badge</td><td>Official Google badge · black · 135 × 40pt</td><td>Companion to App Store badge</td></tr>
+<tr><td>Audio waveform</td><td>Full-width bar chart · bars 3pt wide · <span class="mono">brown.50</span> default · <span class="mono">green.50</span> played</td><td>Voice memo playback in Chat; audio player in Bot bubble</td></tr>
+<tr><td>Waveform timestamp</td><td><span class="mono">font.text.xs · color.fg.tertiary</span> · left = elapsed, right = total</td><td>Below waveform bar</td></tr>
+</tbody>
+</table>
+
+<!-- ─── CONNECT TO PAWWEL ─── -->
+<h3 class="subsection">Connect to PAWWEL — Connection States</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Three-state radial animation used on the pairing / connection screen. Concentric circles pulse outward to signal scanning, success, or failure.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>State</th><th>Center icon</th><th>Ring colors</th><th>Animation</th></tr></thead>
+<tbody>
+<tr><td>Scanning / connecting</td><td>WiFi icon · <span class="mono">brown.white</span> on <span class="mono">brown.60</span></td><td><span class="mono">brown.20 → brown.30 → brown.40</span> (3 rings)</td><td>Outward pulse loop · <span class="mono">spring.default</span> · 1.8s</td></tr>
+<tr><td>Connected ✓</td><td>Checkmark · <span class="mono">brown.white</span> on <span class="mono">green.60</span></td><td><span class="mono">green.10 → green.20 → green.30</span> (3 rings)</td><td>Single burst expand then idle breathe</td></tr>
+<tr><td>Failed ✕</td><td>X icon · <span class="mono">brown.white</span> on <span class="mono">red.60</span></td><td><span class="mono">red.10 → red.20 → red.30</span> (3 rings)</td><td>Short shake then static · Reduce Motion: no shake</td></tr>
+</tbody>
+</table>
+
+<!-- ─── MISC 4: DEVICE CHROME ─── -->
+<h3 class="subsection">Misc 4 — Device Chrome</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">iOS system-level elements included in the design system for mockup and spec fidelity.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>iOS Keyboard (light)</td><td>Standard QWERTY · system gray · Go / Return key</td><td>Used in all text input screens. Height ~260pt. Never replace with custom keyboard.</td></tr>
+<tr><td>iOS Keyboard (dark)</td><td>Same layout · dark system surface</td><td>Respects system dark mode — no design override.</td></tr>
+<tr><td>Status bar</td><td>Time left · signal + WiFi + battery right · <span class="mono">9:41</span> canonical design time</td><td>Always use 9:41 in mockups. Height 44–54pt depending on device.</td></tr>
+<tr><td>Home indicator</td><td>134pt wide · 5pt tall pill · <span class="mono">brown.100</span> at 20% opacity</td><td>Centered. Respect <span class="mono">safeAreaInsets.bottom</span> — never overlap with interactive content.</td></tr>
+<tr><td>Sheet handle</td><td>36 × 4pt pill · <span class="mono">color.border.tertiary</span> · 8pt top margin</td><td>Always visible on bottom sheets. Communicates drag-to-dismiss affordance.</td></tr>
+</tbody>
+</table>
+
+<!-- ─── MISC: LABEL ─── -->
+<h3 class="subsection">Label Component</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Small leading-dot label used as section headers in lists, cards, and the design system itself. Three sizes: small, medium, large. The dot is always <span class="mono">brown.100</span>.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Size</th><th>Font</th><th>Dot</th><th>Usage</th></tr></thead>
+<tbody>
+<tr><td>Small</td><td><span class="mono">font.text.xs · color.fg.tertiary · tracking 0.08em · uppercase</span></td><td>5pt · <span class="mono">brown.60</span></td><td>Sub-labels, helper context</td></tr>
+<tr><td>Medium</td><td><span class="mono">font.text.sm · color.fg.secondary · semibold</span></td><td>6pt · <span class="mono">brown.80</span></td><td>Card section headers</td></tr>
+<tr><td>Large</td><td><span class="mono">font.text.md · color.fg.primary · bold</span></td><td>8pt · <span class="mono">brown.100</span></td><td>Frame headers in Figma DS; section group labels</td></tr>
+</tbody>
+</table>
+
+<!-- ─── MISC: MOOD & TIME HELPERS ─── -->
+<h3 class="subsection">Mood Scale &amp; Time-of-Day Helpers</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Inline display helpers used on insight and history screens.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Element</th><th>Spec</th><th>Usage</th></tr></thead>
+<tbody>
+<tr><td>Mood scale label</td><td>Numeric range (e.g. "10–20") + descriptive label ("Suicidal") · <span class="mono">font.text.xs · color.fg.tertiary</span></td><td>Anxiety / stress scale legend on charts</td></tr>
+<tr><td>Time-of-day badge</td><td>Sun/moon icon + label ("Morning") + time ("~08:00 AM") · <span class="mono">font.text.lg semibold · yellow.50</span> icon</td><td>Activity peak time on daily summary card</td></tr>
+<tr><td>Stat row</td><td>Label ("Longest Meditation") + value ("10 min, 21 sec") · inline · <span class="mono">font.text.sm semibold</span></td><td>Insight summary rows</td></tr>
+</tbody>
+</table>
+
+<!-- ─── CHARTS ─── -->
+<h3 class="subsection">Charts</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:16px;">Data visualisation components used in the Insights and Health screens. All charts use the PAWWEL color palette — green for healthy states, orange for anxiety spikes, red for overstimulation. Charts always include a text legend — never use color as the sole data encoding.</p>
+<table class="token-table" style="margin-bottom:32px;">
+<thead><tr><th>Chart type</th><th>Color tokens</th><th>Usage</th></tr></thead>
+<tbody>
+<tr><td>Bar chart (weekly)</td><td>Bars: <span class="mono">green.30–green.50</span> (good) · <span class="mono">orange.40</span> (anxiety spike)</td><td>Weekly mood overview · Mon–Sun · legend: "Good day" / "Anxiety Spike"</td></tr>
+<tr><td>Area chart (daily)</td><td>Fill: <span class="mono">green.20</span> · line: <span class="mono">green.50</span> · spike pin: <span class="mono">orange.50</span></td><td>Intraday activity curve · 08:00–20:00 x-axis · High/Low callout pills</td></tr>
+<tr><td>Area chart (weekly)</td><td>Same as daily area · x-axis Mon–Sun</td><td>7-day trend line · compact view</td></tr>
+<tr><td>Donut / ring chart</td><td>Outer: <span class="mono">purple.50</span> · inner: <span class="mono">orange.50</span> · bg ring: <span class="mono">brown.10</span></td><td>Sleep composition (total + segments) · center label shows total hours</td></tr>
+<tr><td>Temperature gauge</td><td>Arc: <span class="mono">green.50</span> fill on <span class="mono">brown.20</span> track · needle: none</td><td>Ambient temperature reading · 0°C–40°C range · "Safe" pill label</td></tr>
+<tr><td>Arc intensity strips</td><td>Segmented arc · color ramps: green, yellow-orange, red-pink</td><td>Emotional intensity bands — shown as a strip of 6 arc variants (3 colors × 2 fill levels)</td></tr>
+</tbody>
+</table>
+
+<div class="callout callout-warn">
+<div class="callout-icon">⚠️</div>
+<div class="callout-body">
+<div class="callout-title">Chart accessibility rule</div>
+<div class="callout-text">Every chart must include a text alternative — either a data table below or a descriptive summary sentence. Never rely on color alone to communicate data. All High/Low callout pills must carry a text label, not just a colored dot.</div>
 </div>
-<div class="donts-box">
-<h5>Avoid</h5>
-<ul>
-<li>Decorative dividers in VoiceOver's focus order.</li>
-</ul>
 </div>
-</div>
+
 <h3 class="subsection">Developer Notes</h3>
 <div class="code-block">
 <div class="code-block-label">Token refs</div>
-<code><span class="code-key">divider</span> <span class="code-val">color.border.quaternary</span>
-<span class="code-key">badge bg</span> <span class="code-val">color.state.error.solid (notification) / color.bg.active (info)</span>
-<span class="code-key">badge text</span> <span class="code-val">color.fg.white · font-size: text.2xs · semibold</span>
-<span class="code-key">helper text</span> <span class="code-val">color.fg.tertiary · font-size: text.xs</span>
-<span class="code-key">error text</span> <span class="code-val">color.state.error.solid · font-size: text.xs</span></code>
+<code><span class="code-key">chart positive</span>     <span class="code-val">green.50 · fill: green.20</span>
+<span class="code-key">chart spike</span>        <span class="code-val">orange.40 · callout bg: orange.50</span>
+<span class="code-key">chart danger</span>       <span class="code-val">red.40 · callout bg: red.50</span>
+<span class="code-key">gauge track</span>        <span class="code-val">brown.20 · fill: green.50</span>
+<span class="code-key">connect scanning</span>   <span class="code-val">brown.60 center · rings: brown.20/30/40</span>
+<span class="code-key">connect success</span>    <span class="code-val">green.60 center · rings: green.10/20/30</span>
+<span class="code-key">connect failed</span>     <span class="code-val">red.60 center · rings: red.10/20/30</span>
+<span class="code-key">home indicator</span>     <span class="code-val">brown.100 · 20% opacity · 134 × 5pt</span>
+<span class="code-key">label dot (lg)</span>     <span class="code-val">brown.100 · 8pt circle</span></code>
 </div>
 </section><section class="section" id="comp-accordion">
 <div class="section-eyebrow">Components</div>
@@ -7549,90 +7538,7 @@
 <span class="code-key">page dot rest</span> <span class="code-val">color.bg.tertiary · 6pt</span>
 <span class="code-key">end state label</span> <span class="code-val">color.fg.quaternary · font-size: text.sm · centered</span></code>
 </div>
-</section><section class="section" id="comp-robot">
-<div class="section-eyebrow">Component</div>
-<h2 class="section-title">Robot Status Card</h2>
-<p class="section-desc">
-              The hero module on the Home screen. The robot is a character — its
-              state must feel alive, not like a device indicator.
-            </p>
-<div class="component-preview" style="justify-content: center">
-<div class="robot-status-card">
-<div class="robot-status-name">PAWWEL · Apple's Robot</div>
-<span class="robot-status-emoji">🤖</span>
-<div class="robot-status-state">Feeling Playful</div>
-<div class="robot-status-sub">
-                  Apple had an energetic afternoon
-                </div>
-<div class="robot-status-pills">
-<span class="robot-pill">Active 45min</span>
-<span class="robot-pill">Low anxiety</span>
-<span class="robot-pill">Auto-tracking: On</span>
-</div>
-</div>
-</div>
-<h3 class="subsection">Robot Emotional States</h3>
-<table class="token-table">
-<thead>
-<tr>
-<th>State</th>
-<th>Display Text</th>
-<th>Card BG</th>
-<th>Animation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Calm &amp; Happy</td>
-<td>"Feeling Calm &amp; Happy"</td>
-<td>green.10</td>
-<td>Slow idle breathing (1.6s loop)</td>
-</tr>
-<tr>
-<td>Playful</td>
-<td>"Feeling Playful"</td>
-<td>yellow.10</td>
-<td>Bouncy spring head movements</td>
-</tr>
-<tr>
-<td>Slightly Uneasy</td>
-<td>"A Little Uneasy"</td>
-<td>color.base.brown.30</td>
-<td>Gentle idle, slower gaze shifts</td>
-</tr>
-<tr>
-<td>Needs Attention</td>
-<td>"Needs Attention"</td>
-<td>orange.10</td>
-<td>Attentive posture, soft alert</td>
-</tr>
-<tr>
-<td>Overstimulated</td>
-<td>"Overstimulated"</td>
-<td>red.10</td>
-<td>Fast breathing, restrained motion</td>
-</tr>
-<tr>
-<td>Resting</td>
-<td>"Taking a Nap"</td>
-<td>gray.10</td>
-<td>Eyes closed, minimal movement</td>
-</tr>
-<tr>
-<td>🔌 Charging</td>
-<td>"Recharging"</td>
-<td>brown.80</td>
-<td>Pulsing glow, still body</td>
-</tr>
-<tr>
-<td>📡 Offline</td>
-<td>"Not Connected"</td>
-<td>gray.80</td>
-<td>Static, no animation</td>
-</tr>
-</tbody>
-</table>
-</section></section><section class="section" id="comp-skeleton">
+</section><section class="section" id="comp-skeleton">
 <div class="section-eyebrow">Component</div>
 <h2 class="section-title">Loading &amp; Skeleton States</h2>
 <p class="section-desc">
