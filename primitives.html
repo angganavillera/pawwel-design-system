@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PAWWEL Design System — Primitive Tokens</title>
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin/>
+<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div id="pw-gate" style="position:fixed;inset:0;background:#faf8f6;display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="text-align:center;max-width:320px;width:100%;padding:0 24px;">
+    <div style="width:40px;height:40px;background:#251404;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+      <svg viewBox="0 0 20 20" width="20" height="20" fill="white"><circle cx="10" cy="8" r="5"/><ellipse cx="10" cy="16" rx="6" ry="2.5"/></svg>
+    </div>
+    <div style="font-size:18px;font-weight:600;color:#251404;margin-bottom:4px;">PAWWEL Design System</div>
+    <div style="font-size:13px;color:#926247;margin-bottom:28px;">Enter password to continue</div>
+    <input id="pw-input" type="password" placeholder="Password"
+      style="width:100%;box-sizing:border-box;padding:10px 14px;border:1px solid #e8ddd9;border-radius:8px;font-size:14px;color:#251404;background:#fff;outline:none;margin-bottom:8px;"
+      onkeydown="if(event.key==='Enter')checkPw()"
+    />
+    <div id="pw-error" style="font-size:12px;color:#ea580c;margin-bottom:8px;min-height:16px;"></div>
+    <button onclick="checkPw()"
+      style="width:100%;padding:10px;background:#251404;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;">
+      Continue
+    </button>
+  </div>
+</div>
+<script>
+  (function() {
+    if (sessionStorage.getItem('pawwel_auth') === '1') {
+      document.getElementById('pw-gate').style.display = 'none';
+    }
+  })();
+  function checkPw() {
+    var val = document.getElementById('pw-input').value;
+    if (val === 'pawwel') {
+      sessionStorage.setItem('pawwel_auth', '1');
+      document.getElementById('pw-gate').style.display = 'none';
+    } else {
+      document.getElementById('pw-error').textContent = 'Incorrect password.';
+      document.getElementById('pw-input').focus();
+    }
+  }
+</script>
+
+<script>
+  (function() {
+    if (sessionStorage.getItem('pawwel_auth') === '1') {
+      document.getElementById('pw-gate').style.display = 'none';
+    }
+  })();
+  function checkPw() {
+    var val = document.getElementById('pw-input').value;
+    if (val === 'pawwel') {
+      sessionStorage.setItem('pawwel_auth', '1');
+      document.getElementById('pw-gate').style.display = 'none';
+    } else {
+      document.getElementById('pw-error').textContent = 'Incorrect password.';
+      document.getElementById('pw-input').focus();
+    }
+  }
+</script>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+    </button>
+    <span class="topbar-label">PAWWEL Design System</span>
+    <div class="topbar-divider"></div>
+    <span class="topbar-label" style="color:var(--docs-text-3);font-weight:400;">v1.0 · iOS-first</span>
+  </div>
+  <div class="topbar-right">
+    <a class="topbar-btn topbar-btn-figma"
+       href="https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=234-1829&t=K90eA8IWtuuhcaqh-1"
+       target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 28.5C19 25.9804 20.0009 23.5641 21.7825 21.7825C23.5641 20.0009 25.9804 19 28.5 19C31.0196 19 33.4359 20.0009 35.2175 21.7825C36.9991 23.5641 38 25.9804 38 28.5C38 31.0196 36.9991 33.4359 35.2175 35.2175C33.4359 36.9991 31.0196 38 28.5 38C25.9804 38 23.5641 36.9991 21.7825 35.2175C20.0009 33.4359 19 31.0196 19 28.5Z" fill="currentColor"/>
+        <path d="M0 47.5C0 44.9804 1.00089 42.5641 2.78249 40.7825C4.56408 39.0009 6.98044 38 9.5 38H19V47.5C19 50.0196 17.9991 52.4359 16.2175 54.2175C14.4359 55.9991 12.0196 57 9.5 57C6.98044 57 4.56408 55.9991 2.78249 54.2175C1.00089 52.4359 0 50.0196 0 47.5Z" fill="currentColor"/>
+        <path d="M19 0V19H28.5C31.0196 19 33.4359 17.9991 35.2175 16.2175C36.9991 14.4359 38 12.0196 38 9.5C38 6.98044 36.9991 4.56408 35.2175 2.78249C33.4359 1.00089 31.0196 0 28.5 0H19Z" fill="currentColor"/>
+        <path d="M0 9.5C0 12.0196 1.00089 14.4359 2.78249 16.2175C4.56408 17.9991 6.98044 19 9.5 19H19V0H9.5C6.98044 0 4.56408 1.00089 2.78249 2.78249C1.00089 4.56408 0 6.98044 0 9.5Z" fill="currentColor"/>
+        <path d="M0 28.5C0 31.0196 1.00089 33.4359 2.78249 35.2175C4.56408 36.9991 6.98044 38 9.5 38H19V19H9.5C6.98044 19 4.56408 20.0009 2.78249 21.7825C1.00089 23.5641 0 25.9804 0 28.5Z" fill="currentColor"/>
+      </svg>
+      Open in Figma
+    </a>
+  </div>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+<div class="layout">
+<div class="sidebar-overlay" id="sidebarOverlay" role="presentation"></div>
+<aside class="sidebar" id="sidebar" role="navigation" aria-label="Design system navigation">
+<div class="sidebar-header">
+<a class="sidebar-logo" href="index.html">
+<div class="sidebar-logo-mark">
+<svg viewBox="0 0 20 20"><circle cx="10" cy="8" r="5"></circle><ellipse cx="10" cy="16" rx="6" ry="2.5"></ellipse></svg>
+</div>
+<div class="sidebar-logo-text">
+<div class="sidebar-logo-title">PAWWEL</div>
+<div class="sidebar-logo-sub">Design System</div>
+</div>
+</a>
+<div class="sidebar-version">v1.0 · iOS-first</div>
+</div>
+<nav class="sidebar-nav" id="pawwel-nav"></nav>
+</aside>
+<main class="main">
+<div class="hero">
+<div class="hero-eyebrow">Design System Guide</div>
+<h1 class="hero-title">PAWWEL<br/><span>Design System</span></h1>
+<p class="hero-desc">A comprehensive reference for the PAWWEL visual language and component library. Designed to bridge the gap between Figma source designs and technical implementation.</p>
+<div class="hero-actions">
+<a aria-label="View PAWWEL design system Figma file in a new tab" class="figma-link" href="https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=234-1829" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" fill="none" focusable="false" height="14" viewBox="0 0 38 57" width="14">
+<path d="M19 28.5C19 25.98 20 23.56 21.78 21.78C23.56 20 25.98 19 28.5 19C31.02 19 33.44 20 35.22 21.78C37 23.56 38 25.98 38 28.5C38 31.02 37 33.44 35.22 35.22C33.44 37 31.02 38 28.5 38C25.98 38 23.56 37 21.78 35.22C20 33.44 19 31.02 19 28.5Z" fill="#1ABCFE"></path>
+<path d="M0 47.5C0 44.98 1 42.56 2.78 40.78C4.56 39 6.98 38 9.5 38H19V47.5C19 50.02 18 52.44 16.22 54.22C14.44 56 12.02 57 9.5 57C6.98 57 4.56 56 2.78 54.22C1 52.44 0 50.02 0 47.5Z" fill="#0ACF83"></path>
+<path d="M19 0V19H28.5C31.02 19 33.44 18 35.22 16.22C37 14.44 38 12.02 38 9.5C38 6.98 37 4.56 35.22 2.78C33.44 1 31.02 0 28.5 0H19Z" fill="#FF7262"></path>
+<path d="M0 9.5C0 12.02 1 14.44 2.78 16.22C4.56 18 6.98 19 9.5 19H19V0H9.5C6.98 0 4.56 1 2.78 2.78C1 4.56 0 6.98 0 9.5Z" fill="#FF3737"></path>
+<path d="M0 28.5C0 31.02 1 33.44 2.78 35.22C4.56 37 6.98 38 9.5 38H19V19H9.5C6.98 19 4.56 20 2.78 21.78C1 23.56 0 25.98 0 28.5Z" fill="#A259FF"></path>
+</svg>
+<span>View Figma File</span>
+</a>
+</div>
+<div class="hero-meta">
+<div class="hero-meta-item"><div class="hero-meta-label">Platform</div><div class="hero-meta-value">iOS Native Experience</div></div>
+<div class="hero-meta-item"><div class="hero-meta-label">Mode</div><div class="hero-meta-value">Light</div></div>
+<div class="hero-meta-item"><div class="hero-meta-label">Font</div><div class="hero-meta-value">SF Pro</div></div>
+</div>
+</div>
+<div class="main-inner">
+</section><section class="section" id="color-primitive">
+<div class="section-eyebrow">Tier 1 · Primitive</div>
+<h2 class="section-title">Color Primitives</h2>
+<p class="section-desc" style="margin-bottom: 16px">
+              Raw color values exported directly from Figma Variables. These are
+              the source palette — not for direct use in components.
+            </p>
+<div style="width:100%;border-radius:var(--radius-2xl);overflow:hidden;border:1px solid var(--docs-border);box-shadow:var(--docs-shadow);background:var(--docs-surface);height:540px;margin-bottom:24px;">
+<iframe allowfullscreen="" src="about:blank" data-src="https://embed.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=272-5482&amp;embed-host=share&hide-ui=1" style="width:100%;height:100%;border:none;display:block;"></iframe>
+</div>
+</section><section class="section" id="spacing-primitive">
+<div class="section-eyebrow">Tier 1 · Primitive</div>
+<h2 class="section-title">Spacing Scale</h2>
+<p class="section-desc">
+              A fluid spacing scale from 0–160pt. All gaps, padding, and margins
+              must use these tokens exclusively.
+            </p>
+<div class="spacing-grid">
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 0px; min-width: 1px; border-style: dashed"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.none</span><span class="spacing-px">0pt</span><span class="spacing-use">Flush elements — no gap</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 2px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.xxs</span><span class="spacing-px">2pt</span><span class="spacing-use">Icon-label gap, inline tight</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 4px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.xs</span><span class="spacing-px">4pt</span><span class="spacing-use">Pill dot-label, tag internal gap</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 6px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.sm</span><span class="spacing-px">6pt</span><span class="spacing-use">Button icon-text gap</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 8px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.md</span><span class="spacing-px">8pt</span><span class="spacing-use">Card internal padding sm, list row gap</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 12px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.lg</span><span class="spacing-px">12pt</span><span class="spacing-use">Section element gap, pill row gap</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 16px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.xl</span><span class="spacing-px">16pt</span><span class="spacing-use">Card internal padding, cell leading</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 20px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.2xl</span><span class="spacing-px">20pt</span><span class="spacing-use">Card-to-card gap, horizontal margins</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 24px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.3xl</span><span class="spacing-px">24pt</span><span class="spacing-use">Section bottom margin, nav padding</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 32px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.4xl</span><span class="spacing-px">32pt</span><span class="spacing-use">Screen horizontal inset</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 40px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.5xl</span><span class="spacing-px">40pt</span><span class="spacing-use">Between sections on Home</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 48px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.6xl</span><span class="spacing-px">48pt</span><span class="spacing-use">Hero section padding</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 64px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.7xl</span><span class="spacing-px">64pt</span><span class="spacing-use">Large vertical breathing room</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 80px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.8xl</span><span class="spacing-px">80pt</span><span class="spacing-use">Robot hero section height offset</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 96px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.9xl</span><span class="spacing-px">96pt</span><span class="spacing-use">Full-bleed section padding</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 128px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.10xl</span><span class="spacing-px">128pt</span><span class="spacing-use">Safe area bottom buffer</span>
+</div>
+</div>
+<div class="spacing-row">
+<div class="spacing-visual" style="width: 160px"></div>
+<div class="spacing-info">
+<span class="spacing-name">spacing.11xl</span><span class="spacing-px">160pt</span><span class="spacing-use">Maximum vertical section gap</span>
+</div>
+</div>
+</div>
+</section><section class="section" id="radius-primitive">
+<div class="section-eyebrow">Tier 1 · Primitive</div>
+<h2 class="section-title">Radius Scale</h2>
+<p class="section-desc">
+              Organic, soft radii reinforce the companion aesthetic. Higher
+              radii = more emotional / companion-like. Lower radii = more
+              structured / informational.
+            </p>
+<div class="radius-grid">
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 0"></div>
+<div class="radius-info">
+<div class="radius-name">radius.none</div>
+<div class="radius-value">0pt — Data tables</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 2px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.xxs</div>
+<div class="radius-value">2pt — Decorative</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 4px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.xs</div>
+<div class="radius-value">4pt — Badges</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 6px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.sm</div>
+<div class="radius-value">6pt — Inputs</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 8px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.md</div>
+<div class="radius-value">8pt — Icons</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 10px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.lg</div>
+<div class="radius-value">10pt — Tags</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 12px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.xl</div>
+<div class="radius-value">12pt — Chips</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 16px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.2xl</div>
+<div class="radius-value">16pt — Small cards</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 20px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.3xl</div>
+<div class="radius-value">20pt — Medium cards</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 24px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.4xl</div>
+<div class="radius-value">24pt — Main cards</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 32px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.6xl</div>
+<div class="radius-value">32pt — Hero cards</div>
+</div>
+</div>
+<div class="radius-card">
+<div class="radius-visual" style="border-radius: 9999px"></div>
+<div class="radius-info">
+<div class="radius-name">radius.full</div>
+<div class="radius-value">9999pt — Pills/buttons</div>
+</div>
+</div>
+</div>
+<div class="callout callout-info">
+<div class="callout-icon">💡</div>
+<div class="callout-body">
+<div class="callout-title">iOS Rule: match device radius</div>
+<div class="callout-text">
+                  On iPhone 14+ (Rounded display), primary cards should use
+                  <code style="
+                      display: inline;
+                      font-size: 11px;
+                      background: var(--orange-10);
+                      padding: 1px 5px;
+                      border-radius: 3px;
+                    ">radius.4xl (24pt)</code>
+                  to match the system's visual language. Bottom sheets use
+                  <code style="
+                      display: inline;
+                      font-size: 11px;
+                      background: var(--orange-10);
+                      padding: 1px 5px;
+                      border-radius: 3px;
+                    ">radius.6xl (32pt)</code>
+                  to match iOS sheet presentation style.
+                </div>
+</div>
+</div>
+</section><section class="section" id="typography-primitive">
+<div class="section-eyebrow">Tier 1 · Primitive</div>
+<h2 class="section-title">Typography Scale</h2>
+<p class="section-desc">
+              PAWWEL uses SF Pro as its primary interface typeface across display,
+              heading, and body. The type system must always preserve Dynamic
+              Type scaling and VoiceOver legibility — accessibility is part of
+              the typeface, not separate from it.
+            </p>
+<!-- SF Pro Showcase -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 48px; margin-bottom: 48px; padding: 40px 0; align-items: start;">
+<!-- Left Side: Branding -->
+<div style="display: flex; flex-direction: column; gap: 16px;">
+<div>
+<div style="font-size: 11px; font-weight: 700; color: var(--color-state-success-secondary); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px;">Primary Typeface</div>
+<h1 style="font-size: 84px; font-weight: 700; color: var(--color-fg-primary); line-height: 0.95; letter-spacing: -0.05em; margin: 0; font-family: 'SF Pro Display', sans-serif;">SF Pro</h1>
+<div style="font-size: 24px; font-weight: 400; color: var(--docs-text-2); margin-top: 16px; letter-spacing: -0.01em;">Fonts for Apple platforms</div>
+</div>
+<p style="font-size: 16px; color: var(--color-fg-tertiary); line-height: 1.6; max-width: 440px; margin: 32px 0 0;">
+                  San Francisco is an Apple-designed typeface that provides a consistent, legible, and friendly typographic voice. Across all Apple products, the size-specific outlines and dynamic tracking ensure optimal legibility at every point size and screen resolution.
+                </p>
+</div>
+<!-- Right Side: Specimen -->
+<div style="display: flex; flex-direction: column; gap: 32px; color: var(--color-fg-quaternary); opacity: 0.9; font-family: 'SF Pro Display', sans-serif;">
+<div style="font-size: 32px; font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; word-break: break-all;">
+                  Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
+                </div>
+<div style="font-size: 32px; font-weight: 400; line-height: 1.1; letter-spacing: 0.1em;">
+                  0123456789
+                </div>
+<div style="font-size: 32px; font-weight: 400; line-height: 1.2; opacity: 0.7;">
+                  ! @ # $ % ^ &amp; * ( ) _ + [ ] { } ; : ' " &lt; &gt; , . ? / | \ ~ `
+                </div>
+</div>
+</div>
+<hr style="border: none; border-top: 1px solid var(--docs-border); margin: 0 0 64px 0;"/>
+<div style="width:100%;border-radius:var(--radius-2xl);overflow:hidden;border:1px solid var(--docs-border);box-shadow:var(--docs-shadow);background:var(--docs-surface);height:540px;margin-bottom:24px;">
+<iframe allowfullscreen="" src="about:blank" data-src="https://embed.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=234-1830&amp;embed-host=share&hide-ui=1" style="width:100%;height:100%;border:none;display:block;"></iframe>
+</div>
+<h3 class="subsection">Usage Guidelines</h3>
+<div class="dos-donts">
+<div class="dos-box">
+<h5>DO</h5>
+<ul>
+<li>Use display and heading tokens for robot emotional state titles and section headers.</li>
+<li>Use body and caption tokens for descriptive copy, helper text, and status descriptions.</li>
+<li>Use Semibold (600) for interactive labels, quick action buttons, and pill text.</li>
+<li>Scale type size contextually — larger for emotional moments, smaller for metadata.</li>
+</ul>
+</div>
+<div class="donts-box">
+<h5>DON'T</h5>
+<ul>
+<li>Mix heading and body token sizes within the same content hierarchy.</li>
+<li>Use caption or label sizes for primary readable content — minimum body for paragraphs.</li>
+<li>Apply display tokens inside cards or compact components.</li>
+<li>Use raw font sizes — always reference the semantic typography tokens.</li>
+</ul>
+</div>
+</div>
+
+<div style="margin-top:96px;padding-top:40px;border-top:1px solid var(--docs-border);">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;">
+<div>
+<div style='font-size:20px;color:var(--brown-100);margin-bottom:6px;'>PAWWEL Design System</div>
+<div style="font-size:13px;color:var(--docs-text-3)">iOS-first companion app · v1.0 · Phase 2</div>
+</div>
+<div style="font-size:12px;color:var(--docs-text-3);line-height:1.8;">
+<div>Token source: <span class="mono">PAWWEL_VARIABLES.json</span></div>
+<div>Figma: PAWWEL App Design · Phase 2</div>
+<div>Last updated: May 2026</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = (scrollTop / docHeight) * 100;
+    document.getElementById("progressFill").style.width = pct + "%";
+  });
+  const sections = document.querySelectorAll(".section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          const href = link.getAttribute("href");
+          if (href === "#" + entry.target.id) link.classList.add("active");
+        });
+      }
+    });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  sections.forEach((s) => observer.observe(s));
+  const menuBtn = document.getElementById("mobileMenuBtn");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  function openMenu() { sidebar.classList.add("open"); overlay.classList.add("visible"); menuBtn.classList.add("open"); menuBtn.setAttribute("aria-expanded","true"); document.body.style.overflow="hidden"; }
+  function closeMenu() { sidebar.classList.remove("open"); overlay.classList.remove("visible"); menuBtn.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); document.body.style.overflow=""; }
+  menuBtn.addEventListener("click", () => { sidebar.classList.contains("open") ? closeMenu() : openMenu(); });
+  overlay.addEventListener("click", closeMenu);
+  navLinks.forEach(link => { link.addEventListener("click", () => { if (window.innerWidth <= 800) closeMenu(); }); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+  window.addEventListener("resize", () => { if (window.innerWidth > 800) { closeMenu(); document.body.style.overflow=""; } });
+</script>
+
+
+<script>
+  (function() {
+    var iframes = document.querySelectorAll("iframe[data-src]");
+    if (!iframes.length) return;
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          el.src = el.getAttribute("data-src");
+          io.unobserve(el);
+        }
+      });
+    }, { rootMargin: "200px" });
+    iframes.forEach(function(el) { io.observe(el); });
+  })();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

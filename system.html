@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PAWWEL Design System — System</title>
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin/>
+<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div id="pw-gate" style="position:fixed;inset:0;background:#faf8f6;display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="text-align:center;max-width:320px;width:100%;padding:0 24px;">
+    <div style="width:40px;height:40px;background:#251404;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+      <svg viewBox="0 0 20 20" width="20" height="20" fill="white"><circle cx="10" cy="8" r="5"/><ellipse cx="10" cy="16" rx="6" ry="2.5"/></svg>
+    </div>
+    <div style="font-size:18px;font-weight:600;color:#251404;margin-bottom:4px;">PAWWEL Design System</div>
+    <div style="font-size:13px;color:#926247;margin-bottom:28px;">Enter password to continue</div>
+    <input id="pw-input" type="password" placeholder="Password"
+      style="width:100%;box-sizing:border-box;padding:10px 14px;border:1px solid #e8ddd9;border-radius:8px;font-size:14px;color:#251404;background:#fff;outline:none;margin-bottom:8px;"
+      onkeydown="if(event.key==='Enter')checkPw()"
+    />
+    <div id="pw-error" style="font-size:12px;color:#ea580c;margin-bottom:8px;min-height:16px;"></div>
+    <button onclick="checkPw()"
+      style="width:100%;padding:10px;background:#251404;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;">
+      Continue
+    </button>
+  </div>
+</div>
+<script>
+  (function() {
+    if (sessionStorage.getItem('pawwel_auth') === '1') {
+      document.getElementById('pw-gate').style.display = 'none';
+    }
+  })();
+  function checkPw() {
+    var val = document.getElementById('pw-input').value;
+    if (val === 'pawwel') {
+      sessionStorage.setItem('pawwel_auth', '1');
+      document.getElementById('pw-gate').style.display = 'none';
+    } else {
+      document.getElementById('pw-error').textContent = 'Incorrect password.';
+      document.getElementById('pw-input').focus();
+    }
+  }
+</script>
+
+<script>
+  (function() {
+    if (sessionStorage.getItem('pawwel_auth') === '1') {
+      document.getElementById('pw-gate').style.display = 'none';
+    }
+  })();
+  function checkPw() {
+    var val = document.getElementById('pw-input').value;
+    if (val === 'pawwel') {
+      sessionStorage.setItem('pawwel_auth', '1');
+      document.getElementById('pw-gate').style.display = 'none';
+    } else {
+      document.getElementById('pw-error').textContent = 'Incorrect password.';
+      document.getElementById('pw-input').focus();
+    }
+  }
+</script>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+    </button>
+    <span class="topbar-label">PAWWEL Design System</span>
+    <div class="topbar-divider"></div>
+    <span class="topbar-label" style="color:var(--docs-text-3);font-weight:400;">v1.0 · iOS-first</span>
+  </div>
+  <div class="topbar-right">
+    <a class="topbar-btn topbar-btn-figma"
+       href="https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=234-1829&t=K90eA8IWtuuhcaqh-1"
+       target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 28.5C19 25.9804 20.0009 23.5641 21.7825 21.7825C23.5641 20.0009 25.9804 19 28.5 19C31.0196 19 33.4359 20.0009 35.2175 21.7825C36.9991 23.5641 38 25.9804 38 28.5C38 31.0196 36.9991 33.4359 35.2175 35.2175C33.4359 36.9991 31.0196 38 28.5 38C25.9804 38 23.5641 36.9991 21.7825 35.2175C20.0009 33.4359 19 31.0196 19 28.5Z" fill="currentColor"/>
+        <path d="M0 47.5C0 44.9804 1.00089 42.5641 2.78249 40.7825C4.56408 39.0009 6.98044 38 9.5 38H19V47.5C19 50.0196 17.9991 52.4359 16.2175 54.2175C14.4359 55.9991 12.0196 57 9.5 57C6.98044 57 4.56408 55.9991 2.78249 54.2175C1.00089 52.4359 0 50.0196 0 47.5Z" fill="currentColor"/>
+        <path d="M19 0V19H28.5C31.0196 19 33.4359 17.9991 35.2175 16.2175C36.9991 14.4359 38 12.0196 38 9.5C38 6.98044 36.9991 4.56408 35.2175 2.78249C33.4359 1.00089 31.0196 0 28.5 0H19Z" fill="currentColor"/>
+        <path d="M0 9.5C0 12.0196 1.00089 14.4359 2.78249 16.2175C4.56408 17.9991 6.98044 19 9.5 19H19V0H9.5C6.98044 0 4.56408 1.00089 2.78249 2.78249C1.00089 4.56408 0 6.98044 0 9.5Z" fill="currentColor"/>
+        <path d="M0 28.5C0 31.0196 1.00089 33.4359 2.78249 35.2175C4.56408 36.9991 6.98044 38 9.5 38H19V19H9.5C6.98044 19 4.56408 20.0009 2.78249 21.7825C1.00089 23.5641 0 25.9804 0 28.5Z" fill="currentColor"/>
+      </svg>
+      Open in Figma
+    </a>
+  </div>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+<div class="layout">
+<div class="sidebar-overlay" id="sidebarOverlay" role="presentation"></div>
+<aside class="sidebar" id="sidebar" role="navigation" aria-label="Design system navigation">
+<div class="sidebar-header">
+<a class="sidebar-logo" href="index.html">
+<div class="sidebar-logo-mark">
+<svg viewBox="0 0 20 20"><circle cx="10" cy="8" r="5"></circle><ellipse cx="10" cy="16" rx="6" ry="2.5"></ellipse></svg>
+</div>
+<div class="sidebar-logo-text">
+<div class="sidebar-logo-title">PAWWEL</div>
+<div class="sidebar-logo-sub">Design System</div>
+</div>
+</a>
+<div class="sidebar-version">v1.0 · iOS-first</div>
+</div>
+<nav class="sidebar-nav" id="pawwel-nav"></nav>
+</aside>
+<main class="main">
+<div class="hero">
+<div class="hero-eyebrow">Design System Guide</div>
+<h1 class="hero-title">PAWWEL<br/><span>Design System</span></h1>
+<p class="hero-desc">A comprehensive reference for the PAWWEL visual language and component library. Designed to bridge the gap between Figma source designs and technical implementation.</p>
+<div class="hero-actions">
+<a aria-label="View PAWWEL design system Figma file in a new tab" class="figma-link" href="https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=234-1829" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" fill="none" focusable="false" height="14" viewBox="0 0 38 57" width="14">
+<path d="M19 28.5C19 25.98 20 23.56 21.78 21.78C23.56 20 25.98 19 28.5 19C31.02 19 33.44 20 35.22 21.78C37 23.56 38 25.98 38 28.5C38 31.02 37 33.44 35.22 35.22C33.44 37 31.02 38 28.5 38C25.98 38 23.56 37 21.78 35.22C20 33.44 19 31.02 19 28.5Z" fill="#1ABCFE"></path>
+<path d="M0 47.5C0 44.98 1 42.56 2.78 40.78C4.56 39 6.98 38 9.5 38H19V47.5C19 50.02 18 52.44 16.22 54.22C14.44 56 12.02 57 9.5 57C6.98 57 4.56 56 2.78 54.22C1 52.44 0 50.02 0 47.5Z" fill="#0ACF83"></path>
+<path d="M19 0V19H28.5C31.02 19 33.44 18 35.22 16.22C37 14.44 38 12.02 38 9.5C38 6.98 37 4.56 35.22 2.78C33.44 1 31.02 0 28.5 0H19Z" fill="#FF7262"></path>
+<path d="M0 9.5C0 12.02 1 14.44 2.78 16.22C4.56 18 6.98 19 9.5 19H19V0H9.5C6.98 0 4.56 1 2.78 2.78C1 4.56 0 6.98 0 9.5Z" fill="#FF3737"></path>
+<path d="M0 28.5C0 31.02 1 33.44 2.78 35.22C4.56 37 6.98 38 9.5 38H19V19H9.5C6.98 19 4.56 20 2.78 21.78C1 23.56 0 25.98 0 28.5Z" fill="#A259FF"></path>
+</svg>
+<span>View Figma File</span>
+</a>
+</div>
+<div class="hero-meta">
+<div class="hero-meta-item"><div class="hero-meta-label">Platform</div><div class="hero-meta-value">iOS Native Experience</div></div>
+<div class="hero-meta-item"><div class="hero-meta-label">Mode</div><div class="hero-meta-value">Light</div></div>
+<div class="hero-meta-item"><div class="hero-meta-label">Font</div><div class="hero-meta-value">SF Pro</div></div>
+</div>
+</div>
+<div class="main-inner">
+</section><section class="section" id="motion">
+<div class="section-eyebrow">System</div>
+<h2 class="section-title">Motion System</h2>
+<p class="section-desc">
+              PAWWEL's motion is physics-based, never linear. Every animation
+              should feel like something that has weight and life — especially
+              the robot.
+            </p>
+<h3 class="subsection">Duration Scale</h3>
+<div class="motion-demo">
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">duration.instant</span><span class="motion-val">100ms</span><span class="motion-use">Haptic feedback confirmation, dot state</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">duration.fast</span><span class="motion-val">150ms</span><span class="motion-use">Button press, pill color change</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">duration.normal</span><span class="motion-val">250ms</span><span class="motion-use">Card hover, tab switch, icon change</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">duration.medium</span><span class="motion-val">350ms</span><span class="motion-use">Sheet presentation, card expand</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">duration.slow</span><span class="motion-val">500ms</span><span class="motion-use">Screen transitions, robot state change</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">duration.crawl</span><span class="motion-val">800ms</span><span class="motion-use">Score reveal, emotional arc animation</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">duration.idle-loop</span><span class="motion-val">1600ms</span><span class="motion-use">Robot breathing cycle (repeat)</span>
+</div>
+</div>
+<h3 class="subsection">Spring Presets</h3>
+<div class="motion-demo">
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">spring.snappy</span><span class="motion-val">response:0.25</span><span class="motion-use">Button press feedback, quick state</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">spring.default</span><span class="motion-val">response:0.35</span><span class="motion-use">Tab switch, card interactions</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">spring.gentle</span><span class="motion-val">response:0.5</span><span class="motion-use">Sheet presentation, robot entrance</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">spring.bouncy</span><span class="motion-val">response:0.4, damp:0.6</span><span class="motion-use">Robot Playful state, treat dispense</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name">spring.idle</span><span class="motion-val">response:1.6, damp:0.7</span><span class="motion-use">Robot breathing idle loop</span>
+</div>
+</div>
+<h3 class="subsection">Robot Animation Behaviors</h3>
+<table class="token-table">
+<thead>
+<tr>
+<th>State</th>
+<th>Animation</th>
+<th>Spring</th>
+<th>Loop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calm &amp; Happy</td>
+<td>Scale 1.0→1.02→1.0 (breathing)</td>
+<td>spring.idle</td>
+<td>Yes · 1.6s</td>
+</tr>
+<tr>
+<td>Playful</td>
+<td>Bounce Y +4pt, head tilt ±5°</td>
+<td>spring.bouncy</td>
+<td>Yes · 0.8s</td>
+</tr>
+<tr>
+<td>Slightly Uneasy</td>
+<td>Small gaze shifts, slower idle</td>
+<td>spring.gentle</td>
+<td>Yes · 1.2s</td>
+</tr>
+<tr>
+<td>Needs Attention</td>
+<td>Attentive posture, soft alert pulse</td>
+<td>spring.default</td>
+<td>Yes · 0.8s</td>
+</tr>
+<tr>
+<td>Overstimulated</td>
+<td>Fast breathing, restrained shake</td>
+<td>spring.snappy</td>
+<td>Yes · 0.4s</td>
+</tr>
+<tr>
+<td>Resting</td>
+<td>Slow head droop, eyes close</td>
+<td>spring.idle</td>
+<td>Yes · 3s</td>
+</tr>
+<tr>
+<td>🎁 Treat dispense</td>
+<td>Jump +12pt, spin, return</td>
+<td>spring.bouncy</td>
+<td>No · once</td>
+</tr>
+<tr>
+<td>🎵 Music trigger</td>
+<td>Sway ±8°, ears wiggle</td>
+<td>spring.gentle</td>
+<td>Yes · 2s</td>
+</tr>
+<tr>
+<td>😴 Sleep</td>
+<td>Slow head droop, eyes close</td>
+<td>spring.idle</td>
+<td>Yes · 3s</td>
+</tr>
+</tbody>
+</table>
+<h3 class="subsection">Motion Principles</h3>
+<div style="
+                background: var(--docs-surface);
+                border: 1px solid var(--docs-border);
+                border-radius: var(--radius-3xl);
+                padding: 20px;
+                margin-bottom: 24px;
+                font-size: 13px;
+                color: var(--docs-text-2);
+                line-height: 1.7;
+              ">
+<ul style="padding-left: 18px; margin: 0">
+<li>
+<strong style="color: var(--docs-text)">Motion has weight.</strong>
+                  The robot breathes, the cards settle, the sheets fall into
+                  place. Nothing snaps into existence.
+                </li>
+<li>
+<strong style="color: var(--docs-text)">Motion reinforces, never announces.</strong>
+                  If the user notices the animation more than the change, the
+                  motion is too loud.
+                </li>
+<li>
+<strong style="color: var(--docs-text)">Looped motion stays calm.</strong>
+                  Idle and breathing loops use long springs so the eye reads
+                  life, not activity.
+                </li>
+<li>
+<strong style="color: var(--docs-text)">One-shot motion has personality.</strong>
+                  Treat dispense, outfit changes, and celebrations are allowed
+                  to be playful — but always brief.
+                </li>
+<li>
+<strong style="color: var(--docs-text)">Reduce Motion is honored everywhere.</strong>
+                  All idle loops, transitions, and decorative motion collapse to
+                  an instant change when the system requests it.
+                </li>
+</ul>
+</div>
+</section><section class="section" id="ios-native">
+<div class="section-eyebrow">Platform</div>
+<h2 class="section-title">iOS-Native Rules</h2>
+<p class="section-desc">
+              PAWWEL is iOS-first. These rules exist so the app feels like part
+              of the system, not a brand placed on top of it.
+            </p>
+<h3 class="subsection">Safe Area &amp; Layout</h3>
+<table class="token-table">
+<thead>
+<tr>
+<th>Rule</th>
+<th>Value</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Screen horizontal margin</td>
+<td>20pt · <span class="mono">spacing.2xl</span></td>
+<td>Matches the gutter used by iOS system apps.</td>
+</tr>
+<tr>
+<td>Tab bar height</td>
+<td>49pt + safe area</td>
+<td>Bar always sits above the home-indicator region.</td>
+</tr>
+<tr>
+<td>Navigation bar</td>
+<td>44pt + status bar</td>
+<td>
+                    Inline navigation only — large titles read as enterprise in
+                    PAWWEL.
+                  </td>
+</tr>
+<tr>
+<td>Dynamic Island</td>
+<td>54pt top inset</td>
+<td>
+                    The top zone belongs to the system. PAWWEL never places
+                    content there.
+                  </td>
+</tr>
+<tr>
+<td>Minimum touch target</td>
+<td>44 × 44pt</td>
+<td>
+                    iOS HIG. Enforced on every interactive surface, regardless
+                    of visual size.
+                  </td>
+</tr>
+<tr>
+<td>Full-bleed corner radius</td>
+<td>~40pt</td>
+<td>
+                    Cards that reach the device edge match the physical corner.
+                  </td>
+</tr>
+</tbody>
+</table>
+<h3 class="subsection">Haptic Direction</h3>
+<p class="section-desc" style="margin-bottom: 16px">
+              Haptics carry emotional reinforcement, not utility. Every haptic
+              in PAWWEL has a feeling attached.
+            </p>
+<table class="token-table">
+<thead>
+<tr>
+<th>Moment</th>
+<th>Intensity</th>
+<th>What it should feel like</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treat dispense</td>
+<td>Medium impact</td>
+<td>A small, satisfying confirmation — the moment lands.</td>
+</tr>
+<tr>
+<td>Anxiety detected</td>
+<td>Warning notification</td>
+<td>An alert without sound — gentle but present.</td>
+</tr>
+<tr>
+<td>Button press</td>
+<td>Light impact</td>
+<td>Micro acknowledgement — the system heard you.</td>
+</tr>
+<tr>
+<td>Outfit changed</td>
+<td>Success notification</td>
+<td>A small celebration. Joyful, not loud.</td>
+</tr>
+<tr>
+<td>Tab switch</td>
+<td>Selection</td>
+<td>
+                    The subtle click of choice — easily missed, never absent.
+                  </td>
+</tr>
+</tbody>
+</table>
+<h3 class="subsection">Blur &amp; Material</h3>
+<table class="token-table">
+<thead>
+<tr>
+<th>Surface</th>
+<th>Material</th>
+<th>Intent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tab bar</td>
+<td>Ultra-thin blur</td>
+<td>Floats above content; defers to whatever is beneath.</td>
+</tr>
+<tr>
+<td>Navigation bar</td>
+<td>Thin blur</td>
+<td>Becomes opaque only as content scrolls beneath it.</td>
+</tr>
+<tr>
+<td>Overlay controls</td>
+<td>Regular blur</td>
+<td>Floating chips, share sheets, contextual actions.</td>
+</tr>
+</tbody>
+</table>
+</section><section class="section" id="accessibility">
+<div class="section-eyebrow">System</div>
+<h2 class="section-title">Accessibility</h2>
+<p class="section-desc">
+              PAWWEL must be usable by all pet owners. These are non-negotiable
+              requirements, not optional polish.
+            </p>
+<h3 class="subsection">Contrast Requirements</h3>
+<div style="
+                background: var(--docs-surface);
+                border: 1px solid var(--docs-border);
+                border-radius: var(--radius-3xl);
+                overflow: hidden;
+                margin-bottom: 24px;
+              ">
+<div class="a11y-row">
+<div class="a11y-check a11y-pass">✓</div>
+<div class="a11y-label">
+<span class="mono">fg.primary (#251404) on bg.primary (#fff)</span>
+</div>
+<div class="a11y-note">Contrast 17.8:1 — AAA ✓</div>
+</div>
+<div class="a11y-row">
+<div class="a11y-check a11y-pass">✓</div>
+<div class="a11y-label">
+<span class="mono">fg.secondary (#4f3422) on bg.primary</span>
+</div>
+<div class="a11y-note">Contrast 10.6:1 — AAA ✓</div>
+</div>
+<div class="a11y-row">
+<div class="a11y-check a11y-pass">✓</div>
+<div class="a11y-label">
+<span class="mono">fg.tertiary (#926247) on bg.primary</span>
+</div>
+<div class="a11y-note">Contrast 4.7:1 — AA ✓</div>
+</div>
+<div class="a11y-row">
+<div class="a11y-check a11y-warn">!</div>
+<div class="a11y-label">
+<span class="mono">fg.quaternary (#c0a091) on bg.primary</span>
+</div>
+<div class="a11y-note">
+                  Contrast 2.9:1 — Use for 24pt+ text only
+                </div>
+</div>
+<div class="a11y-row">
+<div class="a11y-check a11y-pass">✓</div>
+<div class="a11y-label">
+<span class="mono">fg.white (#fff) on bg.primary-solid (#251404)</span>
+</div>
+<div class="a11y-note">Contrast 17.8:1 — AAA ✓</div>
+</div>
+</div>
+<h3 class="subsection">Rules Summary</h3>
+<div style="
+                background: var(--docs-surface);
+                border: 1px solid var(--docs-border);
+                border-radius: var(--radius-3xl);
+                overflow: hidden;
+                margin-bottom: 24px;
+              ">
+<div class="a11y-row">
+<div class="a11y-check a11y-pass">✓</div>
+<div class="a11y-label">
+                  All status colors always paired with text label (never
+                  color-only)
+                </div>
+<div class="a11y-note badge badge-required" style="flex-shrink: 0">
+                  Required
+                </div>
+</div>
+<div class="a11y-row">
+<div class="a11y-check a11y-pass">✓</div>
+<div class="a11y-label">
+                  All interactive elements minimum 44×44pt touch target
+                </div>
+<div class="a11y-note badge badge-required" style="flex-shrink: 0">
+                  Required
+                </div>
+</div>
+<div class="a11y-row">
+<div class="a11y-check a11y-pass">?</div>
+<div class="a11y-label">
+                  Dynamic Type support � all SF Pro text must scale with preferred
+                  text size
+                </div>
+<div class="a11y-note badge badge-required" style="flex-shrink: 0">
+                  Required
+                </div>
+</div>
+<div class="a11y-row">
+<div class="a11y-check a11y-pass">✓</div>
+<div class="a11y-label">
+                  All images and icons have VoiceOver accessibilityLabel
+                </div>
+<div class="a11y-note badge badge-required" style="flex-shrink: 0">
+                  Required
+                </div>
+</div>
+<div class="a11y-row">
+<div class="a11y-check a11y-pass">✓</div>
+<div class="a11y-label">
+                  Robot animations respect the Reduce Motion system setting
+                </div>
+<div class="a11y-note badge badge-required" style="flex-shrink: 0">
+                  Required
+                </div>
+</div>
+<div class="a11y-row">
+<div class="a11y-check a11y-warn">!</div>
+<div class="a11y-label">
+                  Haptic feedback should not be the sole signal for critical
+                  events
+                </div>
+<div class="a11y-note badge badge-ios" style="flex-shrink: 0">
+                  iOS
+                </div>
+</div>
+</div>
+<h3 class="subsection">Behavior Expectations</h3>
+<table class="token-table">
+<thead>
+<tr>
+<th>System Setting</th>
+<th>Expectation in PAWWEL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reduce Motion</td>
+<td>
+                    All idle loops, breathing animations, decorative
+                    transitions, and robot motion collapse to instant changes.
+                    Functional motion (sheet present/dismiss) remains, but with
+                    springs disabled.
+                  </td>
+</tr>
+<tr>
+<td>Dynamic Type</td>
+<td>
+                    Every SF Pro text style scales with the user's preferred size
+                    up to <span class="mono">.accessibility3</span> without
+                    truncation or layout breakage.
+                  </td>
+</tr>
+<tr>
+<td>Increase Contrast</td>
+<td>
+                    Borders thicken from hairline to 1pt. Subtle surface tints
+                    shift one step toward higher contrast.
+                  </td>
+</tr>
+<tr>
+<td>VoiceOver</td>
+<td>
+                    Every icon, image, and decorative pill exposes a meaningful
+                    label. Decorative-only elements are explicitly hidden from
+                    accessibility.
+                  </td>
+</tr>
+<tr>
+<td>Bold Text</td>
+<td>
+                    SF Pro Regular shifts to SF Pro Medium. SF Pro Semibold stays
+                    as-is — it already reads as bold.
+                  </td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-info" style="margin-top: 24px">
+<div class="callout-icon">🤝</div>
+<div class="callout-body">
+<div class="callout-title">
+                  Accessibility is product, not polish
+                </div>
+<div class="callout-text">
+                  PAWWEL is for every pet owner. Reduced motion, larger type,
+                  VoiceOver, and high contrast are first-class states of the
+                  product — they ship with the same care as the default
+                  experience, never as an afterthought.
+                </div>
+</div>
+</div>
+</section><section class="section" id="emotional-state-logic">
+<div class="section-eyebrow">PAWWEL-Specific</div>
+<h2 class="section-title">PAWWEL Emotional State Logic</h2>
+<p class="section-desc">
+              PAWWEL combines anxiety, activity, and engagement signals into
+              emotionally understandable state labels. Scores are interpreted as
+              companion context, not clinical analytics.
+            </p>
+<table class="token-table" style="font-size: 15px">
+<thead>
+<tr>
+<th>Anxiety</th>
+<th>Activity</th>
+<th>Engagement</th>
+<th>State</th>
+<th>Pawwel Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low (10)</td>
+<td>Normal (50)</td>
+<td>High (80)</td>
+<td style="
+                      background: var(--green-10);
+                      color: var(--green-80);
+                      font-weight: 700;
+                    ">
+<span class="emotion-state-cell"><svg class="emotion-icon-sm" aria-label="" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM17 22C18.6568 22 20 20.6569 20 19C20 17.3431 18.6568 16 17 16C15.3431 16 14 17.3431 14 19C14 20.6569 15.3431 22 17 22ZM31 22C32.6568 22 34 20.6569 34 19C34 17.3431 32.6568 16 31 16C29.3431 16 28 17.3431 28 19C28 20.6569 29.3431 22 31 22ZM18 34.3923C19.8242 35.4455 21.8935 36 24 36C26.1064 36 28.1757 35.4455 30 34.3923C31.8242 33.3391 33.3391 31.8242 34.3923 30L30.9282 28C30.226 29.2162 29.2161 30.2261 28 30.9282C26.7838 31.6304 25.4043 32 24 32C22.5957 32 21.2161 31.6303 20 30.9282C18.7838 30.2261 17.7739 29.2162 17.0718 28L13.6077 30C14.6609 31.8242 16.1757 33.3391 18 34.3923Z" fill="#9BB167"/>
+</svg>Calm &amp; Happy</span>
+</td>
+<td>90–100</td>
+</tr>
+<tr>
+<td>Low (20)</td>
+<td>High (70)</td>
+<td>High (75)</td>
+<td style="
+                      background: var(--yellow-10);
+                      color: var(--yellow-80);
+                      font-weight: 700;
+                    ">
+<span class="emotion-state-cell"><svg class="emotion-icon-sm" aria-label="" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM24 36C21.3584 36 18.7906 35.1284 16.6949 33.5202C14.5991 31.9121 13.0926 29.6574 12.4089 27.1058L16.2726 26.0706C16.7284 27.7716 17.7328 29.2748 19.1299 30.3468C20.5271 31.4189 22.2389 32 24 32C25.7611 32 27.4729 31.4189 28.8701 30.3468C30.2672 29.2748 31.2716 27.7716 31.7274 26.0706L35.5911 27.1058C34.9074 29.6574 33.4009 31.9121 31.3051 33.5202C29.2094 35.1283 26.6416 36 24 36ZM15.0866 16.3806C15.6932 16.1293 16.3434 16 17 16C17.6566 16 18.3068 16.1293 18.9134 16.3806C19.52 16.6319 20.0712 17.0002 20.5355 17.4645C20.9998 17.9288 21.3681 18.48 21.6194 19.0866C21.8707 19.6932 22 20.3434 22 21H18C18 20.8687 17.9741 20.7386 17.9239 20.6173C17.8736 20.496 17.8 20.3858 17.7071 20.2929C17.6142 20.2 17.504 20.1264 17.3827 20.0761C17.2614 20.0259 17.1313 20 17 20C16.8687 20 16.7386 20.0259 16.6173 20.0761C16.496 20.1264 16.3858 20.2 16.2929 20.2929C16.2 20.3858 16.1264 20.496 16.0761 20.6173C16.0259 20.7386 16 20.8687 16 21H12C12 20.3434 12.1293 19.6932 12.3806 19.0866C12.6319 18.48 13.0002 17.9288 13.4645 17.4645C13.9288 17.0002 14.48 16.6319 15.0866 16.3806ZM31 16C30.3434 16 29.6932 16.1293 29.0866 16.3806C28.48 16.6319 27.9288 17.0002 27.4645 17.4645C27.0002 17.9288 26.6319 18.48 26.3806 19.0866C26.1293 19.6932 26 20.3434 26 21H30C30 20.8687 30.0259 20.7386 30.0761 20.6173C30.1264 20.496 30.2 20.3858 30.2929 20.2929C30.3858 20.2 30.496 20.1264 30.6173 20.0761C30.7386 20.0259 30.8687 20 31 20C31.1313 20 31.2614 20.0259 31.3827 20.0761C31.504 20.1264 31.6142 20.2 31.7071 20.2929C31.8 20.3858 31.8736 20.496 31.9239 20.6173C31.9741 20.7386 32 20.8687 32 21H36C36 20.3434 35.8707 19.6932 35.6194 19.0866C35.3681 18.48 34.9998 17.9288 34.5355 17.4645C34.0712 17.0002 33.52 16.6319 32.9134 16.3806C32.3068 16.1293 31.6566 16 31 16Z" fill="#FACC15"/>
+</svg>Playful</span>
+</td>
+<td>80–90</td>
+</tr>
+<tr>
+<td>Medium (40)</td>
+<td>Normal (50)</td>
+<td>Medium (50)</td>
+<td style="
+                      background: var(--brown-30);
+                      color: var(--brown-100);
+                      font-weight: 700;
+                    ">
+<span class="emotion-state-cell"><svg class="emotion-icon-sm" aria-label="" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM17 22C18.6569 22 20 20.6569 20 19C20 17.3431 18.6569 16 17 16C15.3431 16 14 17.3431 14 19C14 20.6569 15.3431 22 17 22ZM31 22C32.6569 22 34 20.6569 34 19C34 17.3431 32.6569 16 31 16C29.3431 16 28 17.3431 28 19C28 20.6569 29.3431 22 31 22ZM32 28V32H16V28H32Z" fill="#C0A091"/>
+</svg>Slightly Uneasy</span>
+</td>
+<td>60–75</td>
+</tr>
+<tr>
+<td>High (70)</td>
+<td>Low (20)</td>
+<td>Low (30)</td>
+<td style="
+                      background: var(--orange-10);
+                      color: var(--orange-80);
+                      font-weight: 700;
+                    ">
+<span class="emotion-state-cell"><svg class="emotion-icon-sm" aria-label="" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM17 22C18.6569 22 20 20.6569 20 19C20 17.3431 18.6569 16 17 16C15.3431 16 14 17.3431 14 19C14 20.6569 15.3431 22 17 22ZM34 19C34 20.6569 32.6569 22 31 22C29.3431 22 28 20.6569 28 19C28 17.3431 29.3431 16 31 16C32.6569 16 34 17.3431 34 19ZM24 26C21.8936 26 19.8242 26.5545 18 27.6077C16.1758 28.6609 14.6609 30.1758 13.6077 32L17.0718 34C17.7739 32.7838 18.7838 31.7739 20 31.0718C21.2162 30.3697 22.5957 30 24 30C25.4043 30 26.7838 30.3696 28 31.0718C29.2162 31.7739 30.2261 32.7838 30.9282 34L34.3923 32C33.3391 30.1758 31.8242 28.6609 30 27.6077C28.1758 26.5545 26.1064 26 24 26Z" fill="#FB8728"/>
+</svg>Needs Attention</span>
+</td>
+<td>30–50</td>
+</tr>
+<tr>
+<td>High (80)</td>
+<td>High (90)</td>
+<td>Medium (50)</td>
+<td style="
+                      background: var(--red-10);
+                      color: var(--red-80);
+                      font-weight: 700;
+                    ">
+<span class="emotion-state-cell"><svg class="emotion-icon-sm" aria-label="" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM18.5858 14.5858L17 16.1716L15.4142 14.5858L12.5858 17.4142L14.1716 19L12.5858 20.5858L15.4142 23.4142L17 21.8284L18.5858 23.4142L21.4142 20.5858L19.8285 19L21.4142 17.4142L18.5858 14.5858ZM24 26C21.8936 26 19.8243 26.5545 18 27.6077C16.1758 28.6609 14.6609 30.1758 13.6077 32L17.0718 34C17.774 32.7838 18.7839 31.7739 20 31.0718C21.2162 30.3696 22.5957 30 24 30C25.4043 30 26.7839 30.3696 28 31.0718C29.2162 31.7739 30.2261 32.7838 30.9282 34L34.3923 32C33.3391 30.1758 31.8243 28.6609 30 27.6077C28.1758 26.5545 26.1065 26 24 26ZM26.5858 17.4142L28.1716 19L26.5858 20.5858L29.4142 23.4142L31 21.8284L32.5858 23.4142L35.4142 20.5858L33.8285 19L35.4142 17.4142L32.5858 14.5858L31 16.1716L29.4142 14.5858L26.5858 17.4142Z" fill="#F43F5E"/>
+</svg>Overstimulated</span>
+</td>
+<td>20–40</td>
+</tr>
+<tr>
+<td>Low (15)</td>
+<td>Low (10)</td>
+<td>Low (20)</td>
+<td style="
+                      background: var(--gray-10);
+                      color: var(--gray-70);
+                      font-weight: 700;
+                    ">
+<span class="emotion-state-cell"><svg class="emotion-icon-sm" aria-label="" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 8H4V4H20C23.3137 4 26 6.68629 26 10C26 13.3137 23.3137 16 20 16H10C8.89543 16 8 16.8954 8 18C8 19.1046 8.89543 20 10 20H26V24H10C6.68629 24 4 21.3137 4 18C4 14.6863 6.68629 12 10 12H20C21.1046 12 22 11.1046 22 10C22 8.89543 21.1046 8 20 8Z" fill="#ACA9A5"/>
+<path d="M39 24H28V20H39C41.7614 20 44 22.2386 44 25C44 27.7614 41.7614 30 39 30H33C32.4477 30 32 30.4477 32 31C32 31.5523 32.4477 32 33 32H44V36H33C30.2386 36 28 33.7614 28 31C28 28.2386 30.2386 26 33 26H39C39.5523 26 40 25.5523 40 25C40 24.4477 39.5523 24 39 24Z" fill="#ACA9A5"/>
+<path d="M10 29.9995H21C21.5523 29.9995 22 30.4472 22 30.9995C22 31.5518 21.5523 31.9995 21 31.9995H15C12.2386 31.9995 10 34.2381 10 36.9995C10 39.7609 12.2386 41.9995 15 41.9995H26V37.9995H15C14.4477 37.9995 14 37.5518 14 36.9995C14 36.4472 14.4477 35.9995 15 35.9995H21C23.7614 35.9995 26 33.7609 26 30.9995C26 28.2381 23.7614 25.9995 21 25.9995H10V29.9995Z" fill="#ACA9A5"/>
+</svg>Resting</span>
+</td>
+<td>65–75</td>
+</tr>
+</tbody>
+</table>
+<h3 class="subsection">Interpretation Philosophy</h3>
+<p style="
+                font-size: 15px;
+                color: var(--docs-text-2);
+                line-height: 1.6;
+                margin-bottom: 24px;
+              ">
+              PAWWEL translates raw sensor data into emotionally understandable
+              states. Interpretation is prioritized over analytics: labels
+              should feel supportive, not clinical, and scores are contextual
+              and non-medical.
+            </p>
+<h3 class="subsection">Behavior Notes</h3>
+<div class="motion-demo">
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name" style="min-width: 180px">State transitions</span><span class="motion-val" style="min-width: 120px">spring.default</span><span class="motion-use">Emotional changes ease in, never snap.</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name" style="min-width: 180px">Signal smoothing</span><span class="motion-val" style="min-width: 120px">minimum dwell</span><span class="motion-use">A state must hold long enough to be felt before
+                  changing.</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name" style="min-width: 180px">Continuity</span><span class="motion-val" style="min-width: 120px">context-aware</span><span class="motion-use">Nearby readings carry emotional memory — no flickering
+                  between extremes.</span>
+</div>
+<div class="motion-row">
+<div class="motion-dot"></div>
+<span class="motion-name" style="min-width: 180px">Motion language</span><span class="motion-val" style="min-width: 120px">spring-based</span><span class="motion-use">Springs reinforce that the pet has weight and life.</span>
+</div>
+</div>
+</section><section class="section" id="emotional-states">
+<div class="section-eyebrow">PAWWEL-Specific</div>
+<h2 class="section-title">Emotional State System</h2>
+<p class="section-desc">
+              The entire app adapts to the pet's current emotional state. This
+              is what makes PAWWEL a companion app — not a tracker.
+            </p>
+<div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                margin-bottom: 32px;
+              ">
+<div style="
+                  background: var(--green-10);
+                  border: 1px solid var(--green-20);
+                  border-radius: var(--radius-3xl);
+                  padding: 20px;
+                ">
+<div style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: var(--radius-full);
+                    background: var(--green-20);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 12px;
+                  ">
+<svg class="emotion-icon-lg" aria-label="Calm &amp; Happy" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM17 22C18.6568 22 20 20.6569 20 19C20 17.3431 18.6568 16 17 16C15.3431 16 14 17.3431 14 19C14 20.6569 15.3431 22 17 22ZM31 22C32.6568 22 34 20.6569 34 19C34 17.3431 32.6568 16 31 16C29.3431 16 28 17.3431 28 19C28 20.6569 29.3431 22 31 22ZM18 34.3923C19.8242 35.4455 21.8935 36 24 36C26.1064 36 28.1757 35.4455 30 34.3923C31.8242 33.3391 33.3391 31.8242 34.3923 30L30.9282 28C30.226 29.2162 29.2161 30.2261 28 30.9282C26.7838 31.6304 25.4043 32 24 32C22.5957 32 21.2161 31.6303 20 30.9282C18.7838 30.2261 17.7739 29.2162 17.0718 28L13.6077 30C14.6609 31.8242 16.1757 33.3391 18 34.3923Z" fill="#9BB167"/>
+</svg>
+</div>
+<div style="
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--green-80);
+                    margin-bottom: 4px;
+                  ">
+                  CALM &amp; HAPPY
+                </div>
+<div style="
+                    font-size: 12px;
+                    color: var(--green-70);
+                    margin-bottom: 10px;
+                    line-height: 1.5;
+                  ">
+                  Low anxiety, normal activity, and high engagement. The pet
+                  feels emotionally safe and connected.
+                </div>
+<div style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    font-size: 11px;
+                    color: var(--green-70);
+                  ">
+<div>
+                    Accent: <span style="font-weight: 600">green.60</span>
+</div>
+<div>Robot: slow breathing + soft attention</div>
+<div>Home bg: white with supportive green tint</div>
+<div>Quick action: "Give Treat"</div>
+</div>
+</div>
+<div style="
+                  background: var(--yellow-10);
+                  border: 1px solid var(--yellow-20);
+                  border-radius: var(--radius-3xl);
+                  padding: 20px;
+                ">
+<div style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: var(--radius-full);
+                    background: var(--yellow-20);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 12px;
+                  ">
+<svg class="emotion-icon-lg" aria-label="Playful" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM24 36C21.3584 36 18.7906 35.1284 16.6949 33.5202C14.5991 31.9121 13.0926 29.6574 12.4089 27.1058L16.2726 26.0706C16.7284 27.7716 17.7328 29.2748 19.1299 30.3468C20.5271 31.4189 22.2389 32 24 32C25.7611 32 27.4729 31.4189 28.8701 30.3468C30.2672 29.2748 31.2716 27.7716 31.7274 26.0706L35.5911 27.1058C34.9074 29.6574 33.4009 31.9121 31.3051 33.5202C29.2094 35.1283 26.6416 36 24 36ZM15.0866 16.3806C15.6932 16.1293 16.3434 16 17 16C17.6566 16 18.3068 16.1293 18.9134 16.3806C19.52 16.6319 20.0712 17.0002 20.5355 17.4645C20.9998 17.9288 21.3681 18.48 21.6194 19.0866C21.8707 19.6932 22 20.3434 22 21H18C18 20.8687 17.9741 20.7386 17.9239 20.6173C17.8736 20.496 17.8 20.3858 17.7071 20.2929C17.6142 20.2 17.504 20.1264 17.3827 20.0761C17.2614 20.0259 17.1313 20 17 20C16.8687 20 16.7386 20.0259 16.6173 20.0761C16.496 20.1264 16.3858 20.2 16.2929 20.2929C16.2 20.3858 16.1264 20.496 16.0761 20.6173C16.0259 20.7386 16 20.8687 16 21H12C12 20.3434 12.1293 19.6932 12.3806 19.0866C12.6319 18.48 13.0002 17.9288 13.4645 17.4645C13.9288 17.0002 14.48 16.6319 15.0866 16.3806ZM31 16C30.3434 16 29.6932 16.1293 29.0866 16.3806C28.48 16.6319 27.9288 17.0002 27.4645 17.4645C27.0002 17.9288 26.6319 18.48 26.3806 19.0866C26.1293 19.6932 26 20.3434 26 21H30C30 20.8687 30.0259 20.7386 30.0761 20.6173C30.1264 20.496 30.2 20.3858 30.2929 20.2929C30.3858 20.2 30.496 20.1264 30.6173 20.0761C30.7386 20.0259 30.8687 20 31 20C31.1313 20 31.2614 20.0259 31.3827 20.0761C31.504 20.1264 31.6142 20.2 31.7071 20.2929C31.8 20.3858 31.8736 20.496 31.9239 20.6173C31.9741 20.7386 32 20.8687 32 21H36C36 20.3434 35.8707 19.6932 35.6194 19.0866C35.3681 18.48 34.9998 17.9288 34.5355 17.4645C34.0712 17.0002 33.52 16.6319 32.9134 16.3806C32.3068 16.1293 31.6566 16 31 16Z" fill="#FACC15"/>
+</svg>
+</div>
+<div style="
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--yellow-80);
+                    margin-bottom: 4px;
+                  ">
+                  PLAYFUL
+                </div>
+<div style="
+                    font-size: 12px;
+                    color: var(--yellow-70);
+                    margin-bottom: 10px;
+                    line-height: 1.5;
+                  ">
+                  High activity and strong engagement. Energetic, curious, and
+                  cheerful without feeling urgent.
+                </div>
+<div style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    font-size: 11px;
+                    color: var(--yellow-70);
+                  ">
+<div>
+                    Accent: <span style="font-weight: 600">yellow.60</span>
+</div>
+<div>Robot: bouncy movement + bright response</div>
+<div>Home bg: white with warm yellow tint</div>
+<div>Quick action: "Play Music"</div>
+</div>
+</div>
+<div style="
+                  background: var(--brown-20);
+                  border: 1px solid var(--brown-30);
+                  border-radius: var(--radius-3xl);
+                  padding: 20px;
+                ">
+<div style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: var(--radius-full);
+                    background: var(--brown-10);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 12px;
+                  ">
+<svg class="emotion-icon-lg" aria-label="Slightly Uneasy" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM17 22C18.6569 22 20 20.6569 20 19C20 17.3431 18.6569 16 17 16C15.3431 16 14 17.3431 14 19C14 20.6569 15.3431 22 17 22ZM31 22C32.6569 22 34 20.6569 34 19C34 17.3431 32.6569 16 31 16C29.3431 16 28 17.3431 28 19C28 20.6569 29.3431 22 31 22ZM32 28V32H16V28H32Z" fill="#C0A091"/>
+</svg>
+</div>
+<div style="
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--brown-100);
+                    margin-bottom: 4px;
+                  ">
+                  SLIGHTLY UNEASY
+                </div>
+<div style="
+                    font-size: 12px;
+                    color: var(--brown-100);
+                    margin-bottom: 10px;
+                    line-height: 1.5;
+                  ">
+                  Medium anxiety with neutral activity and engagement. Subtle
+                  discomfort, low urgency.
+                </div>
+<div style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    font-size: 11px;
+                    color: var(--brown-100);
+                  ">
+<div>
+                    Accent:
+                    <span style="font-weight: 600">color.base.brown.30</span>
+</div>
+<div>Robot: gentler idle + slower gaze shifts</div>
+<div>Home bg: warm taupe surface</div>
+<div>Quick action: "Check In"</div>
+</div>
+</div>
+<div style="
+                  background: var(--orange-10);
+                  border: 1px solid var(--orange-20);
+                  border-radius: var(--radius-3xl);
+                  padding: 20px;
+                ">
+<div style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: var(--radius-full);
+                    background: var(--orange-20);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 12px;
+                  ">
+<svg class="emotion-icon-lg" aria-label="Needs Attention" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM17 22C18.6569 22 20 20.6569 20 19C20 17.3431 18.6569 16 17 16C15.3431 16 14 17.3431 14 19C14 20.6569 15.3431 22 17 22ZM34 19C34 20.6569 32.6569 22 31 22C29.3431 22 28 20.6569 28 19C28 17.3431 29.3431 16 31 16C32.6569 16 34 17.3431 34 19ZM24 26C21.8936 26 19.8242 26.5545 18 27.6077C16.1758 28.6609 14.6609 30.1758 13.6077 32L17.0718 34C17.7739 32.7838 18.7838 31.7739 20 31.0718C21.2162 30.3697 22.5957 30 24 30C25.4043 30 26.7838 30.3696 28 31.0718C29.2162 31.7739 30.2261 32.7838 30.9282 34L34.3923 32C33.3391 30.1758 31.8242 28.6609 30 27.6077C28.1758 26.5545 26.1064 26 24 26Z" fill="#FB8728"/>
+</svg>
+</div>
+<div style="
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--orange-80);
+                    margin-bottom: 4px;
+                  ">
+                  NEEDS ATTENTION
+                </div>
+<div style="
+                    font-size: 12px;
+                    color: var(--orange-70);
+                    margin-bottom: 10px;
+                    line-height: 1.5;
+                  ">
+                  High anxiety with low activity and engagement. Noticeable
+                  concern with supportive urgency.
+                </div>
+<div style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    font-size: 11px;
+                    color: var(--orange-70);
+                  ">
+<div>
+                    Accent: <span style="font-weight: 600">orange.60</span>
+</div>
+<div>Robot: attentive posture + soft alert</div>
+<div>Notification: supportive check-in</div>
+<div>Quick action: "Play Calming Music"</div>
+</div>
+</div>
+<div style="
+                  background: var(--red-10);
+                  border: 1px solid var(--red-20);
+                  border-radius: var(--radius-3xl);
+                  padding: 20px;
+                ">
+<div style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: var(--radius-full);
+                    background: var(--red-20);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 12px;
+                  ">
+<svg class="emotion-icon-lg" aria-label="Overstimulated" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM18.5858 14.5858L17 16.1716L15.4142 14.5858L12.5858 17.4142L14.1716 19L12.5858 20.5858L15.4142 23.4142L17 21.8284L18.5858 23.4142L21.4142 20.5858L19.8285 19L21.4142 17.4142L18.5858 14.5858ZM24 26C21.8936 26 19.8243 26.5545 18 27.6077C16.1758 28.6609 14.6609 30.1758 13.6077 32L17.0718 34C17.774 32.7838 18.7839 31.7739 20 31.0718C21.2162 30.3696 22.5957 30 24 30C25.4043 30 26.7839 30.3696 28 31.0718C29.2162 31.7739 30.2261 32.7838 30.9282 34L34.3923 32C33.3391 30.1758 31.8243 28.6609 30 27.6077C28.1758 26.5545 26.1065 26 24 26ZM26.5858 17.4142L28.1716 19L26.5858 20.5858L29.4142 23.4142L31 21.8284L32.5858 23.4142L35.4142 20.5858L33.8285 19L35.4142 17.4142L32.5858 14.5858L31 16.1716L29.4142 14.5858L26.5858 17.4142Z" fill="#F43F5E"/>
+</svg>
+</div>
+<div style="
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--red-80);
+                    margin-bottom: 4px;
+                  ">
+                  OVERSTIMULATED
+                </div>
+<div style="
+                    font-size: 12px;
+                    color: var(--red-70);
+                    margin-bottom: 10px;
+                    line-height: 1.5;
+                  ">
+                  High anxiety and high activity. Emotionally overloaded and the
+                  highest urgency state.
+                </div>
+<div style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    font-size: 11px;
+                    color: var(--red-70);
+                  ">
+<div>
+                    Accent: <span style="font-weight: 600">red.50</span>
+</div>
+<div>Robot: faster breathing + restrained motion</div>
+<div>Notification: immediate but calm support</div>
+<div>Quick action: "Start Calming Mode"</div>
+</div>
+</div>
+<div style="
+                  background: var(--gray-10);
+                  border: 1px solid var(--gray-20);
+                  border-radius: var(--radius-3xl);
+                  padding: 20px;
+                ">
+<div style="
+                    width: 36px;
+                    height: 36px;
+                    border-radius: var(--radius-full);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 12px;
+                  ">
+<svg class="emotion-icon-lg" aria-label="Resting" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 8H4V4H20C23.3137 4 26 6.68629 26 10C26 13.3137 23.3137 16 20 16H10C8.89543 16 8 16.8954 8 18C8 19.1046 8.89543 20 10 20H26V24H10C6.68629 24 4 21.3137 4 18C4 14.6863 6.68629 12 10 12H20C21.1046 12 22 11.1046 22 10C22 8.89543 21.1046 8 20 8Z" fill="#ACA9A5"/>
+<path d="M39 24H28V20H39C41.7614 20 44 22.2386 44 25C44 27.7614 41.7614 30 39 30H33C32.4477 30 32 30.4477 32 31C32 31.5523 32.4477 32 33 32H44V36H33C30.2386 36 28 33.7614 28 31C28 28.2386 30.2386 26 33 26H39C39.5523 26 40 25.5523 40 25C40 24.4477 39.5523 24 39 24Z" fill="#ACA9A5"/>
+<path d="M10 29.9995H21C21.5523 29.9995 22 30.4472 22 30.9995C22 31.5518 21.5523 31.9995 21 31.9995H15C12.2386 31.9995 10 34.2381 10 36.9995C10 39.7609 12.2386 41.9995 15 41.9995H26V37.9995H15C14.4477 37.9995 14 37.5518 14 36.9995C14 36.4472 14.4477 35.9995 15 35.9995H21C23.7614 35.9995 26 33.7609 26 30.9995C26 28.2381 23.7614 25.9995 21 25.9995H10V29.9995Z" fill="#ACA9A5"/>
+</svg>
+</div>
+<div style="
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--gray-70);
+                    margin-bottom: 4px;
+                  ">
+                  RESTING
+                </div>
+<div style="
+                    font-size: 12px;
+                    color: var(--gray-60);
+                    margin-bottom: 10px;
+                    line-height: 1.5;
+                  ">
+                  Low activity and low engagement with low anxiety. Sleep, rest,
+                  or quiet low-energy time.
+                </div>
+<div style="
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                    font-size: 11px;
+                    color: var(--gray-60);
+                  ">
+<div>
+                    Accent: <span style="font-weight: 600">gray.50</span>
+</div>
+<div>Robot: eyes closed, still</div>
+<div>Home: soft neutral state</div>
+<div>Quick actions: all dimmed</div>
+</div>
+</div>
+</div>
+<div class="callout callout-success">
+<div class="callout-icon">✅</div>
+<div class="callout-body">
+<div class="callout-title">
+                  Principle: Name the feeling, don't measure it
+                </div>
+<div class="callout-text">
+                  Always display the emotional interpretation ("Apple needs
+                  attention right now") rather than the raw score. Users are pet
+                  parents, not data scientists. The number lives in the system —
+                  only the story reaches the screen.
+                </div>
+</div>
+</div>
+<h3 class="subsection">Supportive Urgency: Needs Attention</h3>
+<p style="
+                font-size: 13px;
+                color: var(--docs-text-2);
+                line-height: 1.6;
+                margin-bottom: 16px;
+              ">
+              When concern is detected, the app must communicate urgency without
+              panic. Orange is used for supportive attention; pink-red is
+              reserved for overstimulation.
+            </p>
+<div style="
+                background: var(--orange-10);
+                border: 1.5px solid var(--orange-30);
+                border-radius: var(--radius-3xl);
+                padding: 20px;
+                max-width: 340px;
+              ">
+<div style="
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                  margin-bottom: 8px;
+                ">
+<div style="
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: var(--orange-20);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-shrink: 0;
+                  ">
+<svg class="emotion-icon" aria-label="Needs Attention" role="img" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 24C4 12.9543 12.9543 4 24 4C35.0457 4 44 12.9543 44 24C44 35.0457 35.0457 44 24 44C12.9543 44 4 35.0457 4 24ZM17 22C18.6569 22 20 20.6569 20 19C20 17.3431 18.6569 16 17 16C15.3431 16 14 17.3431 14 19C14 20.6569 15.3431 22 17 22ZM34 19C34 20.6569 32.6569 22 31 22C29.3431 22 28 20.6569 28 19C28 17.3431 29.3431 16 31 16C32.6569 16 34 17.3431 34 19ZM24 26C21.8936 26 19.8242 26.5545 18 27.6077C16.1758 28.6609 14.6609 30.1758 13.6077 32L17.0718 34C17.7739 32.7838 18.7838 31.7739 20 31.0718C21.2162 30.3697 22.5957 30 24 30C25.4043 30 26.7838 30.3696 28 31.0718C29.2162 31.7739 30.2261 32.7838 30.9282 34L34.3923 32C33.3391 30.1758 31.8242 28.6609 30 27.6077C28.1758 26.5545 26.1064 26 24 26Z" fill="#FB8728"/>
+</svg>
+</div>
+<div style="
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: var(--orange-80);
+                  ">
+                  Apple needs attention
+                </div>
+</div>
+<div style="
+                  font-size: 13px;
+                  color: var(--orange-70);
+                  margin-bottom: 16px;
+                  line-height: 1.5;
+                ">
+                Higher than usual concern detected. Playing calming music might
+                help.
+              </div>
+<button class="btn btn-sm" style="
+                  background: var(--orange-60);
+                  color: white;
+                  border-radius: var(--radius-full);
+                  font-size: 13px;
+                  padding: 8px 16px;
+                  border: none;
+                  cursor: pointer;
+                ">
+                Play Calming Music
+              </button>
+</div>
+
+<div style="margin-top:96px;padding-top:40px;border-top:1px solid var(--docs-border);">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;">
+<div>
+<div style='font-size:20px;color:var(--brown-100);margin-bottom:6px;'>PAWWEL Design System</div>
+<div style="font-size:13px;color:var(--docs-text-3)">iOS-first companion app · v1.0 · Phase 2</div>
+</div>
+<div style="font-size:12px;color:var(--docs-text-3);line-height:1.8;">
+<div>Token source: <span class="mono">PAWWEL_VARIABLES.json</span></div>
+<div>Figma: PAWWEL App Design · Phase 2</div>
+<div>Last updated: May 2026</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = (scrollTop / docHeight) * 100;
+    document.getElementById("progressFill").style.width = pct + "%";
+  });
+  const sections = document.querySelectorAll(".section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          const href = link.getAttribute("href");
+          if (href === "#" + entry.target.id) link.classList.add("active");
+        });
+      }
+    });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  sections.forEach((s) => observer.observe(s));
+  const menuBtn = document.getElementById("mobileMenuBtn");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  function openMenu() { sidebar.classList.add("open"); overlay.classList.add("visible"); menuBtn.classList.add("open"); menuBtn.setAttribute("aria-expanded","true"); document.body.style.overflow="hidden"; }
+  function closeMenu() { sidebar.classList.remove("open"); overlay.classList.remove("visible"); menuBtn.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); document.body.style.overflow=""; }
+  menuBtn.addEventListener("click", () => { sidebar.classList.contains("open") ? closeMenu() : openMenu(); });
+  overlay.addEventListener("click", closeMenu);
+  navLinks.forEach(link => { link.addEventListener("click", () => { if (window.innerWidth <= 800) closeMenu(); }); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+  window.addEventListener("resize", () => { if (window.innerWidth > 800) { closeMenu(); document.body.style.overflow=""; } });
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>

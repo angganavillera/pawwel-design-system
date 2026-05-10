@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PAWWEL Design System — Semantic Tokens</title>
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin/>
+<link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div id="pw-gate" style="position:fixed;inset:0;background:#faf8f6;display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="text-align:center;max-width:320px;width:100%;padding:0 24px;">
+    <div style="width:40px;height:40px;background:#251404;border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+      <svg viewBox="0 0 20 20" width="20" height="20" fill="white"><circle cx="10" cy="8" r="5"/><ellipse cx="10" cy="16" rx="6" ry="2.5"/></svg>
+    </div>
+    <div style="font-size:18px;font-weight:600;color:#251404;margin-bottom:4px;">PAWWEL Design System</div>
+    <div style="font-size:13px;color:#926247;margin-bottom:28px;">Enter password to continue</div>
+    <input id="pw-input" type="password" placeholder="Password"
+      style="width:100%;box-sizing:border-box;padding:10px 14px;border:1px solid #e8ddd9;border-radius:8px;font-size:14px;color:#251404;background:#fff;outline:none;margin-bottom:8px;"
+      onkeydown="if(event.key==='Enter')checkPw()"
+    />
+    <div id="pw-error" style="font-size:12px;color:#ea580c;margin-bottom:8px;min-height:16px;"></div>
+    <button onclick="checkPw()"
+      style="width:100%;padding:10px;background:#251404;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;">
+      Continue
+    </button>
+  </div>
+</div>
+<script>
+  (function() {
+    if (sessionStorage.getItem('pawwel_auth') === '1') {
+      document.getElementById('pw-gate').style.display = 'none';
+    }
+  })();
+  function checkPw() {
+    var val = document.getElementById('pw-input').value;
+    if (val === 'pawwel') {
+      sessionStorage.setItem('pawwel_auth', '1');
+      document.getElementById('pw-gate').style.display = 'none';
+    } else {
+      document.getElementById('pw-error').textContent = 'Incorrect password.';
+      document.getElementById('pw-input').focus();
+    }
+  }
+</script>
+
+<script>
+  (function() {
+    if (sessionStorage.getItem('pawwel_auth') === '1') {
+      document.getElementById('pw-gate').style.display = 'none';
+    }
+  })();
+  function checkPw() {
+    var val = document.getElementById('pw-input').value;
+    if (val === 'pawwel') {
+      sessionStorage.setItem('pawwel_auth', '1');
+      document.getElementById('pw-gate').style.display = 'none';
+    } else {
+      document.getElementById('pw-error').textContent = 'Incorrect password.';
+      document.getElementById('pw-input').focus();
+    }
+  }
+</script>
+
+<div class="topbar">
+  <div class="topbar-left">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+      <div class="hamburger-icon"><span></span><span></span><span></span></div>
+    </button>
+    <span class="topbar-label">PAWWEL Design System</span>
+    <div class="topbar-divider"></div>
+    <span class="topbar-label" style="color:var(--docs-text-3);font-weight:400;">v1.0 · iOS-first</span>
+  </div>
+  <div class="topbar-right">
+    <a class="topbar-btn topbar-btn-figma"
+       href="https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=234-1829&t=K90eA8IWtuuhcaqh-1"
+       target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 28.5C19 25.9804 20.0009 23.5641 21.7825 21.7825C23.5641 20.0009 25.9804 19 28.5 19C31.0196 19 33.4359 20.0009 35.2175 21.7825C36.9991 23.5641 38 25.9804 38 28.5C38 31.0196 36.9991 33.4359 35.2175 35.2175C33.4359 36.9991 31.0196 38 28.5 38C25.9804 38 23.5641 36.9991 21.7825 35.2175C20.0009 33.4359 19 31.0196 19 28.5Z" fill="currentColor"/>
+        <path d="M0 47.5C0 44.9804 1.00089 42.5641 2.78249 40.7825C4.56408 39.0009 6.98044 38 9.5 38H19V47.5C19 50.0196 17.9991 52.4359 16.2175 54.2175C14.4359 55.9991 12.0196 57 9.5 57C6.98044 57 4.56408 55.9991 2.78249 54.2175C1.00089 52.4359 0 50.0196 0 47.5Z" fill="currentColor"/>
+        <path d="M19 0V19H28.5C31.0196 19 33.4359 17.9991 35.2175 16.2175C36.9991 14.4359 38 12.0196 38 9.5C38 6.98044 36.9991 4.56408 35.2175 2.78249C33.4359 1.00089 31.0196 0 28.5 0H19Z" fill="currentColor"/>
+        <path d="M0 9.5C0 12.0196 1.00089 14.4359 2.78249 16.2175C4.56408 17.9991 6.98044 19 9.5 19H19V0H9.5C6.98044 0 4.56408 1.00089 2.78249 2.78249C1.00089 4.56408 0 6.98044 0 9.5Z" fill="currentColor"/>
+        <path d="M0 28.5C0 31.0196 1.00089 33.4359 2.78249 35.2175C4.56408 36.9991 6.98044 38 9.5 38H19V19H9.5C6.98044 19 4.56408 20.0009 2.78249 21.7825C1.00089 23.5641 0 25.9804 0 28.5Z" fill="currentColor"/>
+      </svg>
+      Open in Figma
+    </a>
+  </div>
+</div>
+
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+<div class="layout">
+<div class="sidebar-overlay" id="sidebarOverlay" role="presentation"></div>
+<aside class="sidebar" id="sidebar" role="navigation" aria-label="Design system navigation">
+<div class="sidebar-header">
+<a class="sidebar-logo" href="index.html">
+<div class="sidebar-logo-mark">
+<svg viewBox="0 0 20 20"><circle cx="10" cy="8" r="5"></circle><ellipse cx="10" cy="16" rx="6" ry="2.5"></ellipse></svg>
+</div>
+<div class="sidebar-logo-text">
+<div class="sidebar-logo-title">PAWWEL</div>
+<div class="sidebar-logo-sub">Design System</div>
+</div>
+</a>
+<div class="sidebar-version">v1.0 · iOS-first</div>
+</div>
+<nav class="sidebar-nav" id="pawwel-nav"></nav>
+</aside>
+<main class="main">
+<div class="hero">
+<div class="hero-eyebrow">Design System Guide</div>
+<h1 class="hero-title">PAWWEL<br/><span>Design System</span></h1>
+<p class="hero-desc">A comprehensive reference for the PAWWEL visual language and component library. Designed to bridge the gap between Figma source designs and technical implementation.</p>
+<div class="hero-actions">
+<a aria-label="View PAWWEL design system Figma file in a new tab" class="figma-link" href="https://www.figma.com/design/V7gcrDF4PiK2QDqDyrYfK7/PAWWEL-DESIGN-SYSTEM?node-id=234-1829" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" fill="none" focusable="false" height="14" viewBox="0 0 38 57" width="14">
+<path d="M19 28.5C19 25.98 20 23.56 21.78 21.78C23.56 20 25.98 19 28.5 19C31.02 19 33.44 20 35.22 21.78C37 23.56 38 25.98 38 28.5C38 31.02 37 33.44 35.22 35.22C33.44 37 31.02 38 28.5 38C25.98 38 23.56 37 21.78 35.22C20 33.44 19 31.02 19 28.5Z" fill="#1ABCFE"></path>
+<path d="M0 47.5C0 44.98 1 42.56 2.78 40.78C4.56 39 6.98 38 9.5 38H19V47.5C19 50.02 18 52.44 16.22 54.22C14.44 56 12.02 57 9.5 57C6.98 57 4.56 56 2.78 54.22C1 52.44 0 50.02 0 47.5Z" fill="#0ACF83"></path>
+<path d="M19 0V19H28.5C31.02 19 33.44 18 35.22 16.22C37 14.44 38 12.02 38 9.5C38 6.98 37 4.56 35.22 2.78C33.44 1 31.02 0 28.5 0H19Z" fill="#FF7262"></path>
+<path d="M0 9.5C0 12.02 1 14.44 2.78 16.22C4.56 18 6.98 19 9.5 19H19V0H9.5C6.98 0 4.56 1 2.78 2.78C1 4.56 0 6.98 0 9.5Z" fill="#FF3737"></path>
+<path d="M0 28.5C0 31.02 1 33.44 2.78 35.22C4.56 37 6.98 38 9.5 38H19V19H9.5C6.98 19 4.56 20 2.78 21.78C1 23.56 0 25.98 0 28.5Z" fill="#A259FF"></path>
+</svg>
+<span>View Figma File</span>
+</a>
+</div>
+<div class="hero-meta">
+<div class="hero-meta-item"><div class="hero-meta-label">Platform</div><div class="hero-meta-value">iOS Native Experience</div></div>
+<div class="hero-meta-item"><div class="hero-meta-label">Mode</div><div class="hero-meta-value">Light</div></div>
+<div class="hero-meta-item"><div class="hero-meta-label">Font</div><div class="hero-meta-value">SF Pro</div></div>
+</div>
+</div>
+<div class="main-inner">
+</section><section class="section" id="semantic-bg">
+<div class="section-eyebrow">Tier 2 · Semantic</div>
+<h2 class="section-title">Background Tokens</h2>
+<p class="section-desc">
+              Semantic background tokens define surface hierarchy. Always use
+              these — never raw primitives — in components.
+            </p>
+<table class="token-table">
+<thead>
+<tr>
+<th>Token</th>
+<th>Resolves to</th>
+<th>Value</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="mono">color.bg.primary</span></td>
+<td><span class="mono">brown.white</span></td>
+<td>
+<span class="swatch-inline" style="background: #ffffff"></span><span class="mono">#ffffff</span>
+</td>
+<td>
+<span class="usage-note">Root app background. Never use inside elevated
+                      cards.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.bg.secondary</span></td>
+<td><span class="mono">brown.10</span></td>
+<td>
+<span class="swatch-inline" style="background: #f7f4f2"></span><span class="mono">#f7f4f2</span>
+</td>
+<td>
+<span class="usage-note">Card surfaces, section backgrounds. Most-used
+                      surface.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.bg.tertiary</span></td>
+<td><span class="mono">brown.20</span></td>
+<td>
+<span class="swatch-inline" style="background: #e8ddd9"></span><span class="mono">#e8ddd9</span>
+</td>
+<td>
+<span class="usage-note">Nested card backgrounds, inset surfaces.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.bg.quaternary</span></td>
+<td><span class="mono">brown.30</span></td>
+<td>
+<span class="swatch-inline" style="background: #d6c2b8"></span><span class="mono">#d6c2b8</span>
+</td>
+<td>
+<span class="usage-note">Deeply inset surfaces, placeholder backgrounds.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.bg.primary-alt</span></td>
+<td><span class="mono">gray.10</span></td>
+<td>
+<span class="swatch-inline" style="background: #f5f5f5"></span><span class="mono">#f5f5f5</span>
+</td>
+<td>
+<span class="usage-note">Cool-neutral alternative surface for settings
+                      screens.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.bg.active</span></td>
+<td><span class="mono">orange.60</span></td>
+<td>
+<span class="swatch-inline" style="background: #ea580c"></span><span class="mono">#ea580c</span>
+</td>
+<td>
+<span class="usage-note">Active/selected states, primary CTA backgrounds.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.bg.primary-solid</span></td>
+<td><span class="mono">brown.100</span></td>
+<td>
+<span class="swatch-inline" style="background: #251404"></span><span class="mono">#251404</span>
+</td>
+<td>
+<span class="usage-note">Dark solid surfaces — primary button, robot card
+                      bg.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.bg.secondary-solid</span></td>
+<td><span class="mono">brown.80</span></td>
+<td>
+<span class="swatch-inline" style="background: #4f3422"></span><span class="mono">#4f3422</span>
+</td>
+<td>
+<span class="usage-note">Secondary dark surface — sheet handles, dark chips.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.bg.disabled</span></td>
+<td><span class="mono">gray.20</span></td>
+<td>
+<span class="swatch-inline" style="background: #e1e1e0"></span><span class="mono">#e1e1e0</span>
+</td>
+<td>
+<span class="usage-note">Disabled button/input background.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.bg.overlay</span></td>
+<td><span class="mono">brown.100-a64</span></td>
+<td>
+<span class="swatch-inline" style="background: rgba(37, 20, 4, 0.64)"></span><span class="mono">rgba(37,20,4,0.64)</span>
+</td>
+<td>
+<span class="usage-note">Modal overlay, scrim behind bottom sheets.</span>
+</td>
+</tr>
+</tbody>
+</table>
+</section><section class="section" id="semantic-fg">
+<div class="section-eyebrow">Tier 2 · Semantic</div>
+<h2 class="section-title">Foreground Tokens</h2>
+<p class="section-desc">
+              Text and icon color hierarchy. Four tiers (primary → quaternary)
+              create natural visual rhythm without manual opacity hacks.
+            </p>
+<table class="token-table">
+<thead>
+<tr>
+<th>Token</th>
+<th>Resolves to</th>
+<th>Value</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="mono">color.fg.primary</span></td>
+<td><span class="mono">brown.100</span></td>
+<td>
+<span class="swatch-inline" style="background: #251404"></span><span class="mono">#251404</span>
+</td>
+<td>
+<span class="usage-note">Page titles, primary labels. Maximum contrast.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.fg.secondary</span></td>
+<td><span class="mono">brown.80</span></td>
+<td>
+<span class="swatch-inline" style="background: #4f3422"></span><span class="mono">#4f3422</span>
+</td>
+<td>
+<span class="usage-note">Section headings, important body text.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.fg.tertiary</span></td>
+<td><span class="mono">brown.60</span></td>
+<td>
+<span class="swatch-inline" style="background: #926247"></span><span class="mono">#926247</span>
+</td>
+<td>
+<span class="usage-note">Supporting text, descriptions, secondary labels.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.fg.quaternary</span></td>
+<td><span class="mono">brown.40</span></td>
+<td>
+<span class="swatch-inline" style="background: #c0a091"></span><span class="mono">#c0a091</span>
+</td>
+<td>
+<span class="usage-note">Timestamps, placeholders, meta info.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.fg.white</span></td>
+<td><span class="mono">brown.white</span></td>
+<td>
+<span class="swatch-inline" style="
+                        background: #fff;
+                        border: 1px solid var(--brown-20);
+                      "></span><span class="mono">#ffffff</span>
+</td>
+<td>
+<span class="usage-note">Text on dark/solid surfaces (buttons, robot card).</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.fg.disabled</span></td>
+<td><span class="mono">gray.40</span></td>
+<td>
+<span class="swatch-inline" style="background: #aca9a5"></span><span class="mono">#aca9a5</span>
+</td>
+<td>
+<span class="usage-note">Disabled text, inactive tab icons.</span>
+</td>
+</tr>
+</tbody>
+</table>
+</section><section class="section" id="semantic-border">
+<div class="section-eyebrow">Tier 2 · Semantic</div>
+<h2 class="section-title">Border Tokens</h2>
+<p class="section-desc">
+              Use borders sparingly. PAWWEL's aesthetic is air and warmth — use
+              shadow and layering for depth before reaching for borders.
+            </p>
+<table class="token-table">
+<thead>
+<tr>
+<th>Token</th>
+<th>Resolves to</th>
+<th>Value</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="mono">color.border.primary</span></td>
+<td><span class="mono">brown.100</span></td>
+<td>
+<span class="swatch-inline" style="background: #251404"></span><span class="mono">#251404</span>
+</td>
+<td>
+<span class="usage-note">Strong emphasis borders — selected card outline.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.border.secondary</span></td>
+<td><span class="mono">brown.60</span></td>
+<td>
+<span class="swatch-inline" style="background: #926247"></span><span class="mono">#926247</span>
+</td>
+<td>
+<span class="usage-note">Mid-weight borders — inputs, form fields.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.border.tertiary</span></td>
+<td><span class="mono">brown.30</span></td>
+<td>
+<span class="swatch-inline" style="background: #d6c2b8"></span><span class="mono">#d6c2b8</span>
+</td>
+<td>
+<span class="usage-note">Default card borders — lightweight, warm.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.border.quaternary</span></td>
+<td><span class="mono">brown.20</span></td>
+<td>
+<span class="swatch-inline" style="background: #e8ddd9"></span><span class="mono">#e8ddd9</span>
+</td>
+<td>
+<span class="usage-note">Dividers, list separators.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.border.active</span></td>
+<td><span class="mono">orange.60</span></td>
+<td>
+<span class="swatch-inline" style="background: #ea580c"></span><span class="mono">#ea580c</span>
+</td>
+<td>
+<span class="usage-note">Active/focused input state border.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.border.disabled</span></td>
+<td><span class="mono">gray.30</span></td>
+<td>
+<span class="swatch-inline" style="background: #c9c7c5"></span><span class="mono">#c9c7c5</span>
+</td>
+<td>
+<span class="usage-note">Disabled field borders.</span>
+</td>
+</tr>
+<tr>
+<td><span class="mono">color.border.subtle</span></td>
+<td><span class="mono">gray.20</span></td>
+<td>
+<span class="swatch-inline" style="background: #e1e1e0"></span><span class="mono">#e1e1e0</span>
+</td>
+<td>
+<span class="usage-note">Hairline separators, ghost dividers.</span>
+</td>
+</tr>
+</tbody>
+</table>
+</section><section class="section" id="semantic-state">
+<div class="section-eyebrow">Tier 2 · Semantic</div>
+<h2 class="section-title">State Color Tokens</h2>
+<p class="section-desc">
+              Status colors are always paired with a text label — never use
+              color as the sole meaning carrier (accessibility rule).
+            </p>
+<div style="
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 12px;
+                margin-bottom: 32px;
+              ">
+<div style="
+                  background: var(--green-10);
+                  border: 1px solid var(--green-20);
+                  border-radius: var(--radius-3xl);
+                  padding: 20px;
+                ">
+<div style="
+                    font-size: 11px;
+                    font-weight: 600;
+                    color: var(--green-70);
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    margin-bottom: 12px;
+                  ">
+                  Success · Calm &amp; Happy
+                </div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: var(--radius-md);
+                        background: #e5ead7;
+                        border: 1px solid #cfd9b5;
+                        flex-shrink: 0;
+                      "></div>
+<span class="mono" style="font-size: 11px">state.success.primary</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: var(--radius-md);
+                        background: #b4c48d;
+                        flex-shrink: 0;
+                      "></div>
+<span class="mono" style="font-size: 11px">state.success.secondary</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: var(--radius-md);
+                        background: #7d944d;
+                        flex-shrink: 0;
+                      "></div>
+<span class="mono" style="font-size: 11px">state.success.solid</span>
+</div>
+</div>
+</div>
+<div style="
+                  background: var(--yellow-10);
+                  border: 1px solid var(--yellow-20);
+                  border-radius: var(--radius-3xl);
+                  padding: 20px;
+                ">
+<div style="
+                    font-size: 11px;
+                    font-weight: 600;
+                    color: var(--yellow-70);
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    margin-bottom: 12px;
+                  ">
+                  Energy · Playful
+                </div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: var(--radius-md);
+                        background: #fef08a;
+                        border: 1px solid #fde047;
+                        flex-shrink: 0;
+                      "></div>
+<span class="mono" style="font-size: 11px">state.warning.primary</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: var(--radius-md);
+                        background: #facc15;
+                        flex-shrink: 0;
+                      "></div>
+<span class="mono" style="font-size: 11px">state.warning.secondary</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: var(--radius-md);
+                        background: #ca8a04;
+                        flex-shrink: 0;
+                      "></div>
+<span class="mono" style="font-size: 11px">state.warning.solid</span>
+</div>
+</div>
+</div>
+<div style="
+                  background: var(--red-10);
+                  border: 1px solid var(--red-20);
+                  border-radius: var(--radius-3xl);
+                  padding: 20px;
+                ">
+<div style="
+                    font-size: 11px;
+                    font-weight: 600;
+                    color: var(--red-70);
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                    margin-bottom: 12px;
+                  ">
+                  Urgency · Overstimulated
+                </div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: var(--radius-md);
+                        background: #fecdd3;
+                        border: 1px solid #fda4af;
+                        flex-shrink: 0;
+                      "></div>
+<span class="mono" style="font-size: 11px">state.error.primary</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: var(--radius-md);
+                        background: #fb7185;
+                        flex-shrink: 0;
+                      "></div>
+<span class="mono" style="font-size: 11px">state.error.secondary</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<div style="
+                        width: 28px;
+                        height: 28px;
+                        border-radius: var(--radius-md);
+                        background: #e11d48;
+                        flex-shrink: 0;
+                      "></div>
+<span class="mono" style="font-size: 11px">state.error.solid</span>
+</div>
+</div>
+</div>
+</div>
+</section><section class="section" id="semantic-text">
+<div class="section-eyebrow">Semantic Tokens</div>
+<h2 class="section-title">Text Color Tokens</h2>
+<p class="section-desc">Semantic text color tokens define the full palette of text colors available across the PAWWEL UI — from neutral brown and gray scales to emotional state colors for each mood context. These tokens are scoped to text fills only and should never be applied to backgrounds or borders.</p>
+
+<style>
+  .swatch {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid rgba(37,20,4,0.1);
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .swatch-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+</style>
+
+<div class="callout callout-info">
+  <div class="callout-icon">💡</div>
+  <div class="callout-body">
+    <div class="callout-title">Usage principle</div>
+    <div class="callout-text">Use <span class="mono">color.text.heading</span> for all primary headings, <span class="mono">color.text.body</span> for body copy, and emotional color tokens (e.g. <span class="mono">color.text.green.60</span>) only when text must reflect the pet's current emotional state. Never use primitive tokens directly — always reference via <span class="mono">color.text.*</span>.</div>
+  </div>
+</div>
+
+<h3 class="subsection">Role Tokens</h3>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#4f3422;"></div></td><td><span class="mono">color.text.heading</span></td><td><span class="mono">brown.80 · #4f3422</span></td><td>All headings and section titles</td></tr>
+    <tr><td><div class="swatch" style="background:#736b66;"></div></td><td><span class="mono">color.text.body</span></td><td><span class="mono">gray.60 · #736b66</span></td><td>Body copy, descriptions, secondary labels</td></tr>
+    <tr><td><div class="swatch" style="background:#ffffff; border: 1px solid #d6c2b8;"></div></td><td><span class="mono">color.text.white</span></td><td><span class="mono">brown.white · #ffffff</span></td><td>Text on dark/solid backgrounds</td></tr>
+    <tr><td><div class="swatch" style="background:#d6c2b8;"></div></td><td><span class="mono">color.text.disabled</span></td><td><span class="mono">brown.30 · #d6c2b8</span></td><td>Disabled labels, inactive states</td></tr>
+    <tr><td><div class="swatch" style="background:#f43f5e;"></div></td><td><span class="mono">color.text.error</span></td><td><span class="mono">red.50 · #f43f5e</span></td><td>Validation errors, destructive messages</td></tr>
+  </tbody>
+</table>
+
+<h3 class="subsection">Neutral Scale — Brown</h3>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Hex</th><th>Usage</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#c0a091;"></div></td><td><span class="mono">color.text.brown.40</span></td><td><span class="mono">#c0a091</span></td><td>Quaternary text, hint text</td></tr>
+    <tr><td><div class="swatch" style="background:#ac836c;"></div></td><td><span class="mono">color.text.brown.50</span></td><td><span class="mono">#ac836c</span></td><td>Tertiary labels, captions</td></tr>
+    <tr><td><div class="swatch" style="background:#926247;"></div></td><td><span class="mono">color.text.brown.60</span></td><td><span class="mono">#926247</span></td><td>Secondary text</td></tr>
+    <tr><td><div class="swatch" style="background:#4f3422;"></div></td><td><span class="mono">color.text.brown.80</span></td><td><span class="mono">#4f3422</span></td><td>Primary text, headings</td></tr>
+    <tr><td><div class="swatch" style="background:#251404;"></div></td><td><span class="mono">color.text.brown.100</span></td><td><span class="mono">#251404</span></td><td>Emphasis, high-contrast labels</td></tr>
+  </tbody>
+</table>
+
+<h3 class="subsection">Neutral Scale — Gray</h3>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Hex</th><th>Usage</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#aca9a5;"></div></td><td><span class="mono">color.text.gray.40</span></td><td><span class="mono">#aca9a5</span></td><td>Placeholder, muted labels</td></tr>
+    <tr><td><div class="swatch" style="background:#928d86;"></div></td><td><span class="mono">color.text.gray.50</span></td><td><span class="mono">#928d86</span></td><td>Supporting text, metadata</td></tr>
+    <tr><td><div class="swatch" style="background:#736b66;"></div></td><td><span class="mono">color.text.gray.60</span></td><td><span class="mono">#736b66</span></td><td>Body copy default</td></tr>
+    <tr><td><div class="swatch" style="background:#3f3c36;"></div></td><td><span class="mono">color.text.gray.80</span></td><td><span class="mono">#3f3c36</span></td><td>Strong secondary label</td></tr>
+    <tr><td><div class="swatch" style="background:#161513;"></div></td><td><span class="mono">color.text.gray.100</span></td><td><span class="mono">#161513</span></td><td>High-contrast neutral text</td></tr>
+  </tbody>
+</table>
+
+<h3 class="subsection">Text Color Scale</h3>
+<p style="font-size:15px;color:var(--docs-text-2);line-height:1.6;margin-bottom:20px;">Color tokens scoped to text fills. Available across all UI contexts wherever a text color is needed. Gunakan semantic token ini sebisa mungkin — lebih scalable dan akan otomatis beradaptasi jika dark mode diterapkan di masa depan.</p>
+
+<!-- Brown -->
+<h4 style="font-size:13px;font-weight:600;color:var(--docs-text-3);text-transform:uppercase;letter-spacing:0.06em;margin:24px 0 10px;">Brown</h4>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Hex</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#f7f4f2;"></div></td><td><span class="mono">color.text.brown.10</span></td><td><span class="mono">#f7f4f2</span></td></tr>
+    <tr><td><div class="swatch" style="background:#e8ddd9;"></div></td><td><span class="mono">color.text.brown.20</span></td><td><span class="mono">#e8ddd9</span></td></tr>
+    <tr><td><div class="swatch" style="background:#d6c2b8;"></div></td><td><span class="mono">color.text.brown.30</span></td><td><span class="mono">#d6c2b8</span></td></tr>
+    <tr><td><div class="swatch" style="background:#c0a091;"></div></td><td><span class="mono">color.text.brown.40</span></td><td><span class="mono">#c0a091</span></td></tr>
+    <tr><td><div class="swatch" style="background:#ac836c;"></div></td><td><span class="mono">color.text.brown.50</span></td><td><span class="mono">#ac836c</span></td></tr>
+    <tr><td><div class="swatch" style="background:#926247;"></div></td><td><span class="mono">color.text.brown.60</span></td><td><span class="mono">#926247</span></td></tr>
+    <tr><td><div class="swatch" style="background:#704a33;"></div></td><td><span class="mono">color.text.brown.70</span></td><td><span class="mono">#704a33</span></td></tr>
+    <tr><td><div class="swatch" style="background:#4f3422;"></div></td><td><span class="mono">color.text.brown.80</span></td><td><span class="mono">#4f3422</span></td></tr>
+    <tr><td><div class="swatch" style="background:#372315;"></div></td><td><span class="mono">color.text.brown.90</span></td><td><span class="mono">#372315</span></td></tr>
+    <tr><td><div class="swatch" style="background:#251404;"></div></td><td><span class="mono">color.text.brown.100</span></td><td><span class="mono">#251404</span></td></tr>
+  </tbody>
+</table>
+
+<!-- Gray -->
+<h4 style="font-size:13px;font-weight:600;color:var(--docs-text-3);text-transform:uppercase;letter-spacing:0.06em;margin:24px 0 10px;">Gray</h4>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Hex</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#f5f5f5;"></div></td><td><span class="mono">color.text.gray.10</span></td><td><span class="mono">#f5f5f5</span></td></tr>
+    <tr><td><div class="swatch" style="background:#e1e1e0;"></div></td><td><span class="mono">color.text.gray.20</span></td><td><span class="mono">#e1e1e0</span></td></tr>
+    <tr><td><div class="swatch" style="background:#c9c7c5;"></div></td><td><span class="mono">color.text.gray.30</span></td><td><span class="mono">#c9c7c5</span></td></tr>
+    <tr><td><div class="swatch" style="background:#aca9a5;"></div></td><td><span class="mono">color.text.gray.40</span></td><td><span class="mono">#aca9a5</span></td></tr>
+    <tr><td><div class="swatch" style="background:#928d86;"></div></td><td><span class="mono">color.text.gray.50</span></td><td><span class="mono">#928d86</span></td></tr>
+    <tr><td><div class="swatch" style="background:#736b66;"></div></td><td><span class="mono">color.text.gray.60</span></td><td><span class="mono">#736b66</span></td></tr>
+    <tr><td><div class="swatch" style="background:#5a554e;"></div></td><td><span class="mono">color.text.gray.70</span></td><td><span class="mono">#5a554e</span></td></tr>
+    <tr><td><div class="swatch" style="background:#3f3c36;"></div></td><td><span class="mono">color.text.gray.80</span></td><td><span class="mono">#3f3c36</span></td></tr>
+    <tr><td><div class="swatch" style="background:#292723;"></div></td><td><span class="mono">color.text.gray.90</span></td><td><span class="mono">#292723</span></td></tr>
+    <tr><td><div class="swatch" style="background:#161513;"></div></td><td><span class="mono">color.text.gray.100</span></td><td><span class="mono">#161513</span></td></tr>
+  </tbody>
+</table>
+
+<!-- Green -->
+<h4 style="font-size:13px;font-weight:600;color:var(--docs-text-3);text-transform:uppercase;letter-spacing:0.06em;margin:24px 0 10px;">Green</h4>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Hex</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#f0f2e8;"></div></td><td><span class="mono">color.text.green.10</span></td><td><span class="mono">#f0f2e8</span></td></tr>
+    <tr><td><div class="swatch" style="background:#e5ead7;"></div></td><td><span class="mono">color.text.green.20</span></td><td><span class="mono">#e5ead7</span></td></tr>
+    <tr><td><div class="swatch" style="background:#cfd9b5;"></div></td><td><span class="mono">color.text.green.30</span></td><td><span class="mono">#cfd9b5</span></td></tr>
+    <tr><td><div class="swatch" style="background:#b4c48d;"></div></td><td><span class="mono">color.text.green.40</span></td><td><span class="mono">#b4c48d</span></td></tr>
+    <tr><td><div class="swatch" style="background:#9bb167;"></div></td><td><span class="mono">color.text.green.50</span></td><td><span class="mono">#9bb167</span></td></tr>
+    <tr><td><div class="swatch" style="background:#7d944d;"></div></td><td><span class="mono">color.text.green.60</span></td><td><span class="mono">#7d944d</span></td></tr>
+    <tr><td><div class="swatch" style="background:#5a6b38;"></div></td><td><span class="mono">color.text.green.70</span></td><td><span class="mono">#5a6b38</span></td></tr>
+    <tr><td><div class="swatch" style="background:#3d4a26;"></div></td><td><span class="mono">color.text.green.80</span></td><td><span class="mono">#3d4a26</span></td></tr>
+    <tr><td><div class="swatch" style="background:#29321a;"></div></td><td><span class="mono">color.text.green.90</span></td><td><span class="mono">#29321a</span></td></tr>
+    <tr><td><div class="swatch" style="background:#191e10;"></div></td><td><span class="mono">color.text.green.100</span></td><td><span class="mono">#191e10</span></td></tr>
+  </tbody>
+</table>
+
+<!-- Orange -->
+<h4 style="font-size:13px;font-weight:600;color:var(--docs-text-3);text-transform:uppercase;letter-spacing:0.06em;margin:24px 0 10px;">Orange</h4>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Hex</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#ffedd5;"></div></td><td><span class="mono">color.text.orange.10</span></td><td><span class="mono">#ffedd5</span></td></tr>
+    <tr><td><div class="swatch" style="background:#fed7aa;"></div></td><td><span class="mono">color.text.orange.20</span></td><td><span class="mono">#fed7aa</span></td></tr>
+    <tr><td><div class="swatch" style="background:#fdba74;"></div></td><td><span class="mono">color.text.orange.30</span></td><td><span class="mono">#fdba74</span></td></tr>
+    <tr><td><div class="swatch" style="background:#fb8728;"></div></td><td><span class="mono">color.text.orange.40</span></td><td><span class="mono">#fb8728</span></td></tr>
+    <tr><td><div class="swatch" style="background:#f97010;"></div></td><td><span class="mono">color.text.orange.50</span></td><td><span class="mono">#f97010</span></td></tr>
+    <tr><td><div class="swatch" style="background:#ea580c;"></div></td><td><span class="mono">color.text.orange.60</span></td><td><span class="mono">#ea580c</span></td></tr>
+    <tr><td><div class="swatch" style="background:#c2410c;"></div></td><td><span class="mono">color.text.orange.70</span></td><td><span class="mono">#c2410c</span></td></tr>
+    <tr><td><div class="swatch" style="background:#9a3412;"></div></td><td><span class="mono">color.text.orange.80</span></td><td><span class="mono">#9a3412</span></td></tr>
+    <tr><td><div class="swatch" style="background:#7c2d12;"></div></td><td><span class="mono">color.text.orange.90</span></td><td><span class="mono">#7c2d12</span></td></tr>
+    <tr><td><div class="swatch" style="background:#431407;"></div></td><td><span class="mono">color.text.orange.100</span></td><td><span class="mono">#431407</span></td></tr>
+  </tbody>
+</table>
+
+<!-- Yellow -->
+<h4 style="font-size:13px;font-weight:600;color:var(--docs-text-3);text-transform:uppercase;letter-spacing:0.06em;margin:24px 0 10px;">Yellow</h4>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Hex</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#fef9c3;"></div></td><td><span class="mono">color.text.yellow.10</span></td><td><span class="mono">#fef9c3</span></td></tr>
+    <tr><td><div class="swatch" style="background:#fef08a;"></div></td><td><span class="mono">color.text.yellow.20</span></td><td><span class="mono">#fef08a</span></td></tr>
+    <tr><td><div class="swatch" style="background:#fde047;"></div></td><td><span class="mono">color.text.yellow.30</span></td><td><span class="mono">#fde047</span></td></tr>
+    <tr><td><div class="swatch" style="background:#facc15;"></div></td><td><span class="mono">color.text.yellow.40</span></td><td><span class="mono">#facc15</span></td></tr>
+    <tr><td><div class="swatch" style="background:#eab308;"></div></td><td><span class="mono">color.text.yellow.50</span></td><td><span class="mono">#eab308</span></td></tr>
+    <tr><td><div class="swatch" style="background:#ca8a04;"></div></td><td><span class="mono">color.text.yellow.60</span></td><td><span class="mono">#ca8a04</span></td></tr>
+    <tr><td><div class="swatch" style="background:#a16207;"></div></td><td><span class="mono">color.text.yellow.70</span></td><td><span class="mono">#a16207</span></td></tr>
+    <tr><td><div class="swatch" style="background:#854d0e;"></div></td><td><span class="mono">color.text.yellow.80</span></td><td><span class="mono">#854d0e</span></td></tr>
+    <tr><td><div class="swatch" style="background:#713f12;"></div></td><td><span class="mono">color.text.yellow.90</span></td><td><span class="mono">#713f12</span></td></tr>
+    <tr><td><div class="swatch" style="background:#422006;"></div></td><td><span class="mono">color.text.yellow.100</span></td><td><span class="mono">#422006</span></td></tr>
+  </tbody>
+</table>
+
+<!-- Purple -->
+<h4 style="font-size:13px;font-weight:600;color:var(--docs-text-3);text-transform:uppercase;letter-spacing:0.06em;margin:24px 0 10px;">Purple</h4>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Hex</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#ede9fe;"></div></td><td><span class="mono">color.text.purple.10</span></td><td><span class="mono">#ede9fe</span></td></tr>
+    <tr><td><div class="swatch" style="background:#ddd6fe;"></div></td><td><span class="mono">color.text.purple.20</span></td><td><span class="mono">#ddd6fe</span></td></tr>
+    <tr><td><div class="swatch" style="background:#c4b5fd;"></div></td><td><span class="mono">color.text.purple.30</span></td><td><span class="mono">#c4b5fd</span></td></tr>
+    <tr><td><div class="swatch" style="background:#a78bfa;"></div></td><td><span class="mono">color.text.purple.40</span></td><td><span class="mono">#a78bfa</span></td></tr>
+    <tr><td><div class="swatch" style="background:#8b5cf6;"></div></td><td><span class="mono">color.text.purple.50</span></td><td><span class="mono">#8b5cf6</span></td></tr>
+    <tr><td><div class="swatch" style="background:#7f45e2;"></div></td><td><span class="mono">color.text.purple.60</span></td><td><span class="mono">#7f45e2</span></td></tr>
+    <tr><td><div class="swatch" style="background:#7035cc;"></div></td><td><span class="mono">color.text.purple.70</span></td><td><span class="mono">#7035cc</span></td></tr>
+    <tr><td><div class="swatch" style="background:#5d2aad;"></div></td><td><span class="mono">color.text.purple.80</span></td><td><span class="mono">#5d2aad</span></td></tr>
+    <tr><td><div class="swatch" style="background:#4e248e;"></div></td><td><span class="mono">color.text.purple.90</span></td><td><span class="mono">#4e248e</span></td></tr>
+    <tr><td><div class="swatch" style="background:#2e1065;"></div></td><td><span class="mono">color.text.purple.100</span></td><td><span class="mono">#2e1065</span></td></tr>
+  </tbody>
+</table>
+
+<!-- Red -->
+<h4 style="font-size:13px;font-weight:600;color:var(--docs-text-3);text-transform:uppercase;letter-spacing:0.06em;margin:24px 0 10px;">Red</h4>
+<table class="token-table">
+  <thead><tr><th>Swatch</th><th>Token</th><th>Hex</th></tr></thead>
+  <tbody>
+    <tr><td><div class="swatch" style="background:#ffe4e6;"></div></td><td><span class="mono">color.text.red.10</span></td><td><span class="mono">#ffe4e6</span></td></tr>
+    <tr><td><div class="swatch" style="background:#fecdd3;"></div></td><td><span class="mono">color.text.red.20</span></td><td><span class="mono">#fecdd3</span></td></tr>
+    <tr><td><div class="swatch" style="background:#fda4af;"></div></td><td><span class="mono">color.text.red.30</span></td><td><span class="mono">#fda4af</span></td></tr>
+    <tr><td><div class="swatch" style="background:#fb7185;"></div></td><td><span class="mono">color.text.red.40</span></td><td><span class="mono">#fb7185</span></td></tr>
+    <tr><td><div class="swatch" style="background:#f43f5e;"></div></td><td><span class="mono">color.text.red.50</span></td><td><span class="mono">#f43f5e</span></td></tr>
+    <tr><td><div class="swatch" style="background:#e11d48;"></div></td><td><span class="mono">color.text.red.60</span></td><td><span class="mono">#e11d48</span></td></tr>
+    <tr><td><div class="swatch" style="background:#be123c;"></div></td><td><span class="mono">color.text.red.70</span></td><td><span class="mono">#be123c</span></td></tr>
+    <tr><td><div class="swatch" style="background:#9f1239;"></div></td><td><span class="mono">color.text.red.80</span></td><td><span class="mono">#9f1239</span></td></tr>
+    <tr><td><div class="swatch" style="background:#881337;"></div></td><td><span class="mono">color.text.red.90</span></td><td><span class="mono">#881337</span></td></tr>
+    <tr><td><div class="swatch" style="background:#4c0519;"></div></td><td><span class="mono">color.text.red.100</span></td><td><span class="mono">#4c0519</span></td></tr>
+  </tbody>
+</table>
+
+<div class="callout callout-warning">
+  <div class="callout-icon">⚠️</div>
+  <div class="callout-body">
+    <div class="callout-title">Accessibility note</div>
+    <div class="callout-text">Always verify contrast ratio when using light shades (10–40) on white backgrounds. <span class="mono">color.text.yellow.*</span> and <span class="mono">color.text.green.10–30</span> may fail WCAG AA — pair with a supporting background tint or use darker shades for text.</div>
+  </div>
+</div>
+
+
+<div style="margin-top:96px;padding-top:40px;border-top:1px solid var(--docs-border);">
+<div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;">
+<div>
+<div style='font-size:20px;color:var(--brown-100);margin-bottom:6px;'>PAWWEL Design System</div>
+<div style="font-size:13px;color:var(--docs-text-3)">iOS-first companion app · v1.0 · Phase 2</div>
+</div>
+<div style="font-size:12px;color:var(--docs-text-3);line-height:1.8;">
+<div>Token source: <span class="mono">PAWWEL_VARIABLES.json</span></div>
+<div>Figma: PAWWEL App Design · Phase 2</div>
+<div>Last updated: May 2026</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = (scrollTop / docHeight) * 100;
+    document.getElementById("progressFill").style.width = pct + "%";
+  });
+  const sections = document.querySelectorAll(".section[id]");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          const href = link.getAttribute("href");
+          if (href === "#" + entry.target.id) link.classList.add("active");
+        });
+      }
+    });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+  sections.forEach((s) => observer.observe(s));
+  const menuBtn = document.getElementById("mobileMenuBtn");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  function openMenu() { sidebar.classList.add("open"); overlay.classList.add("visible"); menuBtn.classList.add("open"); menuBtn.setAttribute("aria-expanded","true"); document.body.style.overflow="hidden"; }
+  function closeMenu() { sidebar.classList.remove("open"); overlay.classList.remove("visible"); menuBtn.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); document.body.style.overflow=""; }
+  menuBtn.addEventListener("click", () => { sidebar.classList.contains("open") ? closeMenu() : openMenu(); });
+  overlay.addEventListener("click", closeMenu);
+  navLinks.forEach(link => { link.addEventListener("click", () => { if (window.innerWidth <= 800) closeMenu(); }); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+  window.addEventListener("resize", () => { if (window.innerWidth > 800) { closeMenu(); document.body.style.overflow=""; } });
+</script>
+
+<script src="nav.js"></script>
+</body>
+</html>
