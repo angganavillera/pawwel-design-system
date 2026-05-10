@@ -908,6 +908,9 @@
         padding: 20px 24px;
         margin: 16px 0 24px;
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        max-width: 100%;
+        box-sizing: border-box;
         position: relative;
       }
 
@@ -1659,31 +1662,358 @@
       }
 
       /* ─── RESPONSIVE ─── */
+
+      /* ── HAMBURGER BUTTON ── */
+      .mobile-menu-btn {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--docs-border);
+        background: var(--docs-surface);
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: background 0.15s, border-color 0.15s;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .mobile-menu-btn:hover {
+        background: var(--brown-10);
+        border-color: var(--brown-30);
+      }
+      .mobile-menu-btn:active {
+        background: var(--brown-20);
+        transform: scale(0.95);
+      }
+      .hamburger-icon {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 16px;
+      }
+      .hamburger-icon span {
+        display: block;
+        height: 1.5px;
+        background: var(--brown-100);
+        border-radius: 99px;
+        transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: center;
+      }
+      .hamburger-icon span:first-child  { width: 100%; }
+      .hamburger-icon span:nth-child(2) { width: 75%; }
+      .hamburger-icon span:last-child   { width: 100%; }
+
+      /* Open state */
+      .mobile-menu-btn.open .hamburger-icon span:first-child {
+        transform: translateY(5.5px) rotate(45deg);
+        width: 100%;
+      }
+      .mobile-menu-btn.open .hamburger-icon span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .mobile-menu-btn.open .hamburger-icon span:last-child {
+        transform: translateY(-5.5px) rotate(-45deg);
+      }
+
+      /* ── MOBILE OVERLAY ── */
+      .sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(37, 20, 4, 0.4);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        z-index: 90;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+      .sidebar-overlay.visible {
+        opacity: 1;
+      }
+
       @media (max-width: 800px) {
-        .sidebar {
-          display: none;
+
+        /* ── TOPBAR ── */
+        .topbar {
+          height: 52px;
+          padding: 0 16px;
+          /* Safe area for iPhone notch/Dynamic Island */
+          padding-top: env(safe-area-inset-top, 0px);
         }
+        .topbar-label { font-size: 12px; }
+        .topbar-right { gap: 6px; }
+        .topbar-btn { 
+          height: 30px; 
+          padding: 0 8px; 
+          font-size: 11px;
+        }
+        .mobile-menu-btn { display: inline-flex; }
+
+        /* ── SIDEBAR: SLIDE-IN DRAWER ── */
+        .sidebar {
+          top: 52px !important;
+          left: 0;
+          width: min(280px, 82vw) !important;
+          transform: translateX(-100%);
+          transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                      box-shadow 0.28s ease;
+          z-index: 95;
+          box-shadow: none;
+        }
+        .sidebar.open {
+          transform: translateX(0);
+          box-shadow: 4px 0 32px rgba(37, 20, 4, 0.18);
+        }
+        .sidebar-overlay { display: block; }
+
+        /* ── MAIN CONTENT ── */
         .main {
-          margin-left: 0;
-          max-width: 100%;
+          margin-left: 0 !important;
+          max-width: 100% !important;
+          padding-top: 52px;
         }
         .main-inner {
-          padding: 40px 24px 80px;
+          padding: 32px 20px 120px;
+          /* Safe area for iPhone home indicator */
+          padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
         }
+        .progress-bar { top: 52px !important; }
+
+        /* ── HERO ── */
         .hero {
-          padding: 48px 24px 40px;
+          padding: 36px 20px 32px;
         }
         .hero-title {
-          font-size: 36px;
+          font-size: 34px;
+          letter-spacing: -0.025em;
         }
+        .hero-desc { font-size: 15px; }
+        .hero-actions {
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .hero-meta {
+          gap: 16px;
+        }
+        .hero::before {
+          width: 200px;
+          height: 200px;
+          top: -40px;
+          right: -40px;
+        }
+
+        /* ── TYPOGRAPHY ── */
+        .section-title { font-size: 26px; }
+        h3.subsection { font-size: 18px; }
+        .section-desc { font-size: 15px; }
+        body { font-size: 15px; }
+
+        /* ── SECTION PADDING ── */
+        .section { padding-top: 56px; }
+
+        /* ── GRID LAYOUTS ── */
         .dos-donts {
           grid-template-columns: 1fr;
         }
         .component-property-grid {
           grid-template-columns: 1fr 1fr;
+          gap: 8px;
         }
         .token-grid {
-          grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+          gap: 6px;
+        }
+        .radius-grid {
+          grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+          gap: 6px;
+        }
+        .spacing-grid { gap: 6px; }
+
+        /* ── TABLES: HORIZONTAL SCROLL ── */
+        .token-table {
+          display: block;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          font-size: 12px;
+        }
+        .token-table th,
+        .token-table td {
+          padding: 8px 10px;
+          white-space: nowrap;
+        }
+
+        /* ── CODE BLOCKS ── */
+        .code-block {
+          padding: 16px;
+          font-size: 12px;
+          border-radius: var(--radius-xl);
+        }
+        code { font-size: 12px; }
+
+        /* ── COMPONENT PREVIEW ── */
+        .component-preview {
+          padding: 20px 16px;
+          gap: 10px;
+          border-radius: var(--radius-xl);
+        }
+
+        /* ── MOTION ROWS ── */
+        .motion-row {
+          flex-wrap: wrap;
+          gap: 8px;
+          padding: 10px 14px;
+        }
+        .motion-name, .motion-val { min-width: auto; }
+
+        /* ── SPACING ROWS ── */
+        .spacing-row {
+          padding: 8px 12px;
+        }
+        .spacing-info {
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .spacing-name { min-width: 60px; font-size: 11px; }
+        .spacing-px { min-width: 32px; font-size: 11px; }
+        .spacing-use { font-size: 12px; }
+
+        /* ── CALLOUTS ── */
+        .callout { padding: 14px 16px; gap: 10px; }
+        .callout-title { font-size: 14px; }
+        .callout-text { font-size: 13px; }
+
+        /* ── TYPE SCALE ── */
+        .type-row {
+          flex-direction: column;
+          gap: 8px;
+          align-items: flex-start;
+          padding: 12px 14px;
+        }
+        .type-meta { min-width: auto; }
+
+        /* ── ROBOT STATUS CARD ── */
+        .robot-status-card { max-width: 100%; }
+        .moment-card { max-width: 100%; }
+
+        /* ── TAB BAR ── */
+        .tab-bar-preview { max-width: 100%; }
+
+        /* ── A11Y ROWS ── */
+        .a11y-label { font-size: 13px; }
+        .a11y-note { font-size: 11px; }
+
+        /* ── FIGMA LINK ── */
+        .figma-link { font-size: 12px; padding: 9px 14px; }
+
+        /* ── PASSWORD GATE ── */
+        #pw-gate div { padding: 0 20px; }
+
+        /* ── TOUCH TARGETS: min 44pt per Apple HIG ── */
+        .nav-link {
+          padding: 9px 12px 9px 20px;
+          min-height: 44px;
+          display: flex;
+          align-items: center;
+        }
+        .btn-xs, .btn-sm { min-height: 44px; }
+        a, button { -webkit-tap-highlight-color: transparent; }
+      }
+
+      /* Extra small: iPhone SE / 375px */
+      @media (max-width: 390px) {
+        .hero-title { font-size: 28px; }
+        .topbar-label:last-of-type { display: none; }
+        .topbar-divider { display: none; }
+        .component-property-grid { grid-template-columns: 1fr; }
+        .main-inner { padding-left: 16px; padding-right: 16px; }
+        .hero { padding-left: 16px; padding-right: 16px; }
+        .token-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+      }
+
+      /* ── SMOOTH FOCUS RINGS (iOS Safari) ── */
+      @media (max-width: 800px) {
+        :focus-visible {
+          outline: 2px solid var(--docs-accent);
+          outline-offset: 2px;
+          border-radius: var(--radius-sm);
+        }
+      }
+
+      /* ─── GLOBAL OVERFLOW FIX ───
+         Prevent ANY element from causing horizontal scroll.
+         Tables and code blocks that need scroll get explicit
+         .scroll-x wrapper — everything else clips cleanly. */
+      html, body {
+        overflow-x: hidden;
+      }
+      @media (max-width: 800px) {
+        /* Catch-all: kill horizontal overflow on every block */
+        .main, .main-inner, .section, .hero {
+          overflow-x: hidden;
+        }
+
+        /* ─── INLINE GRID OVERRIDE (high specificity) ───
+           These grids use inline style= so we need !important.
+           Targets: state color tokens (3col), philosophy (2col),
+           emotional states (2col), and the auto-fit token grid. */
+
+        /* State Color Tokens: 1fr 1fr 1fr → 1 col on small, 2 col on medium */
+        #semantic-state > div[style*="grid-template-columns: 1fr 1fr 1fr"],
+        #semantic-state > div[style*="grid-template-columns:1fr 1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Philosophy / architecture 2-col inline grids */
+        #philosophy div[style*="grid-template-columns: 1fr 1fr"],
+        #philosophy div[style*="grid-template-columns:1fr 1fr"],
+        #architecture div[style*="grid-template-columns: 1fr 1fr"],
+        #architecture div[style*="grid-template-columns:1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Emotional states 2-col grid */
+        #emotional-states div[style*="grid-template-columns: 1fr 1fr"],
+        #emotional-states div[style*="grid-template-columns:1fr 1fr"],
+        #emotional-state-logic div[style*="grid-template-columns: 1fr 1fr"],
+        #emotional-state-logic div[style*="grid-template-columns:1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Auto-fit grid with large minmax — force smaller minmax */
+        div[style*="minmax(320px, 1fr)"],
+        div[style*="minmax(320px,1fr)"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Catch-all: any inline 3-column grid anywhere in the doc */
+        div[style*="grid-template-columns: 1fr 1fr 1fr"],
+        div[style*="grid-template-columns:1fr 1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* Catch-all: any inline 2-column grid — collapse to 1 col on small screens */
+        div[style*="grid-template-columns: 1fr 1fr"],
+        div[style*="grid-template-columns:1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+      }
+
+      /* ── At 520px+ let 2-col grids live again (tablet range) ── */
+      @media (min-width: 520px) and (max-width: 800px) {
+        div[style*="grid-template-columns: 1fr 1fr"],
+        div[style*="grid-template-columns:1fr 1fr"] {
+          grid-template-columns: 1fr 1fr !important;
+        }
+        /* State color 3col → 2col on tablet */
+        div[style*="grid-template-columns: 1fr 1fr 1fr"],
+        div[style*="grid-template-columns:1fr 1fr 1fr"] {
+          grid-template-columns: 1fr 1fr !important;
+        }
+        div[style*="minmax(320px, 1fr)"],
+        div[style*="minmax(320px,1fr)"] {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
         }
       }
     
@@ -1818,6 +2148,11 @@
 
 <div class="topbar">
   <div class="topbar-left">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+      <div class="hamburger-icon">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
     <span class="topbar-label">PAWWEL Design System</span>
     <div class="topbar-divider"></div>
     <span class="topbar-label" style="color:var(--docs-text-3);font-weight:400;">v1.0 · iOS-first</span>
@@ -1846,7 +2181,8 @@
 </div>
 <div class="layout">
 <!-- ─── SIDEBAR ─── -->
-<aside class="sidebar">
+<div class="sidebar-overlay" id="sidebarOverlay" role="presentation"></div>
+<aside class="sidebar" id="sidebar" role="navigation" aria-label="Design system navigation">
 <div class="sidebar-header">
 <a class="sidebar-logo" href="#overview">
 <div class="sidebar-logo-mark">
@@ -1921,8 +2257,6 @@
 <a class="nav-link" href="#comp-accordion"><span class="nav-dot"></span>Accordion</a>
 <a class="nav-link" href="#comp-pagination"><span class="nav-dot"></span>Pagination System</a>
 <a class="nav-link" href="#comp-robot"><span class="nav-dot"></span>Robot Status</a>
-<a class="nav-link" href="#comp-tabbar"><span class="nav-dot"></span>Tab Bar</a>
-<a class="nav-link" href="#comp-sheets"><span class="nav-dot"></span>Bottom Sheets</a>
 <a class="nav-link" href="#comp-skeleton"><span class="nav-dot"></span>Loading States</a>
 </div>
 </div>
@@ -7298,249 +7632,7 @@
 </tr>
 </tbody>
 </table>
-</section><section class="section" id="comp-tabbar">
-<div class="section-eyebrow">Component</div>
-<h2 class="section-title">Tab Bar</h2>
-<p class="section-desc">
-              A floating tab bar with native blur. It sits above the content,
-              never inside it — the bar is part of the chrome, not the canvas.
-            </p>
-<div class="component-preview">
-<div class="tab-bar-preview">
-<div class="tab-item active">
-<div class="tab-icon">🏠</div>
-<div class="tab-label">Home</div>
-</div>
-<div class="tab-item">
-<div class="tab-icon">📸</div>
-<div class="tab-label">Moments</div>
-</div>
-<div class="tab-item">
-<div class="tab-icon">🛍️</div>
-<div class="tab-label">Shop</div>
-</div>
-<div class="tab-item">
-<div class="tab-icon">👤</div>
-<div class="tab-label">Profile</div>
-</div>
-</div>
-</div>
-<table class="token-table" style="margin-top: 24px">
-<thead>
-<tr>
-<th>Property</th>
-<th>Token / Spec</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Height</td>
-<td>83pt (incl. safe area)</td>
-<td>Anchored to the bottom safe-area inset.</td>
-</tr>
-<tr>
-<td>Surface</td>
-<td>Native ultra-thin blur</td>
-<td>Defers to the content beneath it. No solid fills.</td>
-</tr>
-<tr>
-<td>Active icon</td>
-<td><span class="mono">color.bg.primary-solid</span></td>
-<td>Selected state reads as a confident dark pill.</td>
-</tr>
-<tr>
-<td>Inactive icon</td>
-<td><span class="mono">color.fg.primary</span> @ 40%</td>
-<td>Recessed, not greyed-out. Still legible.</td>
-</tr>
-<tr>
-<td>Border</td>
-<td>
-<span class="mono">color.border.quaternary</span> · 0.5pt
-                  </td>
-<td>Hairline, intended to disappear at low contrast.</td>
-</tr>
-<tr>
-<td>Corner radius</td>
-<td><span class="mono">radius.4xl</span> (24pt)</td>
-<td>Matches the floating-pill silhouette.</td>
-</tr>
-<tr>
-<td>Bottom margin</td>
-<td>
-                    Safe-area inset + <span class="mono">spacing.xl</span>
-</td>
-<td>Bar floats — never flush with the screen edge.</td>
-</tr>
-</tbody>
-</table>
-<h3 class="subsection">Behavior</h3>
-<table class="token-table">
-<thead>
-<tr>
-<th>Rule</th>
-<th>Expectation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Selection</td>
-<td>
-                    Tap fades the active pill into place using
-                    <span class="mono">spring.default</span>. Selection feedback
-                    is haptic, not auditory.
-                  </td>
-</tr>
-<tr>
-<td>Scroll behavior</td>
-<td>
-                    The bar remains visible at all times. It does not auto-hide
-                    on scroll.
-                  </td>
-</tr>
-<tr>
-<td>Re-selection</td>
-<td>
-                    Tapping the active tab scrolls its view to the top — a
-                    native iOS expectation.
-                  </td>
-</tr>
-<tr>
-<td>Modality</td>
-<td>
-                    While a sheet is presented, the bar dims with the underlying
-                    view but never disappears.
-                  </td>
-</tr>
-</tbody>
-</table>
-<div class="callout callout-info">
-<div class="callout-icon">📱</div>
-<div class="callout-body">
-<div class="callout-title">Dynamic Island awareness</div>
-<div class="callout-text">
-                  On iPhone 14 Pro+ with Dynamic Island, ensure the top safe
-                  area inset is respected. Never place interactive content
-                  within 60pt of the top edge. Robot animations should be aware
-                  of this boundary.
-                </div>
-</div>
-</div>
-</section><section class="section" id="comp-sheets">
-<div class="section-eyebrow">Component</div>
-<h2 class="section-title">Bottom Sheets</h2>
-<p class="section-desc">
-              Sheets carry contextual moments — outfit changes, robot detail,
-              treat dispense. They feel native, physical, and never modal in the
-              heavy enterprise sense. The sheet is invited up, not forced.
-            </p>
-<table class="token-table">
-<thead>
-<tr>
-<th>Property</th>
-<th>Value</th>
-<th>Token</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Corner radius</td>
-<td>32pt</td>
-<td><span class="mono">radius.6xl</span></td>
-</tr>
-<tr>
-<td>Background</td>
-<td>#ffffff</td>
-<td><span class="mono">bg.primary</span></td>
-</tr>
-<tr>
-<td>Handle color</td>
-<td>#d6c2b8</td>
-<td><span class="mono">border.tertiary</span></td>
-</tr>
-<tr>
-<td>Handle size</td>
-<td>36 × 4pt</td>
-<td>—</td>
-</tr>
-<tr>
-<td>Handle top margin</td>
-<td>8pt</td>
-<td><span class="mono">spacing.md</span></td>
-</tr>
-<tr>
-<td>Content top padding</td>
-<td>24pt</td>
-<td><span class="mono">spacing.3xl</span></td>
-</tr>
-<tr>
-<td>Overlay scrim</td>
-<td>rgba(37,20,4,0.48)</td>
-<td><span class="mono">bg.overlay</span> at 75%</td>
-</tr>
-<tr>
-<td>Presentation detents</td>
-<td>.medium, .large</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<h3 class="subsection">Behavior</h3>
-<table class="token-table">
-<thead>
-<tr>
-<th>Rule</th>
-<th>Expectation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Presentation</td>
-<td>
-                    Sheet rises from the bottom edge with native iOS physics.
-                    Never a fade or slide-from-side.
-                  </td>
-</tr>
-<tr>
-<td>Detents</td>
-<td>
-                    Default to a medium detent. Promote to large only when the
-                    content genuinely needs the height.
-                  </td>
-</tr>
-<tr>
-<td>Drag handle</td>
-<td>
-                    Always visible. The handle communicates that the sheet can
-                    be dismissed by gesture, not just by tapping outside.
-                  </td>
-</tr>
-<tr>
-<td>Scrim</td>
-<td>
-                    Dimmed underlay using
-                    <span class="mono">color.bg.overlay</span>. Tapping the
-                    scrim dismisses the sheet.
-                  </td>
-</tr>
-<tr>
-<td>Dismissal</td>
-<td>
-                    Drag-down, tap scrim, or system back gesture all dismiss.
-                    There is always a way out without using a button.
-                  </td>
-</tr>
-<tr>
-<td>Stacking</td>
-<td>
-                    Only one sheet at a time. A new sheet replaces, never
-                    stacks.
-                  </td>
-</tr>
-</tbody>
-</table>
-</section><section class="section" id="comp-skeleton">
+</section></section><section class="section" id="comp-skeleton">
 <div class="section-eyebrow">Component</div>
 <h2 class="section-title">Loading &amp; Skeleton States</h2>
 <p class="section-desc">
@@ -8733,6 +8825,54 @@
       );
 
       sections.forEach((s) => observer.observe(s));
+
+      // ─── MOBILE HAMBURGER MENU ───
+      const menuBtn   = document.getElementById("mobileMenuBtn");
+      const sidebar   = document.getElementById("sidebar");
+      const overlay   = document.getElementById("sidebarOverlay");
+
+      function openMenu() {
+        sidebar.classList.add("open");
+        overlay.classList.add("visible");
+        menuBtn.classList.add("open");
+        menuBtn.setAttribute("aria-expanded", "true");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMenu() {
+        sidebar.classList.remove("open");
+        overlay.classList.remove("visible");
+        menuBtn.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+        document.body.style.overflow = "";
+      }
+
+      menuBtn.addEventListener("click", () => {
+        sidebar.classList.contains("open") ? closeMenu() : openMenu();
+      });
+
+      // Close on overlay tap
+      overlay.addEventListener("click", closeMenu);
+
+      // Close when a nav link is tapped (mobile UX)
+      navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 800) closeMenu();
+        });
+      });
+
+      // Close on Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      // Reset on desktop resize
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 800) {
+          closeMenu();
+          document.body.style.overflow = "";
+        }
+      });
     </script>
 </body>
 </html>
