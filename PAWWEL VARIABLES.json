@@ -1092,6 +1092,15 @@
                   "$collectionName": "Color",
                   "$value": "{color.base.brown.40}"
                 },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.brown.50}"
+                },
                 "60": {
                   "$scopes": [
                     "ALL_SCOPES"
@@ -1129,6 +1138,15 @@
                   "$libraryName": "",
                   "$collectionName": "Color",
                   "$value": "{color.base.gray.40}"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.gray.50}"
                 },
                 "60": {
                   "$scopes": [
@@ -1168,6 +1186,15 @@
                   "$collectionName": "Color",
                   "$value": "{color.base.green.40}"
                 },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.green.50}"
+                },
                 "60": {
                   "$scopes": [
                     "ALL_SCOPES"
@@ -1196,6 +1223,15 @@
                   "$libraryName": "",
                   "$collectionName": "Color",
                   "$value": "{color.base.orange.40}"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.orange.50}"
                 },
                 "60": {
                   "$scopes": [
@@ -1226,6 +1262,15 @@
                   "$collectionName": "Color",
                   "$value": "{color.base.yellow.40}"
                 },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.yellow.50}"
+                },
                 "60": {
                   "$scopes": [
                     "ALL_SCOPES"
@@ -1255,6 +1300,15 @@
                   "$collectionName": "Color",
                   "$value": "{color.base.purple.40}"
                 },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.purple.50}"
+                },
                 "60": {
                   "$scopes": [
                     "ALL_SCOPES"
@@ -1283,6 +1337,15 @@
                   "$libraryName": "",
                   "$collectionName": "Color",
                   "$value": "{color.base.red.40}"
+                },
+                "50": {
+                  "$scopes": [
+                    "ALL_SCOPES"
+                  ],
+                  "$type": "color",
+                  "$libraryName": "",
+                  "$collectionName": "Color",
+                  "$value": "{color.base.red.50}"
                 },
                 "60": {
                   "$scopes": [
@@ -1319,7 +1382,7 @@
                 "$type": "color",
                 "$libraryName": "",
                 "$collectionName": "Color",
-                "$value": "{color.base.red.60}"
+                "$value": "{color.base.red.50}"
               },
               "heading": {
                 "$scopes": [
@@ -1338,6 +1401,15 @@
                 "$libraryName": "",
                 "$collectionName": "Color",
                 "$value": "{color.base.gray.60}"
+              },
+              "disabled": {
+                "$scopes": [
+                  "ALL_SCOPES"
+                ],
+                "$type": "color",
+                "$libraryName": "",
+                "$collectionName": "Color",
+                "$value": "{color.base.brown.30}"
               }
             }
           }
