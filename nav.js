@@ -73,6 +73,7 @@
         { anchor: '#accessibility', name: 'Accessibility' },
         { anchor: '#emotional-state-logic', name: 'State Logic' },
         { anchor: '#emotional-states', name: 'Emotional States' },
+        { anchor: '#icons', name: 'Icon System' },
       ]
     },
   ];
