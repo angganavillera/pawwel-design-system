@@ -169,8 +169,9 @@
   --spacing-11xl: 160px;
 
   /* ─── TYPOGRAPHY ─── */
-  --font-family-primary: "SF Pro Display", "SF Pro Text", -apple-system,
-    BlinkMacSystemFont, sans-serif;
+  --font-family-primary:
+    "SF Pro Display", "SF Pro Text", -apple-system, BlinkMacSystemFont,
+    sans-serif;
   --font-weight-heavy: 800;
   --font-weight-bold: 700;
   --font-weight-semibold: 600;
@@ -241,7 +242,7 @@ body {
 .sidebar {
   width: var(--docs-sidebar-width);
   position: fixed;
-  top: 0;
+  top: 40px;
   left: 0;
   bottom: 0;
   background: var(--docs-surface);
@@ -251,8 +252,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-
 
 .sidebar::-webkit-scrollbar {
   width: 4px;
@@ -354,7 +353,7 @@ body {
   padding-left: 20px;
 }
 .nav-group-items::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 27px;
   top: 0;
@@ -374,7 +373,9 @@ body {
   position: relative;
   margin-left: 7px;
   border-left: 1px solid transparent;
-  transition: color 0.12s ease, border-color 0.12s ease;
+  transition:
+    color 0.12s ease,
+    border-color 0.12s ease;
 }
 
 .nav-link:hover {
@@ -388,13 +389,16 @@ body {
   border-left-color: var(--docs-accent);
 }
 
-.nav-dot { display: none; }
+.nav-dot {
+  display: none;
+}
 
 /* ─── MAIN CONTENT ─── */
 .main {
   margin-left: var(--docs-sidebar-width);
   flex: 1;
   max-width: calc(100% - var(--docs-sidebar-width));
+  padding-top: 40px;
 }
 
 .main-inner {
@@ -479,11 +483,7 @@ h4.sub-sub {
   right: -60px;
   width: 320px;
   height: 320px;
-  background: radial-gradient(
-    circle,
-    var(--orange-10) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, var(--orange-10) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -641,10 +641,7 @@ h4.sub-sub {
 }
 
 .token-swatch-alpha {
-  background-image: repeating-conic-gradient(
-      #e0dbd6 0% 25%,
-      transparent 0% 50%
-    )
+  background-image: repeating-conic-gradient(#e0dbd6 0% 25%, transparent 0% 50%)
     0 0 / 12px 12px;
 }
 
@@ -1639,7 +1636,7 @@ code {
   height: 2px;
   background: var(--docs-border);
   position: fixed;
-  top: 0;
+  top: 40px;
   left: 0;
   right: 0;
   z-index: 200;
@@ -1650,6 +1647,87 @@ code {
   background: var(--docs-accent);
   width: 0%;
   transition: width 0.1s linear;
+}
+
+/* ─── TOP BAR ─── */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: var(--docs-surface);
+  border-bottom: 1px solid var(--docs-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+  gap: 12px;
+}
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.topbar-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--docs-text-3);
+}
+.topbar-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--docs-border);
+}
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.topbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 26px;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid var(--docs-border);
+}
+.topbar-btn-figma {
+  background: var(--docs-bg);
+  color: var(--docs-text);
+}
+.topbar-btn-figma:hover {
+  background: var(--brown-20);
+  color: var(--brown-100);
+  border-color: var(--brown-30);
+}
+.topbar-btn-github {
+  background: var(--docs-bg);
+  color: var(--docs-text);
+}
+.topbar-btn-github:hover {
+  background: var(--brown-20);
+  color: var(--brown-100);
+  border-color: var(--brown-30);
+}
+.topbar-btn svg {
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+.topbar-btn:hover svg {
+  opacity: 1;
 }
 
 /* ─── RESPONSIVE ─── */
@@ -1666,7 +1744,9 @@ code {
   background: var(--docs-surface);
   cursor: pointer;
   flex-shrink: 0;
-  transition: background 0.15s, border-color 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
   -webkit-tap-highlight-color: transparent;
 }
 .mobile-menu-btn:hover {
@@ -1691,9 +1771,15 @@ code {
   transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
 }
-.hamburger-icon span:first-child  { width: 100%; }
-.hamburger-icon span:nth-child(2) { width: 75%; }
-.hamburger-icon span:last-child   { width: 100%; }
+.hamburger-icon span:first-child {
+  width: 100%;
+}
+.hamburger-icon span:nth-child(2) {
+  width: 75%;
+}
+.hamburger-icon span:last-child {
+  width: 100%;
+}
 
 /* Open state */
 .mobile-menu-btn.open .hamburger-icon span:first-child {
@@ -1725,7 +1811,6 @@ code {
 }
 
 @media (max-width: 800px) {
-
   /* ── TOPBAR ── */
   .topbar {
     height: 52px;
@@ -1733,23 +1818,30 @@ code {
     /* Safe area for iPhone notch/Dynamic Island */
     padding-top: env(safe-area-inset-top, 0px);
   }
-  .topbar-label { font-size: 12px; }
-  .topbar-right { gap: 6px; }
-  .topbar-btn { 
-    height: 30px; 
-    padding: 0 8px; 
+  .topbar-label {
+    font-size: 12px;
+  }
+  .topbar-right {
+    gap: 6px;
+  }
+  .topbar-btn {
+    height: 30px;
+    padding: 0 8px;
     font-size: 11px;
   }
-  .mobile-menu-btn { display: inline-flex; }
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
 
   /* ── SIDEBAR: SLIDE-IN DRAWER ── */
   .sidebar {
-    top: 52px !important;
+    top: 52px;
     left: 0;
-    width: min(280px, 82vw) !important;
+    width: min(280px, 82vw);
     transform: translateX(-100%);
-    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.28s ease;
+    transition:
+      transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.28s ease;
     z-index: 95;
     box-shadow: none;
   }
@@ -1757,7 +1849,9 @@ code {
     transform: translateX(0);
     box-shadow: 4px 0 32px rgba(37, 20, 4, 0.18);
   }
-  .sidebar-overlay { display: block; }
+  .sidebar-overlay {
+    display: block;
+  }
 
   /* ── MAIN CONTENT ── */
   .main {
@@ -1770,7 +1864,9 @@ code {
     /* Safe area for iPhone home indicator */
     padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px));
   }
-  .progress-bar { top: 52px !important; }
+  .progress-bar {
+    top: 52px;
+  }
 
   /* ── HERO ── */
   .hero {
@@ -1780,7 +1876,9 @@ code {
     font-size: 34px;
     letter-spacing: -0.025em;
   }
-  .hero-desc { font-size: 15px; }
+  .hero-desc {
+    font-size: 15px;
+  }
   .hero-actions {
     flex-wrap: wrap;
     gap: 8px;
@@ -1796,13 +1894,23 @@ code {
   }
 
   /* ── TYPOGRAPHY ── */
-  .section-title { font-size: 26px; }
-  h3.subsection { font-size: 18px; }
-  .section-desc { font-size: 15px; }
-  body { font-size: 15px; }
+  .section-title {
+    font-size: 26px;
+  }
+  h3.subsection {
+    font-size: 18px;
+  }
+  .section-desc {
+    font-size: 15px;
+  }
+  body {
+    font-size: 15px;
+  }
 
   /* ── SECTION PADDING ── */
-  .section { padding-top: 56px; }
+  .section {
+    padding-top: 56px;
+  }
 
   /* ── GRID LAYOUTS ── */
   .dos-donts {
@@ -1820,7 +1928,9 @@ code {
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
     gap: 6px;
   }
-  .spacing-grid { gap: 6px; }
+  .spacing-grid {
+    gap: 6px;
+  }
 
   /* ── TABLES: HORIZONTAL SCROLL ── */
   .token-table {
@@ -1841,7 +1951,9 @@ code {
     font-size: 12px;
     border-radius: var(--radius-xl);
   }
-  code { font-size: 12px; }
+  code {
+    font-size: 12px;
+  }
 
   /* ── COMPONENT PREVIEW ── */
   .component-preview {
@@ -1856,7 +1968,10 @@ code {
     gap: 8px;
     padding: 10px 14px;
   }
-  .motion-name, .motion-val { min-width: auto; }
+  .motion-name,
+  .motion-val {
+    min-width: auto;
+  }
 
   /* ── SPACING ROWS ── */
   .spacing-row {
@@ -1866,14 +1981,29 @@ code {
     flex-wrap: wrap;
     gap: 8px;
   }
-  .spacing-name { min-width: 60px; font-size: 11px; }
-  .spacing-px { min-width: 32px; font-size: 11px; }
-  .spacing-use { font-size: 12px; }
+  .spacing-name {
+    min-width: 60px;
+    font-size: 11px;
+  }
+  .spacing-px {
+    min-width: 32px;
+    font-size: 11px;
+  }
+  .spacing-use {
+    font-size: 12px;
+  }
 
   /* ── CALLOUTS ── */
-  .callout { padding: 14px 16px; gap: 10px; }
-  .callout-title { font-size: 14px; }
-  .callout-text { font-size: 13px; }
+  .callout {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+  .callout-title {
+    font-size: 14px;
+  }
+  .callout-text {
+    font-size: 13px;
+  }
 
   /* ── TYPE SCALE ── */
   .type-row {
@@ -1882,24 +2012,41 @@ code {
     align-items: flex-start;
     padding: 12px 14px;
   }
-  .type-meta { min-width: auto; }
+  .type-meta {
+    min-width: auto;
+  }
 
   /* ── ROBOT STATUS CARD ── */
-  .robot-status-card { max-width: 100%; }
-  .moment-card { max-width: 100%; }
+  .robot-status-card {
+    max-width: 100%;
+  }
+  .moment-card {
+    max-width: 100%;
+  }
 
   /* ── TAB BAR ── */
-  .tab-bar-preview { max-width: 100%; }
+  .tab-bar-preview {
+    max-width: 100%;
+  }
 
   /* ── A11Y ROWS ── */
-  .a11y-label { font-size: 13px; }
-  .a11y-note { font-size: 11px; }
+  .a11y-label {
+    font-size: 13px;
+  }
+  .a11y-note {
+    font-size: 11px;
+  }
 
   /* ── FIGMA LINK ── */
-  .figma-link { font-size: 12px; padding: 9px 14px; }
+  .figma-link {
+    font-size: 12px;
+    padding: 9px 14px;
+  }
 
   /* ── PASSWORD GATE ── */
-  #pw-gate div { padding: 0 20px; }
+  #pw-gate div {
+    padding: 0 20px;
+  }
 
   /* ── TOUCH TARGETS: min 44pt per Apple HIG ── */
   .nav-link {
@@ -1908,19 +2055,41 @@ code {
     display: flex;
     align-items: center;
   }
-  .btn-xs, .btn-sm { min-height: 44px; }
-  a, button { -webkit-tap-highlight-color: transparent; }
+  .btn-xs,
+  .btn-sm {
+    min-height: 44px;
+  }
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 /* Extra small: iPhone SE / 375px */
 @media (max-width: 390px) {
-  .hero-title { font-size: 28px; }
-  .topbar-label:last-of-type { display: none; }
-  .topbar-divider { display: none; }
-  .component-property-grid { grid-template-columns: 1fr; }
-  .main-inner { padding-left: 16px; padding-right: 16px; }
-  .hero { padding-left: 16px; padding-right: 16px; }
-  .token-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+  .hero-title {
+    font-size: 28px;
+  }
+  .topbar-label:last-of-type {
+    display: none;
+  }
+  .topbar-divider {
+    display: none;
+  }
+  .component-property-grid {
+    grid-template-columns: 1fr;
+  }
+  .main-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .token-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
 }
 
 /* ── SMOOTH FOCUS RINGS (iOS Safari) ── */
@@ -1936,12 +2105,16 @@ code {
    Prevent ANY element from causing horizontal scroll.
    Tables and code blocks that need scroll get explicit
    .scroll-x wrapper — everything else clips cleanly. */
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 @media (max-width: 800px) {
   /* Catch-all: kill horizontal overflow on every block */
-  .main, .main-inner, .section, .hero {
+  .main,
+  .main-inner,
+  .section,
+  .hero {
     overflow-x: hidden;
   }
 
@@ -2007,94 +2180,3 @@ html, body {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
   }
 }
-    
-/* ─── TOP BAR ─── */
-.topbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: var(--docs-surface);
-  border-bottom: 1px solid var(--docs-border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 1000;
-  gap: 12px;
-}
-.topbar-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.topbar-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--docs-text-3);
-}
-.topbar-divider {
-  width: 1px;
-  height: 14px;
-  background: var(--docs-border);
-}
-.topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.topbar-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  height: 26px;
-  padding: 0 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: background 0.15s, color 0.15s;
-  white-space: nowrap;
-  cursor: pointer;
-  border: 1px solid var(--docs-border);
-}
-.topbar-btn-figma {
-  background: var(--docs-bg);
-  color: var(--docs-text);
-}
-.topbar-btn-figma:hover {
-  background: var(--brown-20);
-  color: var(--brown-100);
-  border-color: var(--brown-30);
-}
-.topbar-btn-github {
-  background: var(--docs-bg);
-  color: var(--docs-text);
-}
-.topbar-btn-github:hover {
-  background: var(--brown-20);
-  color: var(--brown-100);
-  border-color: var(--brown-30);
-}
-.topbar-btn svg {
-  flex-shrink: 0;
-  opacity: 0.5;
-}
-.topbar-btn:hover svg {
-  opacity: 1;
-}
-
-/* Push everything down by topbar height */
-.sidebar {
-  top: 40px !important;
-}
-.main {
-  padding-top: 40px;
-}
-.progress-bar {
-  top: 40px !important;
-}
-
